@@ -1,0 +1,39 @@
+portfolio_app_id,reference_app_id,peer_role,rationale
+244210,365960,direct_peer,Premium racing comparison within the relevant rally or circuit-simulation segment; production scale and release age still require context.
+244210,1066890,direct_peer,Premium racing comparison within the relevant rally or circuit-simulation segment; production scale and release age still require context.
+244210,1849250,adjacent_reference,Related racing demand/price context across a different driving segment; excluded from direct-peer price measures.
+244210,2399420,adjacent_reference,Related racing demand/price context across a different driving segment; excluded from direct-peer price measures.
+805550,365960,lifecycle_reference,Long-lived simulation catalogue reference; excluded from direct-peer price measures.
+805550,1066890,direct_peer,Premium racing comparison within the relevant rally or circuit-simulation segment; production scale and release age still require context.
+805550,1849250,adjacent_reference,Related racing demand/price context across a different driving segment; excluded from direct-peer price measures.
+805550,2399420,direct_peer,Premium racing comparison within the relevant rally or circuit-simulation segment; production scale and release age still require context.
+1139900,460950,adjacent_reference,Neon White is the movement/speed-action reference; other fast-action products differ in perspective or design and remain adjacent.
+1139900,1164940,adjacent_reference,Neon White is the movement/speed-action reference; other fast-action products differ in perspective or design and remain adjacent.
+1139900,1533420,direct_peer,Neon White is the movement/speed-action reference; other fast-action products differ in perspective or design and remain adjacent.
+1649010,1084160,direct_peer,Premium turn-based tactical reference; a single reference cannot support a robust group statistic.
+1658280,1229240,direct_peer,Premium turn-based modern JRPG reference; production scale and release timing require contextual interpretation.
+1658280,1244090,direct_peer,Premium turn-based modern JRPG reference; production scale and release timing require contextual interpretation.
+1658280,1971650,direct_peer,Premium turn-based modern JRPG reference; production scale and release timing require contextual interpretation.
+1850570,1182900,adjacent_reference,Narrative/action-adventure context with material differences in world structure and mechanics; not a direct-peer price reference.
+1850570,1259420,adjacent_reference,Narrative/action-adventure context with material differences in world structure and mechanics; not a direct-peer price reference.
+2091020,1245620,category_leader,Category scale reference; excluded from direct-peer price measures and product-equivalence claims.
+2091020,1501750,direct_peer,"Premium soulslike action reference; budget, lifecycle and audience differences remain interpretation limits."
+2091020,1627720,direct_peer,"Premium soulslike action reference; budget, lifecycle and audience differences remain interpretation limits."
+2144740,460950,adjacent_reference,Neon White is the movement/speed-action reference; other fast-action products differ in perspective or design and remain adjacent.
+2144740,1164940,adjacent_reference,Neon White is the movement/speed-action reference; other fast-action products differ in perspective or design and remain adjacent.
+2144740,1533420,direct_peer,Neon White is the movement/speed-action reference; other fast-action products differ in perspective or design and remain adjacent.
+2277560,1245620,category_leader,Category scale reference; excluded from direct-peer price measures and product-equivalence claims.
+2277560,1501750,direct_peer,"Premium soulslike action reference; budget, lifecycle and audience differences remain interpretation limits."
+2277560,1627720,direct_peer,"Premium soulslike action reference; budget, lifecycle and audience differences remain interpretation limits."
+2277560,2358720,adjacent_reference,Large recent action-RPG reference; excluded from direct-peer price measures.
+2933080,493520,adjacent_reference,Heist comparison for PAYDAY 3; tactical/hardcore co-op references provide adjacent engagement context.
+2933080,1144200,adjacent_reference,Heist comparison for PAYDAY 3; tactical/hardcore co-op references provide adjacent engagement context.
+2933080,1272080,direct_peer,Heist comparison for PAYDAY 3; tactical/hardcore co-op references provide adjacent engagement context.
+3058630,365960,lifecycle_reference,Long-lived simulation catalogue reference; excluded from direct-peer price measures.
+3058630,1066890,direct_peer,Premium racing comparison within the relevant rally or circuit-simulation segment; production scale and release age still require context.
+3058630,1849250,adjacent_reference,Related racing demand/price context across a different driving segment; excluded from direct-peer price measures.
+3058630,2399420,direct_peer,Premium racing comparison within the relevant rally or circuit-simulation segment; production scale and release age still require context.
+3917090,365960,lifecycle_reference,Long-lived simulation catalogue reference; excluded from direct-peer price measures.
+3917090,1066890,adjacent_reference,Related racing demand/price context across a different driving segment; excluded from direct-peer price measures.
+3917090,1849250,direct_peer,Premium racing comparison within the relevant rally or circuit-simulation segment; production scale and release age still require context.
+3917090,2399420,adjacent_reference,Related racing demand/price context across a different driving segment; excluded from direct-peer price measures.

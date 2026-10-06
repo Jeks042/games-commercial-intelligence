@@ -1,21 +1,20 @@
-# Metric dictionary
+# Metric contract
 
-| Metric | Definition | Decision use | Caveat |
-|---|---|---|---|
-| Lifetime review positivity | Positive reviews / total reviews | Long-run player perception | Self-selected reviewers |
-| Review score | Steam review score field | Comparable Steam quality signal | Platform-specific |
-| Review velocity | Change in valid cumulative review counts per elapsed period | Attention proxy; planned in Issue 2 | Requires comparable query versions and adequate time separation; not sales |
-| Current players | Concurrent players at snapshot time | Current engagement pulse | Strong time-of-day effects |
-| Estimated owners | Public external owner range | Scale benchmark | Estimate, not actual units |
-| Peak CCU | Not acquired in Stage 1 | Pending a documented historical source | Do not substitute current concurrency or SteamSpy CCU |
-| Average playtime | Third-party benchmark mean minutes, when available | Context only | Stage 1 zero fields are unavailable, not measured behaviour |
-| Median playtime | Third-party benchmark median minutes, when available | Context only | Unavailable in the initial benchmark |
-| List price | Current non-discounted storefront price | Price positioning | Region-specific |
-| Discount depth | 1 - final price / list price | Promotion intensity | Current snapshot until history is added |
-| Price index | Title price / peer median price | Relative positioning | Peer selection matters |
-| Lifecycle role | New / growth / mature / back catalogue | Commercial interpretation | Analytical classification |
-| Review momentum | Recent positivity - lifetime positivity | Direction of perception | Needs consistent review windows |
+The [machine-readable dictionary](metric-dictionary.csv) defines 20 implemented fields/measures: evidence class, grain, source, definition, units, availability and decision limits. It is loaded into dim_metric.
 
-## Availability
+| Evidence class | Treatment |
+|---|---|
+| Observed | Validated source values, including genuine zero |
+| Estimated | External sampled/modelled measures, kept separate from observed Steam activity |
+| Derived | SQL calculations from admitted values with explicit gates |
+| Assumption | Reserved for later scenarios; none introduced here |
 
-Stage 1 supports observed price, lifetime review counts, derived positivity and point-in-time concurrency. Owner bands are external estimates requiring suitability review. Review momentum, peak concurrency, promotional response and trend claims are not available from the baseline. Lifecycle labels are curated business labels; calculated title age and analytical lifecycle rules belong in Issue 2.
+Supported measures include UK prices/discounts, lifetime review counts and positivity, point-in-time concurrency, as-of Steam title age and lifecycle. Direct-reference price positioning is available only where coverage qualifies.
+
+Player change and net review velocity remain NULL until four consecutive comparable weeks exist. Same-day runs do not qualify. Recent sentiment, historical peak CCU, promotion uplift, forecasts and publisher revenue are not implemented.
+
+SteamSpy ownership retains requires_review. Baseline playtime is NULL and cannot support engagement-depth conclusions.
+
+GBP conversion follows source currency validation. Positivity is NULL with no reviews. Undefined ratios are never replaced by zero or infinity. Review velocity is net cumulative-count change, not newly authored reviews or sales. Player change compares point samples, not average weekly activity or retention.
+
+The [model specification](Data%20model.md) defines reference thresholds, UTC slots, freshness limits, lifecycle boundaries and admission. These are declared analytical policies.

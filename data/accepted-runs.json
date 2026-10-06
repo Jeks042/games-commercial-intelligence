@@ -1,0 +1,23 @@
+{
+  "register_version": 1,
+  "accepted_runs": [
+    {
+      "run_id": "steam-20261006T194553640385Z-e09f1dd7",
+      "source_layer": "steam",
+      "admission_status": "accepted",
+      "accepted_at_utc": "2026-10-06T19:54:01+00:00",
+      "acceptance_evidence": "https://github.com/Jeks042/games-commercial-intelligence/issues/1",
+      "manifest_canonical_sha256": "dd82429d2a80668f5c2978e36123322eb341d1224493c025b14d55262661b7ea",
+      "observations_sha256": "d2d6049522b43d02a5ccd02e69ad91d3707aac3b7a493091b2e318422976d684"
+    },
+    {
+      "run_id": "steamspy-20261006T194621705248Z-731944ee",
+      "source_layer": "steamspy",
+      "admission_status": "accepted",
+      "accepted_at_utc": "2026-10-06T19:54:01+00:00",
+      "acceptance_evidence": "https://github.com/Jeks042/games-commercial-intelligence/issues/1",
+      "manifest_canonical_sha256": "517ded7d7bb1303a3525db7edb7f99c0f685013236a983794c87b474914b50e5",
+      "observations_sha256": "e12e97914a927c2d719b41a69715b9a1b96a2f27d17b7fb2347583105e534f73"
+    }
+  ]
+}

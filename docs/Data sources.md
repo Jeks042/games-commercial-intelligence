@@ -55,7 +55,7 @@ Endpoint pattern:
 
 Use:
 - estimated owner range
-- public CCU estimate
+- reported previous-day peak CCU; exact source observation day is not supplied
 - average / median playtime only when available; zero values are treated as unavailable
 - positive / negative review counts
 - price and genre fields
@@ -94,3 +94,7 @@ This is intentionally not required for Stage 1 because it needs a separate API c
 Sources such as Gamalytic or Video Game Insights may be considered later.
 
 Rule: any estimated units / revenue must be labelled clearly as third-party estimates and never presented as internal or audited revenue.
+
+## SteamSpy field contract clarification
+
+The [SteamSpy API contract](https://steamspy.com/api.php) defines ccu as the previous day's peak, prices in US cents, and daily data refresh. Reported peak CCU is kept as secondary observed context with an unresolved effective date, separate from estimated ownership/playtime and validated current Steam players. US prices are excluded from the GBP price comparison. Retrieval time does not establish the source's update/observation day.

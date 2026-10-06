@@ -2,7 +2,7 @@
 
 Commercial portfolio analysis of 12 selected 505 Games titles and 20 market reference titles on Steam. The analysis assesses price positioning, player response and engagement signals to support decisions about portfolio attention and promotional priorities.
 
-**Status:** Stage 1 acquisition accepted on 6 October 2026. The validated baseline covers all 32 scoped titles. Analytical modelling is next; performance recommendations and the Power BI report are pending.
+**Status:** Stage 1 acquisition accepted; Stage 2 SQL model implemented and under verification. The accepted baseline covers 32 scoped titles. Performance recommendations and the Power BI report remain subsequent deliveries.
 
 ## Evidence base
 
@@ -14,6 +14,16 @@ Commercial portfolio analysis of 12 selected 505 Games titles and 20 market refe
 | SteamSpy | Separate benchmark | Estimated owner bands and supporting market fields, subject to suitability review |
 
 [Acquisition findings](docs/Stage%201%20acquisition%20findings.md) record the accepted runs, field availability and quality decisions. [Source contracts](docs/Data%20sources.md) and [acquisition controls](docs/Acquisition%20controls.md) define how evidence is collected and released.
+
+## Analytical model
+
+The SQL model admits only explicitly accepted source runs, retains source/query provenance and separates observed Steam measures from external estimates. Governed reference roles, metric availability and publication checks are built into its reporting views.
+
+```bash
+python src/build_model.py
+```
+
+The builder publishes a versioned release with typed table/view CSVs and a verification manifest. See the [model specification](docs/Data%20model.md), [current release](data/analytical/current.json) and [metric contract](docs/Metric%20dictionary.md). These outputs share one measurement definition across SQL, Python and Power BI.
 
 ## Commercial scope
 

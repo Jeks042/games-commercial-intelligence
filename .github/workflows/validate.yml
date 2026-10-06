@@ -1,10 +1,17 @@
-name: Validate acquisition
+name: Validate commercial model
 on:
   push:
     paths:
       - "src/**"
       - "tests/**"
+      - "sql/**"
       - "requirements.txt"
+      - "docs/metric-dictionary.csv"
+      - "data/accepted-runs.json"
+      - "data/title-references.csv"
+      - "data/portfolio-titles.csv"
+      - "data/competitor-titles.csv"
+      - "data/runs/**"
       - ".github/workflows/**"
   pull_request:
 permissions:
@@ -12,6 +19,7 @@ permissions:
 jobs:
   validate:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
         with:
@@ -19,5 +27,22 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.13"
-      - run: python -m pip install -r requirements.txt
-      - run: python -m unittest discover -s tests -v
+      - name: Install pinned dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Test acquisition and analytical contracts
+        run: python -m unittest discover -s tests -v
+      - name: Build quality-gated analytical release
+        run: python src/build_model.py
+      - name: Verify an identical rerun
+        run: |
+          cp data/analytical/current.json /tmp/model-current.json
+          python src/build_model.py
+          cmp /tmp/model-current.json data/analytical/current.json
+      - name: Retain model release evidence
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: analytical-model-${{ github.run_id }}
+          path: data/analytical/
+          retention-days: 90
+          if-no-files-found: error

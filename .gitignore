@@ -17,3 +17,8 @@ data/raw/*
 Thumbs.db
 .vscode/
 .idea/
+
+# Reproducible local SQL database / build staging
+*.sqlite
+data/model-preview/
+data/analytical/releases/.building-*/

@@ -49,7 +49,7 @@ Scheduled acquisition now saves downloadable artifacts with read-only repository
 
 Issue 2 should define separate observed and estimated fact tables, title/date dimensions and governed peer relationships. It must enforce NULL/status semantics, metric evidence classes, reproducible SQL builds and publication checks. Lifecycle age must be calculated from documented release-date rules rather than silently inheriting curated labels. Trend measures require comparable observations across sufficient distinct periods.
 
-**Issue 2 has not started.** No performance recommendation is made from this baseline.
+**Issue 2 was held at Stage 1 sign-off and is tracked separately.** No performance recommendation is made from this baseline.
 
 ## Hosted automation verification
 
@@ -57,4 +57,4 @@ The [GitHub-hosted collection run](https://github.com/Jeks042/games-commercial-i
 
 The downloaded artifact contained run manifests, Steam history and the separate benchmark. Its ZIP digest, observation hashes, collector source hashes, 32-title scope and 100% source coverage were verified. The [verification receipt](../data/runs/automation-verification-37521804534.json) records the evidence. A durable private copy of the artifact is retained; these additional same-day observations were not appended to the published baseline.
 
-The independent review found no further acquisition-code blocker. Stage 1 is closed with local and hosted execution evidence. Issue 2 remains unstarted.
+The independent review found no further acquisition-code blocker. Stage 1 is closed with local and hosted execution evidence. Issue 2 was unstarted at this sign-off; current delivery is tracked in the README and issue 2.

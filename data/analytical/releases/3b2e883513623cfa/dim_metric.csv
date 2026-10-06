@@ -1,0 +1,21 @@
+metric,evidence_class,grain,source,definition,unit,availability_rule,decision_limit
+analytical_lifecycle,derived,title/run,v_steam_metrics,"Early Access genre override; age buckets 0-89, 90-364, 365-1094, 1095+",category,Date/genre availability,"Project policy, not industry standard; curated labels retained separately"
+average_playtime_forever_minutes,estimated,title/benchmark run/source,SteamSpy,Third-party reported lifetime mean playtime,minutes,Positive reported value; zero is unavailable,Unavailable in baseline; sampled ownership data
+current_players,observed,title/run,Steam player API,Concurrent players at source retrieval,players,Successful source result,"Not DAU, MAU or retention; valid zero preserved"
+direct_reference_median_price_gbp,derived,portfolio title/latest run,v_price_reference,Median final GBP price across configured direct peers,GBP,At least 3 direct peers; complete same-day quote coverage,"Curated reference set, not market representative; sparse sets return NULL"
+direct_reference_price_index,derived,portfolio title/latest run,v_price_reference,Title final price / direct-reference median price,ratio,Reference median positive; title price valid; reference coverage gate passes,Price positioning only; no performance recommendation
+discount_depth_percent,derived,title/run,v_steam_metrics,100 * (list_price_minor - final_price_minor) / list_price_minor,percent,Valid price and positive list price,Undefined if list price is zero
+discount_percent_reported,observed,title/run,Steam Store,Reported discount percentage,percent,Valid price status,Integer rounding may differ from derived depth
+estimated_owners_lower,estimated,title/benchmark run/source,SteamSpy,Lower bound parsed from sampled ownership band,owners,Returned band; suitability requires review,Not units sold or approved commercial evidence
+estimated_owners_upper,estimated,title/benchmark run/source,SteamSpy,Upper bound parsed from sampled ownership band,owners,Returned band; suitability requires review,No midpoint or price-times-owners revenue estimate
+final_price_gbp,derived,title/run,v_steam_metrics,final_price_minor / 100,GBP,Valid GBP price,Unit conversion from observed UK price
+final_price_minor,observed,title/run,Steam Store,Reported UK current price,GBP minor units,Valid price status,Region/time specific; not realised selling price
+lifetime_review_positive_percent,derived,title/run,v_steam_metrics,100 * positive / total,percent,Total reviews greater than zero,Zero denominator returns NULL
+list_price_minor,observed,title/run,Steam Store,Reported UK list price,GBP minor units,Valid price status,"Storefront price, not recognised revenue"
+player_change_3weeks_percent,derived,title/latest accepted run,v_momentum_readiness,100 * (latest comparable CCU - CCU three weeks earlier) / earlier CCU,percent,4 consecutive Monday UTC slots; same contract; fresh history; positive baseline,Not average weekly engagement or retention; unavailable at baseline
+review_velocity_per_day,derived,title/latest accepted run,v_momentum_readiness,Net cumulative-review change / actual elapsed review-retrieval days,net reviews/day,4 consecutive comparable weeks; same query; no cumulative-count decrease,"Net change, not newly authored reviews; unavailable at baseline"
+steamspy_peak_ccu_previous_day_reported,observed,title/benchmark run/source,SteamSpy,Third-party reported peak concurrent players yesterday,players,Reported value retained; exact source observation day unresolved,"Secondary reported context, not validated current Steam concurrency or an approved trend input"
+title_age_days,derived,title/run,v_steam_metrics,Store retrieval UTC date minus observed Steam listed release date,days,Parseable observed date,"Steam platform date, not global launch; preserved as-of observation"
+total_negative_reviews,observed,title/run,Steam review lifetime query,Reported negative count,reviews,Accepted source,Platform self-selection and moderation effects
+total_positive_reviews,observed,title/run,Steam review lifetime query,Reported positive count,reviews,Accepted source,Not a customer-satisfaction population measure
+total_reviews,observed,title/run,Steam review lifetime query,Positive plus negative reviews,reviews,Accepted source; counts reconcile,"Self-selected, all languages and purchase origins; off-topic filter enabled"

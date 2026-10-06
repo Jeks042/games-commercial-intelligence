@@ -1,0 +1,13 @@
+app_id,title,peer_group,run_id,steam_store_retrieved_at_utc,final_price_gbp,expected_direct_reference_count,valid_direct_reference_count,direct_reference_median_price_gbp,direct_reference_price_index,reference_status,evidence_class
+244210,Assetto Corsa,Racing simulation,steam-20261006T194553640385Z-e09f1dd7,2026-10-06T19:46:17.380254+00:00,3.87,2,2,,,insufficient_reference_count,derived
+805550,Assetto Corsa Competizione,Racing simulation,steam-20261006T194553640385Z-e09f1dd7,2026-10-06T19:46:16.258275+00:00,8.74,2,2,,,insufficient_reference_count,derived
+1139900,Ghostrunner,Cyber action,steam-20261006T194553640385Z-e09f1dd7,2026-10-06T19:46:12.964268+00:00,6.24,1,1,,,insufficient_reference_count,derived
+1649010,Miasma Chronicles,Tactical RPG,steam-20261006T194553640385Z-e09f1dd7,2026-10-06T19:46:08.541470+00:00,8.99,1,1,,,insufficient_reference_count,derived
+1658280,Eiyuden Chronicle: Hundred Heroes,JRPG,steam-20261006T194553640385Z-e09f1dd7,2026-10-06T19:46:04.258295+00:00,13.49,3,3,14.75,0.9146,available,derived
+1850570,DEATH STRANDING DIRECTOR'S CUT,Premium action adventure,steam-20261006T194553640385Z-e09f1dd7,2026-10-06T19:46:11.910344+00:00,8.74,0,0,,,insufficient_reference_count,derived
+2091020,Blades of Fire,Action / soulslike,steam-20261006T194553640385Z-e09f1dd7,2026-10-06T19:45:54.198644+00:00,17.49,2,2,,,insufficient_reference_count,derived
+2144740,Ghostrunner 2,Cyber action,steam-20261006T194553640385Z-e09f1dd7,2026-10-06T19:46:07.460533+00:00,6.99,1,1,,,insufficient_reference_count,derived
+2277560,WUCHANG: Fallen Feathers,Action / soulslike,steam-20261006T194553640385Z-e09f1dd7,2026-10-06T19:45:58.602126+00:00,31.49,2,2,,,insufficient_reference_count,derived
+2933080,Crime Boss: Rockay City,Heist / co-op FPS,steam-20261006T194553640385Z-e09f1dd7,2026-10-06T19:46:02.041020+00:00,1.59,1,1,,,insufficient_reference_count,derived
+3058630,Assetto Corsa EVO,Racing simulation,steam-20261006T194553640385Z-e09f1dd7,2026-10-06T19:45:59.865690+00:00,26.39,2,2,,,insufficient_reference_count,derived
+3917090,Assetto Corsa Rally,Racing simulation,steam-20261006T194553640385Z-e09f1dd7,2026-10-06T19:45:55.353214+00:00,19.99,1,1,,,insufficient_reference_count,derived
