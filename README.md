@@ -2,7 +2,7 @@
 
 Commercial portfolio analysis of 12 selected 505 Games titles and 20 market reference titles on Steam. The analysis assesses price positioning, player response and engagement signals to support decisions about portfolio attention and promotional priorities.
 
-**Current delivery:** source acquisition and assurance. Analytical modelling is the next delivery stage; performance recommendations and the Power BI report are pending.
+**Status:** Stage 1 acquisition accepted on 6 October 2026. The validated baseline covers all 32 scoped titles. Analytical modelling is next; performance recommendations and the Power BI report are pending.
 
 ## Evidence base
 

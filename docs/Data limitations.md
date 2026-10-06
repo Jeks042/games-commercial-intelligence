@@ -1,41 +1,21 @@
-# Data limitations
+# Evidence limitations
 
-This project deliberately separates what public data can support from what would require internal publisher data.
+## Accepted baseline
 
-## What the public dataset can support
+The accepted Steam run supports UK storefront price and discount positioning, lifetime review response and point-in-time concurrency for the scoped titles. SteamSpy owner bands remain external estimates requiring suitability review. Its zero playtime fields are unavailable.
 
-- Steam portfolio benchmarking
-- price and discount snapshots
-- review trend analysis
-- concurrent-player snapshots
-- relative peer performance
-- estimated owner / playtime benchmarking
-- lifecycle and catalogue analysis
+The baseline does not establish review or player momentum. Multiple observations collected on one date are not independent weekly periods. Historical promotion response, recent-versus-lifetime review comparisons and forecasts require additional source coverage.
 
-## What it cannot prove by itself
+The market reference set is curated, not a representative market sample. Peer groups vary in size; the tactical RPG group currently contains one reference title. Category leaders and adjacent products must not be treated as equivalent direct peers. Percentiles or league tables from sparse groups would imply unjustified precision.
 
-- total cross-platform unit sales
-- net revenue after platform fees, tax and refunds
-- marketing ROI
-- CAC
-- wishlist-to-purchase conversion
-- PlayStation / Xbox performance unless separately sourced
-- DAU / MAU / retention unless provided by an appropriate source
-- causal impact of a promotion without a valid counterfactual
+## Commercial boundaries
 
-## Internal data we would request in a real commercial role
+Steam-only signals cannot establish cross-platform units, publisher net revenue, refunds, platform fees, marketing return, acquisition cost, wishlist conversion or cohort retention. Reviews are self-selected. Concurrent players are not daily or monthly active users. Changes around a discount do not establish causal uplift.
 
-- daily units and net revenue by title / platform / country
-- refunds
-- platform fees
-- discount and campaign calendars
-- marketing spend, impressions and clicks
-- store page visits
-- wishlists
-- conversion rates
-- DLC / edition mix
-- player cohorts and retention
-- acquisition source
-- CRM / community / campaign response
+Estimated ownership includes forms of access other than paid purchases. It must not be multiplied by current price and presented as realised revenue. Benchmark prices cannot be substituted for validated GBP Store prices.
 
-The project will treat missing internal data as a decision constraint, not invent it.
+## Additional inputs required for budget decisions
+
+Internal title/platform/country sales and net revenue; refunds and platform costs; campaign and discount calendars; spend and attributable traffic; store visits, wishlists and conversion; edition/DLC mix; player cohorts and retention; and acquisition-channel performance.
+
+Any recommendation or scenario must identify which missing inputs could change the decision, and distinguish observed measures, third-party estimates, derived metrics and explicit assumptions.

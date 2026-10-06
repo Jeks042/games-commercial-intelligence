@@ -1,0 +1,54 @@
+{
+  "run_id": "steam-20261006T194553640385Z-e09f1dd7",
+  "schema_version": 2,
+  "started_at_utc": "2026-10-06T19:45:53.640365+00:00",
+  "finished_at_utc": "2026-10-06T19:47:04.519515+00:00",
+  "status": "passed",
+  "expected_titles": 32,
+  "collected_titles": 32,
+  "coverage": {
+    "steam_store": 32,
+    "steam_reviews": 32,
+    "current_players": 32
+  },
+  "failures": [],
+  "title_universe_sha256": "586a35b062ce07b5425041acd495e25a805af97e05d90107654e0eacc5f04c75",
+  "observations_sha256": "d2d6049522b43d02a5ccd02e69ad91d3707aac3b7a493091b2e318422976d684",
+  "collector_revision": "b159ca3429f93654c3e73cf0d6b33b94972c0e67",
+  "working_tree_modified": true,
+  "collector_source_sha256": {
+    "acquisition.py": "05d321b79e281d27a179d7734f608d33700ff043d405ffc9376f6d4b25e21209",
+    "collect_market_benchmark.py": "4e7e9f57c3f44c953add3709752be719a166c95a3f33828ed4d8aeb6a45a200e",
+    "collect_snapshot.py": "068da61c84c4a4f2e01032372b61de47bad389a243c4c58756a60cc2bd7d464a",
+    "common.py": "b6c5a5614a1b30ae736691b0ef0a3e53b96d75bda85b14004f1a0fbd723b097f",
+    "fetch_current_players.py": "2e0436f70328ef0de90d611468165d2dcf3b1117b9728cb597b7151aedf1db1a",
+    "fetch_market_benchmark.py": "01aeb7f7d4a2383902b45c573e646acd395fcde9235d132bcfded0eb86ad8133",
+    "fetch_steam_reviews.py": "d9cdc77b6d2e8c4aecde0525a3de7e4ee2a22bdf1f2f9ecd7298cfcbdf474989",
+    "fetch_steam_store.py": "a5a65fa3d261830732a306fd6396900c911490e664ffb9bc1d11f46a50ce2cfd"
+  },
+  "python_version": "3.13.7",
+  "requests_version": "2.32.5",
+  "time_contract": "Retrieval timestamps, not source event/update timestamps",
+  "source_contracts": {
+    "steam_store": {
+      "endpoint": "https://store.steampowered.com/api/appdetails",
+      "country": "gb",
+      "currency": "GBP",
+      "language": "english"
+    },
+    "steam_reviews": {
+      "endpoint": "https://api.steampowered.com/IUserReviewsService/GetAppReviews/v1/",
+      "query_version": "steam-service-v1-all-languages-all-purchases-offtopic-filtered",
+      "languages": [
+        "all"
+      ],
+      "purchase_type": 1,
+      "review_type": 0,
+      "filter_offtopic_activity": true
+    },
+    "current_players": {
+      "endpoint": "https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/",
+      "measure": "point-in-time concurrency"
+    }
+  }
+}

@@ -1,71 +1,52 @@
 # Stage 1 acquisition findings
 
-## Status
+## Acceptance
 
-Baseline acquisition is complete for the initial scoped portfolio.
+Baseline acquisition passed the declared source checks on **6 October 2026 UTC**. This acceptance covers collection reliability and the fields listed below. Commercial benchmarking, trends, scenarios and recommendations remain subsequent deliveries.
 
-- 12 505 Games portfolio titles
-- 20 commercial peer titles
-- 32 titles in total
-- two successful live Steam snapshots are now stored in the repository
-- one complete SteamSpy market benchmark is stored separately
+The scope contains 12 selected 505 Games titles and 20 market reference titles. Steam app identities were validated against the returned Store payload; benchmark app identities were checked separately.
 
-Latest baseline collection: 6 October 2026 (UTC).
+## Accepted evidence
 
-## Source coverage
+| Source | Valid responses | Field availability |
+|---|---|---|
+| Steam Store | 32 / 32 | GBP list/current prices available for all 32; optional metadata can remain null |
+| Steam review summary | 32 / 32 | Counts reconcile for all titles; all languages/purchase origins, off-topic filter enabled |
+| Steam current players | 32 / 32 | Successful API result and nonnegative counts; retrieval times recorded per title |
+| SteamSpy | 32 / 32 | Owner bands returned; estimate suitability unapproved; all playtime fields unavailable |
 
-### Steam Store metadata and price
-Coverage: 32 / 32 titles.
+- [Steam run manifest](../data/runs/steam-20261006T194553640385Z-e09f1dd7/manifest.json), completed 19:47:04 UTC.
+- [Steam observations](../data/runs/steam-20261006T194553640385Z-e09f1dd7/observations.csv).
+- [SteamSpy run manifest](../data/runs/steamspy-20261006T194621705248Z-731944ee/manifest.json), completed 19:46:56 UTC.
+- [SteamSpy observations](../data/runs/steamspy-20261006T194621705248Z-731944ee/observations.csv).
 
-Collected fields include live title name, developer, publisher, release date, GBP list price, GBP current price, discount percentage, genres, categories and Metacritic score where available.
+The accepted Steam run contributes 32 schema-version-2 rows. The published history contains 96 rows in total: these 32 accepted rows plus 64 explicitly versioned legacy observations. Default analytical ingestion must use accepted version-2 runs; legacy observations require a separate admission decision.
 
-### Steam review summary
-Coverage: 32 / 32 titles.
+## Assurance changes
 
-Collected fields include positive reviews, negative reviews, total reviews, review-score category and positive-review percentage.
+The earlier collector could append new columns without rewriting its header and convert invalid review responses into zero counts. The revised collector declares its schema, validates API payloads and atomically publishes only complete runs.
 
-### Current Steam players
-Coverage: 32 / 32 titles.
+Required-source coverage is 100% of the scoped universe. Failed attempts retain diagnostic evidence, return an unsuccessful exit status and leave the prior history/latest benchmark intact. Duplicate run/app keys and malformed legacy row widths stop publication.
 
-This is a point-in-time concurrent-player measure. It is useful as an engagement pulse but must not be treated as DAU, MAU, retention or total active players.
+The original history and benchmark are retained byte-for-byte in [the legacy archive](../data/runs/legacy-baseline/manifest.json). Source statuses and retrieval times are not reconstructed for those records. Twenty regression tests passed in a fresh Python 3.13 environment with pinned dependencies. Stored observation hashes, collector source hashes and legacy archive hashes were independently checked after collection.
 
-### SteamSpy market benchmark
-Coverage: 32 / 32 titles.
+Valve's current review service replaces the deprecated appreviews endpoint. Query scope is explicit and versioned; cross-version review deltas must be reconciled before use.
 
-Collected fields include estimated owner range, public CCU estimate, price, positive/negative counts and playtime fields exposed by the endpoint.
+Scheduled acquisition now saves downloadable artifacts with read-only repository permissions. Publication is an owner review step. The workflow no longer commits as the Actions bot. Artifact retention is 90 days; accepted weekly observations must be published before expiry to build durable history.
 
-## Important data-quality findings
+## Interpretation decisions
 
-1. The first automated Hugging Face benchmark attempt timed out. The live collection pipeline was therefore separated from the market-estimate layer and the benchmark source was changed to SteamSpy.
+- SteamSpy response coverage is not estimate accuracy. Three titles returned the lowest owner band; all owner estimates remain `requires_review`. No title-level sales or revenue conclusion is approved.
+- All four SteamSpy playtime fields were zero across the returned baseline and are stored as unavailable. They cannot support engagement-depth measures.
+- A validated zero current-player count is a measurement; a failed endpoint is missing evidence.
+- GBP prices describe the UK storefront at retrieval time.
+- Lifetime reviews are self-selected; recent sentiment and review themes have not been acquired.
+- Weekly current players are an engagement pulse. Same-day baseline runs do not support weekly momentum, retention or average weekly concurrency.
+- Reference groups contain one to four peers. The tactical RPG comparison has one reference title; robust group ranking is not supported.
+- Steam-only signals cannot establish cross-platform demand, publisher net revenue, marketing return or causal promotional uplift.
 
-2. SteamSpy owner ranges are not decision-grade for newly released / low-sample titles. For example, several recent titles are returned in the lowest owner band even when their Steam review counts are already substantial. SteamSpy itself warns that its estimates can be unreliable for recent or small-sample games.
+## Handoff to analytical modelling
 
-3. SteamSpy playtime fields were returned as zero in this baseline pull. We will treat them as unavailable rather than interpreting zero as genuine player behaviour.
+Issue 2 should define separate observed and estimated fact tables, title/date dimensions and governed peer relationships. It must enforce NULL/status semantics, metric evidence classes, reproducible SQL builds and publication checks. Lifecycle age must be calculated from documented release-date rules rather than silently inheriting curated labels. Trend measures require comparable observations across sufficient distinct periods.
 
-4. Steam Store price fields are regional snapshots. The project currently collects the UK storefront and stores monetary amounts in minor GBP units.
-
-5. Steam review data is all-time and self-selected. Recent-review windows and review text will be acquired separately in the player / brand milestone.
-
-6. Current-player values are sensitive to collection time. Repeated weekly snapshots are required before any momentum conclusion is made.
-
-7. Public data cannot provide internal publisher net revenue, platform fees, refunds, marketing spend, wishlist conversion or acquisition cost. Those will remain explicit missing-data constraints.
-
-## Stage 1 decision
-
-The public Steam data is strong enough to proceed with:
-- portfolio and peer benchmarking
-- live price / discount positioning
-- review and sentiment comparisons
-- point-in-time engagement monitoring
-- building our own weekly history
-
-The public data is not strong enough to support:
-- audited revenue estimates
-- marketing ROI
-- cross-platform performance conclusions
-- causal claims about promotions
-- reliable owner estimates for every recent title
-
-## Next step
-
-Build the analytical data model and metric dictionary so the live Steam snapshot and the separate benchmark layer can be joined without mixing observed first-party storefront metrics with third-party estimates.
+**Issue 2 has not started.** No performance recommendation is made from this baseline.

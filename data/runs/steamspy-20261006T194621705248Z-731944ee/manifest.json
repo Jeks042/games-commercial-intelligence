@@ -1,0 +1,38 @@
+{
+  "run_id": "steamspy-20261006T194621705248Z-731944ee",
+  "schema_version": 2,
+  "started_at_utc": "2026-10-06T19:46:21.705233+00:00",
+  "finished_at_utc": "2026-10-06T19:46:56.304016+00:00",
+  "status": "passed",
+  "expected_titles": 32,
+  "collected_titles": 32,
+  "coverage": {
+    "steamspy": 32
+  },
+  "failures": [],
+  "title_universe_sha256": "586a35b062ce07b5425041acd495e25a805af97e05d90107654e0eacc5f04c75",
+  "observations_sha256": "e12e97914a927c2d719b41a69715b9a1b96a2f27d17b7fb2347583105e534f73",
+  "collector_revision": "b159ca3429f93654c3e73cf0d6b33b94972c0e67",
+  "working_tree_modified": false,
+  "collector_source_sha256": {
+    "acquisition.py": "05d321b79e281d27a179d7734f608d33700ff043d405ffc9376f6d4b25e21209",
+    "collect_market_benchmark.py": "4e7e9f57c3f44c953add3709752be719a166c95a3f33828ed4d8aeb6a45a200e",
+    "collect_snapshot.py": "068da61c84c4a4f2e01032372b61de47bad389a243c4c58756a60cc2bd7d464a",
+    "common.py": "b6c5a5614a1b30ae736691b0ef0a3e53b96d75bda85b14004f1a0fbd723b097f",
+    "fetch_current_players.py": "2e0436f70328ef0de90d611468165d2dcf3b1117b9728cb597b7151aedf1db1a",
+    "fetch_market_benchmark.py": "01aeb7f7d4a2383902b45c573e646acd395fcde9235d132bcfded0eb86ad8133",
+    "fetch_steam_reviews.py": "d9cdc77b6d2e8c4aecde0525a3de7e4ee2a22bdf1f2f9ecd7298cfcbdf474989",
+    "fetch_steam_store.py": "a5a65fa3d261830732a306fd6396900c911490e664ffb9bc1d11f46a50ce2cfd"
+  },
+  "python_version": "3.13.7",
+  "requests_version": "2.32.5",
+  "time_contract": "Retrieval timestamps, not source event/update timestamps",
+  "source_contracts": {
+    "steamspy": {
+      "endpoint": "https://steamspy.com/api.php",
+      "request": "appdetails",
+      "evidence_class": "third-party benchmark",
+      "owner_estimate_status": "requires_review"
+    }
+  }
+}
