@@ -28,14 +28,18 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Collect snapshot
+      - name: Collect live Steam snapshot
         run: python src/collect_snapshot.py
 
-      - name: Commit new snapshot
+      - name: Collect SteamSpy market benchmark
+        run: python src/collect_market_benchmark.py
+
+      - name: Commit new data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/snapshots/commercial-snapshot-history.csv
+          git add data/benchmarks/steamspy-market-benchmark.csv
           git diff --cached --quiet && exit 0
           git commit -m "Update commercial data snapshot"
           git push
