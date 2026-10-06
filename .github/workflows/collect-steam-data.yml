@@ -1,0 +1,41 @@
+name: Collect Steam commercial data
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "trigger-data-collection.txt"
+      - ".github/workflows/collect-steam-data.yml"
+  schedule:
+    - cron: "15 6 * * 1"
+
+permissions:
+  contents: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Collect snapshot
+        run: python src/collect_snapshot.py
+
+      - name: Commit new snapshot
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/snapshots/commercial-snapshot-history.csv
+          git diff --cached --quiet && exit 0
+          git commit -m "Update commercial data snapshot"
+          git push
