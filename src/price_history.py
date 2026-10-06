@@ -423,6 +423,11 @@ def collect(root=ROOT, key=None):
             "assignment_status": "unverified_no_history_requested",
             "error_category": type(exc).__name__,
             "contract": contract,
+            "assignment_raw_sha256": (
+                sha((folder / "assignment-changes.json").read_bytes())
+                if (folder / "assignment-changes.json").exists()
+                else None
+            ),
         }
         (folder / "manifest.json").write_bytes(canonical(failed) + b"\n")
         print(
@@ -495,6 +500,36 @@ def collect(root=ROOT, key=None):
                 error_category=type(exc).__name__,
             )
         coverage.append(item)
+    postflight = None
+    try:
+        postflight_raw = request_assignments(contract, key)
+        (folder / "assignment-changes-postflight.json").write_bytes(postflight_raw)
+        postflight = assignment_check(postflight_raw, scope, contract, utc_now())
+        newly_touched = set(postflight["touched_scoped_game_ids"]) - set(
+            assignments["touched_scoped_game_ids"]
+        )
+        if newly_touched:
+            # Preserve the failed run. A fresh run will exclude these containers at preflight.
+            for item in coverage:
+                if item["itad_game_id"] in newly_touched:
+                    item["history_status"] = (
+                        "excluded_assignment_changed_during_collection"
+                    )
+            raise ValueError(
+                "Scoped game assignment changed during collection; rerun required"
+            )
+    except Exception as exc:
+        postflight = {
+            "status": "failed_or_changed_no_history_admissible",
+            "checked_through_utc": utc_now(),
+            "error_category": type(exc).__name__,
+            "raw_sha256": (
+                sha((folder / "assignment-changes-postflight.json").read_bytes())
+                if (folder / "assignment-changes-postflight.json").exists()
+                else None
+            ),
+            "observed_assignment_check": postflight,
+        }
     atomic_csv(folder / "events.csv", EVENT_FIELDS, rows)
     requested = [
         r
@@ -502,9 +537,14 @@ def collect(root=ROOT, key=None):
         if r["identity_status"] == "eligible_app_linked_game_context"
         and r["history_status"] != "not_requested_assignment_review"
     ]
-    passed = bool(requested) and all(
-        r["history_status"] in ("returned_events", "no_returned_events")
-        for r in requested
+    passed = (
+        postflight["status"]
+        == "passed_returned_assignment_log_check_not_independent_continuity_proof"
+        and bool(requested)
+        and all(
+            r["history_status"] in ("returned_events", "no_returned_events")
+            for r in requested
+        )
     )
     manifest = {
         "run_id": run_id,
@@ -530,6 +570,7 @@ def collect(root=ROOT, key=None):
             t["identity_status"] != "eligible_app_linked_game_context" for t in scope
         ),
         "assignment_check": assignments,
+        "postflight_assignment_check": postflight,
         "assignment_exclusion_count": sum(
             r["history_status"] == "not_requested_assignment_review" for r in coverage
         ),
@@ -682,6 +723,37 @@ def admitted_events(root=ROOT):
     )
     if assignments != replayed:
         raise ValueError("Assignment evidence or hash differs")
+    postflight = manifest["postflight_assignment_check"]
+    post_at = instant(postflight["checked_through_utc"])
+    retrieval_times = [
+        instant(t["retrieved_at_utc"])
+        for t in manifest["title_coverage"]
+        if t["retrieved_at_utc"]
+    ]
+    if (
+        not instant(manifest["started_at_utc"])
+        <= post_at
+        <= instant(manifest["finished_at_utc"])
+        or not retrieval_times
+        or post_at < max(retrieval_times)
+    ):
+        raise ValueError(
+            "Postflight assignment check does not cover the final history retrieval"
+        )
+    replayed_post = assignment_check(
+        (folder / "assignment-changes-postflight.json").read_bytes(),
+        scope,
+        contract,
+        postflight["checked_through_utc"],
+    )
+    if postflight != replayed_post:
+        raise ValueError("Postflight assignment evidence or hash differs")
+    if set(postflight["touched_scoped_game_ids"]) - set(
+        assignments["touched_scoped_game_ids"]
+    ):
+        raise ValueError(
+            "Scoped assignment changed during collection; no history admitted"
+        )
     names = {
         "price_history.py",
         "acquisition.py",

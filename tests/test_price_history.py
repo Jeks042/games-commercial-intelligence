@@ -546,6 +546,72 @@ class PriceAdmissionTests(unittest.TestCase):
         fetch.assert_not_called()
         self.assertNotIn("fixture-secret", (self.run / "manifest.json").read_text())
 
+    def recollect_for_postflight(self, second):
+        self.assignment_request.side_effect = [b"[]", second]
+        with patch(
+            "price_history.request_history", return_value=self.raw
+        ), contextlib.redirect_stdout(io.StringIO()):
+            self.run = history.collect(self.root, key="fixture-secret")
+
+    def test_postflight_source_failure_blocks_admission_and_keeps_existing_release(
+        self,
+    ):
+        self.accept()
+        self.build()
+        pointer = self.root / "data/pricing-analysis/current.json"
+        before = pointer.read_bytes()
+        self.recollect_for_postflight(RuntimeError("fixture-secret"))
+        self.accept()
+        with self.assertRaisesRegex(ValueError, "did not pass"):
+            self.build()
+        self.assertNotIn("fixture-secret", (self.run / "manifest.json").read_text())
+        self.assertEqual(pointer.read_bytes(), before)
+
+    def test_postflight_cap_blocks_admission_and_preserves_payload(self):
+        raw = json.dumps([self.change()] * 1000).encode()
+        self.recollect_for_postflight(raw)
+        self.accept()
+        with self.assertRaisesRegex(ValueError, "did not pass"):
+            self.build()
+        self.assertEqual(
+            (self.run / "assignment-changes-postflight.json").read_bytes(), raw
+        )
+
+    def test_new_postflight_reassignment_invalidates_collected_history(self):
+        raw = json.dumps([self.change()]).encode()
+        self.recollect_for_postflight(raw)
+        self.accept()
+        with self.assertRaisesRegex(ValueError, "did not pass"):
+            self.build()
+        manifest = json.loads((self.run / "manifest.json").read_bytes())
+        affected = next(
+            t
+            for t in manifest["title_coverage"]
+            if t["itad_game_id"] == self.change()["old_game_id"]
+        )
+        self.assertEqual(
+            affected["history_status"], "excluded_assignment_changed_during_collection"
+        )
+        self.assertEqual(
+            (self.run / "assignment-changes-postflight.json").read_bytes(), raw
+        )
+
+    def test_postflight_timestamp_before_final_retrieval_blocks_admission(self):
+        manifest = json.loads((self.run / "manifest.json").read_bytes())
+        manifest["postflight_assignment_check"]["checked_through_utc"] = manifest[
+            "started_at_utc"
+        ]
+        (self.run / "manifest.json").write_bytes(history.canonical(manifest) + b"\n")
+        self.accept()
+        with self.assertRaisesRegex(ValueError, "final history retrieval"):
+            self.build()
+
+    def test_postflight_raw_tamper_blocks_admission(self):
+        self.accept()
+        (self.run / "assignment-changes-postflight.json").write_bytes(b"[] ")
+        with self.assertRaisesRegex(ValueError, "Postflight assignment evidence"):
+            self.build()
+
     def test_assignment_malformed_future_and_date_mismatch_are_rejected(self):
         contract, scope = history.load_contract(self.root)
         for payload in (
