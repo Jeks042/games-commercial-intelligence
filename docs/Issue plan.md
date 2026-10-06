@@ -30,8 +30,9 @@ Tasks:
 - create SQL / analytical-ready outputs
 
 Done when:
-- one clean analytical dataset can feed Python and Power BI
+- typed facts, dimensions and reporting views from one accepted release can feed Python and Power BI
 - metric definitions are documented and reproducible
+- local and hosted builds, quality checks and independent review pass
 
 ## Issue 3 — Benchmark portfolio and market performance
 
