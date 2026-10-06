@@ -87,7 +87,7 @@ Do not infer title-level accounting revenue unless directly disclosed.
 
 Preferred source: IsThereAnyDeal API.
 
-This is intentionally not required for Stage 1 because it needs a separate API credential / setup. Once connected, it will be used for promotion timing and historical price depth.
+The source adapter is prepared; authenticated history acquisition is pending. See the [history contract](Price%20history%20contract.md) and [pricing delivery state](Stage%204%20pricing%20findings.md). Official app/shop lookup has been verified for the scope. History will be explicit GB/GBP Steam-shop context, with SKU and temporal coverage limits; it cannot establish publisher campaign timing by itself.
 
 ## 8. Optional external commercial estimates
 

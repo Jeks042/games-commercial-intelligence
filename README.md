@@ -2,7 +2,7 @@
 
 Commercial portfolio analysis of 12 selected 505 Games titles and 20 market reference titles on Steam. The analysis assesses price positioning, player response and engagement signals to support decisions about portfolio attention and promotional priorities.
 
-**Status:** Acquisition, the SQL analytical model and snapshot portfolio benchmarking are accepted. The frozen baseline covers 32 scoped titles. Historical pricing and promotion analysis is the next delivery; the Power BI report follows later.
+**Status:** Acquisition, the SQL analytical model and snapshot portfolio benchmarking are accepted. Historical pricing and promotion analysis is in progress; its source adapter is ready and live history access is pending. The frozen analytical baseline covers 32 scoped titles. The Power BI report follows later.
 
 ## Evidence base
 
@@ -34,6 +34,8 @@ python src/benchmark_portfolio.py
 ```
 
 The planned analysis compares titles within documented reference groups, distinguishes lifecycle effects from product performance, and evaluates pricing and player response before proposing actions. Historical promotion analysis and scenarios require additional evidence and are tracked in the [delivery backlog](https://github.com/Jeks042/games-commercial-intelligence/issues).
+
+The [pricing delivery state](docs/Stage%204%20pricing%20findings.md) and [history contract](docs/Price%20history%20contract.md) document the prepared extension and remaining data requirements.
 
 Public Steam signals do not establish publisher revenue, units sold, retention or marketing return. SteamSpy estimates remain separate from observed Steam measures. Small reference groups support contextual comparison; they do not constitute a representative market sample.
 

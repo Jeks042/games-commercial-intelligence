@@ -11,6 +11,7 @@ on:
       - "data/accepted-runs.json"
       - "data/title-references.csv"
       - "data/benchmarking-contract.json"
+      - "data/price-history/**"
       - "data/analytical/**"
       - "data/portfolio-titles.csv"
       - "data/competitor-titles.csv"
@@ -48,6 +49,21 @@ jobs:
           cp data/positioning/current.json /tmp/positioning-current.json
           python src/benchmark_portfolio.py
           cmp /tmp/positioning-current.json data/positioning/current.json
+      - name: Verify pricing analysis when a reviewed history run exists
+        run: |
+          PYTHONPATH=src python - <<'PY'
+          import json
+          from price_history import ROOT, build_analysis
+          register = json.loads((ROOT / "data/price-history/accepted-runs.json").read_bytes())
+          if register["accepted_runs"]:
+              build_analysis()
+              pointer = ROOT / "data/pricing-analysis/current.json"
+              before = pointer.read_bytes()
+              build_analysis()
+              assert before == pointer.read_bytes()
+          else:
+              print("Pricing analysis unavailable: no reviewed history run. Source foundation tests passed separately.")
+          PY
       - name: Retain model release evidence
         if: always()
         uses: actions/upload-artifact@v7
@@ -56,5 +72,7 @@ jobs:
           path: |
             data/analytical/
             data/positioning/
+            data/price-history/
+            data/pricing-analysis/
           retention-days: 90
           if-no-files-found: error

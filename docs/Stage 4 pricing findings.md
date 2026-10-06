@@ -1,0 +1,23 @@
+# Pricing and promotion analysis
+
+## Delivery state
+
+Issue 4 is in progress. Source identity discovery, a validated history collector, reviewed-run admission and deterministic recorded-discount sequence construction are implemented. Live historical-price acquisition requires an IsThereAnyDeal API key; no historical run is accepted and no pricing-analysis output is published yet.
+
+The available evidence remains the accepted October 6 snapshot and the Stage 3 positioning findings. This stage has no new historical pricing or promotional-response conclusion to report.
+
+## Source discovery
+
+All 32 scoped Steam app IDs resolve and reverse-check through official IsThereAnyDeal lookup. Thirty-one have a unique app association. Ready or Not has an additional app association and remains excluded from history until reviewed. Complete inverse mappings and package/sub aliases are preserved.
+
+The source is ITAD game/Steam-shop context in GB/GBP. Exact SKU/edition attribution remains unresolved because the history feed does not identify the purchase package behind a recorded price state. This limit applies even to uniquely app-linked titles.
+
+The [contract](Price%20history%20contract.md) defines the explicit history window, as-of cutoff, currency checks, source timestamps, unknown boundaries, empty histories, source removals and sequence rules. The [source evidence](../data/price-history/discovery-20261006/manifest.json) records request and hash provenance.
+
+## Validation and remaining evidence
+
+Thirty price-history tests exercise source validation, duplicate/conflict handling, missing and zero prices, explicit dates, censoring, sequence changes, bounded retries, secret-safe diagnostics, admission/tamper controls, repeated publication and exclusion of a current snapshot from historical response. These fixtures demonstrate processing behavior; they are not real historical observations or findings.
+
+The next gates are live API access, successful collection and payload review, explicit admission, real output verification, peer-context interpretation and independent sign-off. Commercial response remains unavailable until independently dated evidence and a defensible comparison design exist. Pricing or promotion recommendations will state the evidence they depend on; source availability cannot substitute for evidence of effectiveness.
+
+Issue 5 remains unstarted.
