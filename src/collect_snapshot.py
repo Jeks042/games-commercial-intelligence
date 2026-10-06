@@ -8,7 +8,6 @@ from common import SNAPSHOT_DIR, load_titles
 from fetch_steam_store import fetch_store_details
 from fetch_steam_reviews import fetch_review_summary
 from fetch_current_players import fetch_current_players
-from fetch_market_benchmark import fetch_market_benchmark
 
 OUTPUT = SNAPSHOT_DIR / "commercial-snapshot-history.csv"
 MAX_WORKERS = 8
@@ -24,7 +23,7 @@ def safe_fetch(label, fn, app_id):
 
 def collect_title(title, timestamp):
     app_id = title["app_id"]
-    print(f"Collecting {app_id} - {title['title']}")
+    print(f"Collecting live snapshot {app_id} - {title['title']}")
 
     row = {
         "snapshot_timestamp_utc": timestamp,
@@ -40,7 +39,6 @@ def collect_title(title, timestamp):
     row.update(safe_fetch("steam_store", fetch_store_details, app_id))
     row.update(safe_fetch("steam_reviews", fetch_review_summary, app_id))
     row.update(safe_fetch("current_players", fetch_current_players, app_id))
-    row.update(safe_fetch("market_benchmark", fetch_market_benchmark, app_id))
     return row
 
 
@@ -85,7 +83,7 @@ def main():
         for row in rows:
             writer.writerow(row)
 
-    print(f"Wrote {len(rows)} rows to {OUTPUT}")
+    print(f"Wrote {len(rows)} live snapshot rows to {OUTPUT}")
 
 
 if __name__ == "__main__":
