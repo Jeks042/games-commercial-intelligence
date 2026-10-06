@@ -26,7 +26,7 @@ Analytical lifecycle is calculated as of Store retrieval using Steam's listed re
 
 The SQL database and matching CSV exports share definitions, grain, lineage and availability gates. Power BI should consume one release with explicit dimension/fact relationships, avoiding duplicated measures from simultaneously loading base facts and convenience views.
 
-Issue 3 will use the admitted model to assess portfolio/reference positioning and develop qualified findings. It remains unstarted. No commercial ranking, investment recommendation, forecast or promotion-effect claim is approved in this modelling release. Sparse direct-peer coverage, unavailable playtime and insufficient weekly history remain explicit constraints on that analysis.
+Issue 3 uses the admitted model to assess portfolio/reference positioning and develop qualified findings. See the [benchmarking findings](Stage%203%20benchmarking%20findings.md). No commercial ranking, investment recommendation, forecast or promotion-effect claim is approved in this modelling release. Sparse direct-peer coverage, unavailable playtime and insufficient weekly history remain explicit constraints on that analysis.
 
 ## Hosted verification
 

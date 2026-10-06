@@ -37,11 +37,11 @@ Done when:
 ## Issue 3 — Benchmark portfolio and market performance
 
 Tasks:
-- compare each title with peer medians / percentiles
-- evaluate review quality, demand scale and engagement depth
-- compare new releases with mature and back-catalogue titles
-- identify outperformers, underperformers and ambiguous cases
-- write first commercial findings
+- compare eligible direct-peer medians and configured-reference percentiles with counts and coverage gates
+- assess separate review-response, cumulative review-scale and concurrent-player snapshot signals
+- retain as-of lifecycle context and explicitly unavailable engagement-depth or trend measures
+- document supported contrasts and ambiguous cases without unsupported overall performance labels
+- publish reproducible SQL outputs and qualified commercial findings with evidence follow-ups
 
 ## Issue 4 — Analyse pricing, promotions and commercial response
 
