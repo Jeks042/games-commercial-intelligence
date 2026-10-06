@@ -45,28 +45,33 @@ The scheduled workflow stores repeated snapshots so we can build our own longitu
 
 Limitation: current concurrent players are not DAU, MAU, active owners or retention.
 
-## 4. Hugging Face Steam games benchmark
+## 4. SteamSpy market benchmark
+
+Endpoint pattern:
+
+`https://steamspy.com/api.php?request=appdetails&appid={APP_ID}`
+
+Use:
+- estimated owner range
+- public CCU estimate
+- average / median playtime
+- positive / negative review counts
+- price and genre fields
+
+This benchmark is collected separately from the live Steam snapshot so estimated owner/playtime data is never confused with first-party storefront metrics.
+
+Limitation: SteamSpy extrapolates from sampled public profiles. Its own documentation warns that owner estimates can be unreliable for small or newly released games. “Owned” also does not mean the same thing as paid unit sales.
+
+## 5. Hugging Face Steam games dataset — backup / research benchmark
 
 Dataset:
 https://huggingface.co/datasets/Z02Z/steam-games-dataset
 
 Licence shown by the dataset: CC BY 4.0.
 
-The repository uses the Hugging Face Dataset Server to retrieve only the selected app IDs rather than downloading the full dataset.
+This source is useful as a broad market research dataset, but it is not used as the live weekly benchmark because the dataset server timed out during the first automated acquisition run.
 
-Useful fields:
-- estimated owners
-- peak CCU
-- positive / negative counts
-- recommendations
-- average playtime
-- median playtime
-- price
-- genres / tags
-
-Limitation: these are external public estimates / snapshots and may not match publisher systems.
-
-## 5. 505 Games / Digital Bros public reporting
+## 6. 505 Games / Digital Bros public reporting
 
 Use later for:
 - company-level and franchise-level context
@@ -76,13 +81,13 @@ Use later for:
 
 Do not infer title-level accounting revenue unless directly disclosed.
 
-## 6. Historical price / promotion source — Milestone 4
+## 7. Historical price / promotion source — Milestone 4
 
 Preferred source: IsThereAnyDeal API.
 
 This is intentionally not required for Stage 1 because it needs a separate API credential / setup. Once connected, it will be used for promotion timing and historical price depth.
 
-## 7. Optional external commercial estimates
+## 8. Optional external commercial estimates
 
 Sources such as Gamalytic or Video Game Insights may be considered later.
 
