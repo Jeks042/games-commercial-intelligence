@@ -1,6 +1,6 @@
 # Games Commercial Intelligence
 
-**Status: Stage 1 — data acquisition foundation**
+**Status: Stage 1 complete — baseline data acquired and validated**
 
 This is an independent portfolio project built around a commercial analytics question:
 
@@ -30,7 +30,7 @@ The repository starts with:
 - Steam Store metadata and pricing acquisition
 - Steam review-summary acquisition
 - current-player snapshots
-- a Hugging Face Steam market benchmark for owner / CCU / playtime estimates
+- a separate SteamSpy market benchmark for estimated owner / CCU fields, kept apart from observed Steam metrics
 - a scheduled GitHub Actions collector so the project can build its own weekly time series
 
 Run locally:
@@ -77,3 +77,8 @@ Public data does **not** equal internal publisher data.
 - Steam-only analysis will be clearly separated from conclusions about console or total portfolio performance.
 
 See `docs/Data limitations.md` for the full boundary conditions.
+
+
+## Current progress
+
+Stage 1 is complete. The initial acquisition pipeline collected live Steam data for all 32 scoped titles and a separate market benchmark. See [Stage 1 acquisition findings](docs/Stage%201%20acquisition%20findings.md) for coverage, limitations and the decision on which fields are safe to use.
