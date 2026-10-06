@@ -16,10 +16,13 @@ import tempfile
 import platform
 import shutil
 import requests
+from email.utils import parsedate_to_datetime
 from acquisition import atomic_csv, new_run_id, utc_now
 from build_model import canonical, sha
 from common import ROOT
 from benchmark_portfolio import verified_inputs
+
+PRODUCT_BASIS = "current_ITAD_game_container_Steam_shop_history_historical_app_association_unverified"
 
 EVENT_FIELDS = [
     "app_id",
@@ -72,6 +75,7 @@ def load_contract(root=ROOT):
     )
     required = {
         "history_endpoint": "https://api.isthereanydeal.com/games/history/v2",
+        "assignment_endpoint": "https://api.isthereanydeal.com/unstable/games/dots/v1",
         "country": "GB",
         "currency": "GBP",
         "shop_id": 61,
@@ -153,19 +157,13 @@ def load_contract(root=ROOT):
     return contract, scope
 
 
-def request_history(contract, gid, key):
+def request_source(endpoint, params, key):
     """Three attempts, header-only credential, bounded delays and sanitised errors."""
-    params = {
-        "id": gid,
-        "country": "GB",
-        "shops": "61",
-        "since": contract["window_start_utc"],
-    }
     for attempt in range(3):
         time.sleep(1.1 if attempt == 0 else 2**attempt)
         try:
             response = requests.get(
-                contract["history_endpoint"],
+                endpoint,
                 params=params,
                 headers={
                     "ITAD-API-Key": key,
@@ -189,6 +187,80 @@ def request_history(contract, gid, key):
             raise RuntimeError(f"History source returned HTTP {response.status_code}")
         return response.content
     raise RuntimeError("History request retry budget exhausted")
+
+
+def request_history(contract, gid, key):
+    return request_source(
+        contract["history_endpoint"],
+        {
+            "id": gid,
+            "country": "GB",
+            "shops": "61",
+            "since": contract["window_start_utc"],
+        },
+        key,
+    )
+
+
+def request_assignments(contract, key):
+    # Include changes exactly at the window boundary; do not use the newest-1000 default.
+    return request_source(
+        contract["assignment_endpoint"],
+        {
+            "since": int(instant(contract["window_start_utc"]).timestamp()) - 1,
+        },
+        key,
+    )
+
+
+def assignment_check(raw, scope, contract, retrieved):
+    changes = json.loads(raw)
+    if not isinstance(changes, list) or len(changes) >= 1000:
+        raise ValueError(
+            "Assignment log is malformed or reaches the 1000-row cap; coverage unverified"
+        )
+    start, end = instant(contract["window_start_utc"]), instant(retrieved)
+    ids, touched = set(), set()
+    for change in changes:
+        required = {
+            "id",
+            "product_id",
+            "old_game_id",
+            "new_game_id",
+            "timestamp",
+            "date",
+        }
+        if not isinstance(change, dict) or not required.issubset(change):
+            raise ValueError("Assignment change shape differs")
+        if type(change["id"]) is not int or change["id"] < 0 or change["id"] in ids:
+            raise ValueError("Assignment change ID is invalid or duplicated")
+        ids.add(change["id"])
+        for field in ("product_id", "old_game_id", "new_game_id"):
+            UUID(change[field])
+        if type(change["timestamp"]) is not int:
+            raise ValueError("Assignment timestamp must be an integer")
+        at = datetime.fromtimestamp(change["timestamp"], timezone.utc)
+        # The official example uses an RFC822 date, despite its generic datetime schema.
+        try:
+            dated = parsedate_to_datetime(change["date"])
+        except ValueError:
+            dated = instant(change["date"])
+        if dated.tzinfo is None or dated.astimezone(timezone.utc) != at:
+            raise ValueError("Assignment date and Unix timestamp disagree")
+        if at < start or at > end:
+            raise ValueError(
+                "Assignment change leaves the requested identity-check window"
+            )
+        touched.update((change["old_game_id"], change["new_game_id"]))
+    return {
+        "status": "passed_returned_assignment_log_check_not_independent_continuity_proof",
+        "endpoint": contract["assignment_endpoint"],
+        "since_unix": int(start.timestamp()) - 1,
+        "checked_through_utc": retrieved,
+        "raw_sha256": sha(raw),
+        "returned_change_count": len(changes),
+        "touched_scoped_game_ids": sorted({t["itad_game_id"] for t in scope} & touched),
+    }
 
 
 def price_value(obj):
@@ -245,7 +317,7 @@ def normalise(raw, title, contract, run_id, retrieved):
             "country": "GB",
             "retrieved_at_utc": retrieved,
             "raw_response_sha256": sha(raw),
-            "product_basis": "app_linked_game_shop_context_sku_unresolved",
+            "product_basis": PRODUCT_BASIS,
         }
         if deal is None:
             row.update(
@@ -328,6 +400,34 @@ def collect(root=ROOT, key=None):
     run_id, started = new_run_id("itad-history"), utc_now()
     folder = root / "data/price-history/runs" / run_id
     (folder / "responses").mkdir(parents=True, exist_ok=False)
+    try:
+        assignment_raw = request_assignments(contract, key)
+        (folder / "assignment-changes.json").write_bytes(assignment_raw)
+        assignments = assignment_check(assignment_raw, scope, contract, utc_now())
+    except Exception as exc:
+        # A failed/capped identity check blocks every history request and admission.
+        failed = {
+            "run_id": run_id,
+            "schema_version": 1,
+            "status": "failed",
+            "started_at_utc": started,
+            "finished_at_utc": utc_now(),
+            "assignment_status": "unverified_no_history_requested",
+            "error_category": type(exc).__name__,
+            "contract": contract,
+        }
+        (folder / "manifest.json").write_bytes(canonical(failed) + b"\n")
+        print(
+            json.dumps(
+                {
+                    "run_id": run_id,
+                    "status": "failed",
+                    "assignment_status": failed["assignment_status"],
+                }
+            ),
+            flush=True,
+        )
+        return folder
     rows, coverage = [], []
     for title in scope:
         item = {
@@ -340,6 +440,16 @@ def collect(root=ROOT, key=None):
         if title["identity_status"] != "eligible_app_linked_game_context":
             item.update(
                 history_status="not_requested_mapping_unresolved",
+                event_count=None,
+                earliest_event_at_utc=None,
+                latest_event_at_utc=None,
+                retrieved_at_utc=None,
+            )
+            coverage.append(item)
+            continue
+        if title["itad_game_id"] in assignments["touched_scoped_game_ids"]:
+            item.update(
+                history_status="not_requested_assignment_review",
                 event_count=None,
                 earliest_event_at_utc=None,
                 latest_event_at_utc=None,
@@ -382,6 +492,7 @@ def collect(root=ROOT, key=None):
         r
         for r in coverage
         if r["identity_status"] == "eligible_app_linked_game_context"
+        and r["history_status"] != "not_requested_assignment_review"
     ]
     passed = bool(requested) and all(
         r["history_status"] in ("returned_events", "no_returned_events")
@@ -407,7 +518,13 @@ def collect(root=ROOT, key=None):
         },
         "scope_count": len(scope),
         "eligible_title_count": len(requested),
-        "mapping_exclusion_count": len(scope) - len(requested),
+        "mapping_exclusion_count": sum(
+            t["identity_status"] != "eligible_app_linked_game_context" for t in scope
+        ),
+        "assignment_check": assignments,
+        "assignment_exclusion_count": sum(
+            r["history_status"] == "not_requested_assignment_review" for r in coverage
+        ),
         "event_count": len(rows),
         "events_sha256": sha((folder / "events.csv").read_bytes()),
         "raw_response_sha256": {
@@ -425,7 +542,7 @@ def collect(root=ROOT, key=None):
                 "run_id": run_id,
                 "status": manifest["status"],
                 "eligible_title_count": len(requested),
-                "mapping_exclusion_count": len(scope) - len(requested),
+                "mapping_exclusion_count": manifest["mapping_exclusion_count"],
                 "event_count": len(rows),
             }
         ),
@@ -541,6 +658,22 @@ def admitted_events(root=ROOT):
         canonical(contract)
     ):
         raise ValueError("History source contract differs")
+    assignments = manifest["assignment_check"]
+    checked_at = instant(assignments["checked_through_utc"])
+    if (
+        not instant(manifest["started_at_utc"])
+        <= checked_at
+        <= instant(manifest["finished_at_utc"])
+    ):
+        raise ValueError("Assignment check leaves run interval")
+    replayed = assignment_check(
+        (folder / "assignment-changes.json").read_bytes(),
+        scope,
+        contract,
+        assignments["checked_through_utc"],
+    )
+    if assignments != replayed:
+        raise ValueError("Assignment evidence or hash differs")
     names = {
         "price_history.py",
         "acquisition.py",
@@ -561,7 +694,10 @@ def admitted_events(root=ROOT):
     }:
         raise ValueError("History title coverage differs")
     eligible = [
-        t for t in scope if t["identity_status"] == "eligible_app_linked_game_context"
+        t
+        for t in scope
+        if t["identity_status"] == "eligible_app_linked_game_context"
+        and t["itad_game_id"] not in assignments["touched_scoped_game_ids"]
     ]
     files = {f"{t['app_id']}.json" for t in eligible}
     if (
@@ -572,7 +708,16 @@ def admitted_events(root=ROOT):
     if (
         manifest["scope_count"] != len(scope)
         or manifest["eligible_title_count"] != len(eligible)
-        or manifest["mapping_exclusion_count"] != len(scope) - len(eligible)
+        or manifest["mapping_exclusion_count"]
+        != sum(
+            t["identity_status"] != "eligible_app_linked_game_context" for t in scope
+        )
+        or manifest["assignment_exclusion_count"]
+        != sum(
+            t["identity_status"] == "eligible_app_linked_game_context"
+            and t["itad_game_id"] in assignments["touched_scoped_game_ids"]
+            for t in scope
+        )
     ):
         raise ValueError("Declared history scope counts differ")
     rows = []
@@ -585,10 +730,12 @@ def admitted_events(root=ROOT):
         ):
             raise ValueError("History identity coverage differs")
         if title not in eligible:
-            if (
-                item["history_status"] != "not_requested_mapping_unresolved"
-                or item["event_count"] is not None
-            ):
+            expected = (
+                "not_requested_mapping_unresolved"
+                if title["identity_status"] != "eligible_app_linked_game_context"
+                else "not_requested_assignment_review"
+            )
+            if item["history_status"] != expected or item["event_count"] is not None:
                 raise ValueError("Unresolved identity was admitted")
             continue
         raw = (folder / "responses" / f"{title['app_id']}.json").read_bytes()
@@ -660,7 +807,17 @@ def build_analysis(root=ROOT, output_dir=None):
                 "itad_game_id": title["itad_game_id"],
                 "identity_status": title["identity_status"],
                 "history_status": coverage["history_status"],
-                "scope_basis": "ITAD_game_Steam_shop_context",
+                "scope_basis": PRODUCT_BASIS,
+                "historical_assignment_status": (
+                    "not_assessed_mapping_unresolved"
+                    if title["identity_status"] != "eligible_app_linked_game_context"
+                    else (
+                        "requires_review_reassignment_touched_game"
+                        if title["itad_game_id"]
+                        in manifest["assignment_check"]["touched_scoped_game_ids"]
+                        else "no_scoped_reassignment_returned_not_independent_continuity_proof"
+                    )
+                ),
                 "sku_status": title["sku_status"],
                 "country": "GB",
                 "currency": "GBP" if prices else None,
@@ -682,7 +839,15 @@ def build_analysis(root=ROOT, output_dir=None):
                     max(r["price_minor"] for r in prices) / 100 if prices else None
                 ),
                 "recorded_discount_sequence_count": len(derived) if prices else None,
-                "coverage_status": "returned_log_only_left_state_unknown",
+                "coverage_status": (
+                    coverage["history_status"]
+                    if coverage["history_status"].startswith("not_requested_")
+                    else (
+                        "empty_returned_log_no_price_state_observed"
+                        if not rows
+                        else "returned_change_log_left_state_unknown"
+                    )
+                ),
                 "commercial_response_status": "unavailable_no_admitted_historical_response_series",
                 "causal_uplift_status": "not_identified",
             }
@@ -711,7 +876,7 @@ def build_analysis(root=ROOT, output_dir=None):
                 sequence_id=f"{title['app_id']}-{i}",
                 title=title["title"],
                 source_run_id=manifest["run_id"],
-                product_basis="ITAD_game_Steam_shop_context_sku_unresolved",
+                product_basis=PRODUCT_BASIS,
                 country="GB",
                 currency="GBP",
                 shop_id=61,

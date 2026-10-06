@@ -6,7 +6,11 @@ The source adapter uses the [IsThereAnyDeal API](https://docs.isthereanydeal.com
 
 The [source contract](../data/price-history/source-contract.json) pins discovery evidence and the accepted analytical model. Official Steam shop discovery, forward `app/{id}` lookup and inverse lookup cover all 32 scoped titles. Raw source bytes, query routes, retrieval times and hashes are retained under `data/price-history/discovery-20261006/`.
 
-Thirty-one mappings have one Steam app identity. Ready or Not also maps to app/840820 and is excluded pending identity review. Package/sub aliases are preserved for every title. ITAD history does not identify the individual purchase SKU that generated a row: admissible evidence is app-linked ITAD game/Steam-shop context, not verified edition-level Steam prices or publisher campaign records.
+Thirty-one current mappings have one Steam app identity. Ready or Not also maps to app/840820 and is excluded pending identity review. Package/sub aliases are preserved for every title. ITAD history does not identify the individual purchase SKU that generated a row. Products can also be reassigned between game containers. Admissible evidence is therefore **current ITAD game-container history for Steam shop 61 in GB/GBP; historical Steam-app association and exact SKU/edition attribution are not independently verified**. Current app linkage is discovery evidence, not proof that every past row belongs to that Steam title.
+
+Before requesting prices, the collector queries the official [Game Changes endpoint](https://docs.isthereanydeal.com/#tag/Unstable/operation/unstable-games-dots-v1), `/unstable/games/dots/v1`, with an explicit Unix `since` one second before the historical window. It preserves and hashes the raw response, validates change IDs, product/game UUIDs and source timestamps, and excludes any scoped game touched by a reassignment through the check's recorded retrieval time. Every shop's reassignment is considered because the change record does not identify a shop. Replay admission repeats the check and verifies its hash. A failed, malformed or capped response blocks the run before price requests.
+
+The endpoint is unstable and returns at most 1,000 changes. A response reaching that cap is rejected: the documented `last` parameter retrieves newer IDs and does not establish a way to retrieve omitted older changes. An uncapped response with no scoped reassignment means **no scoped reassignment returned by this source for the requested interval**. It is not an independent guarantee of historical identity continuity, source-log retention or SKU attribution. These limitations remain in the output basis even after the check passes.
 
 History requests explicitly set `country=GB`, `shops=61` and `since=2025-10-06T00:00:00+00:00`; the API's US and three-month defaults are not used. The analysis cutoff is the accepted Steam run's finish on 6 October 2026. Later source changes are retained in raw evidence and excluded from this frozen analysis. The documented route returns an array with no paging contract; wrapped/paged shapes are rejected pending adaptation.
 
@@ -28,7 +32,7 @@ Use a registered ITAD API key in the process environment or the ignored local `.
 python src/price_history.py
 ```
 
-The collector creates immutable run evidence: original per-title responses, normalised events, title-level coverage and a manifest with source/code hashes. Mapping exclusions are declared; any eligible title's failed history request makes the run failed. Collection alone does not publish an analytical release.
+The collector creates immutable run evidence: original assignment and per-title responses, normalised events, title-level coverage and a manifest with source/code hashes. Current-mapping and reassignment exclusions are declared separately; any eligible title's failed history request makes the run failed. Collection alone does not publish an analytical release.
 
 After reviewing coverage, identity exclusions and source payloads, admit one run in `data/price-history/accepted-runs.json` with `run_id`, `status=accepted` and the exact manifest-file SHA-256. The registry is currently empty. Failed or unreviewed runs are rejected. Admission verifies raw and event hashes, scope, contract, code, timestamps and counts, then independently reprocesses raw responses to matching event bytes.
 

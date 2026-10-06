@@ -283,7 +283,7 @@ class PriceHistoryTests(unittest.TestCase):
         with tempfile.TemporaryDirectory(
             prefix="gaming-price-collection-test-"
         ) as name:
-            with patch(
+            with patch("price_history.request_assignments", return_value=b"[]"), patch(
                 "price_history.load_contract",
                 return_value=(self.contract, [self.scope[0], self.scope[1]]),
             ), patch(
@@ -301,6 +301,11 @@ class PriceHistoryTests(unittest.TestCase):
 
 class PriceAdmissionTests(unittest.TestCase):
     def setUp(self):
+        self.assignment_patch = patch(
+            "price_history.request_assignments", return_value=b"[]"
+        )
+        self.assignment_request = self.assignment_patch.start()
+        self.addCleanup(self.assignment_patch.stop)
         self.temp = tempfile.TemporaryDirectory(prefix="gaming-price-admission-test-")
         self.root = Path(self.temp.name).resolve()
         contract = json.loads(
@@ -407,6 +412,9 @@ class PriceAdmissionTests(unittest.TestCase):
         self.assertEqual(excluded["returned_event_count"], "")
         self.assertEqual(excluded["recorded_discount_sequence_count"], "")
         self.assertEqual(excluded["history_status"], "not_requested_mapping_unresolved")
+        self.assertEqual(
+            excluded["coverage_status"], "not_requested_mapping_unresolved"
+        )
         sequences = self.rows(release, "recorded_discount_sequences.csv")
         self.assertEqual(len(sequences), 31)
         self.assertTrue(
@@ -458,6 +466,7 @@ class PriceAdmissionTests(unittest.TestCase):
             all(
                 r["returned_event_count"] == "0"
                 and r["recorded_discount_sequence_count"] == ""
+                and r["coverage_status"] == "empty_returned_log_no_price_state_observed"
                 for r in mapped
             )
         )
@@ -469,6 +478,114 @@ class PriceAdmissionTests(unittest.TestCase):
         self.assertEqual(release, self.build())
         self.assertEqual(
             hashes, {p.name: history.sha(p.read_bytes()) for p in release.iterdir()}
+        )
+
+    def change(self, gid=None):
+        from email.utils import format_datetime
+        from datetime import datetime, timezone
+
+        return {
+            "id": 7,
+            "product_id": "018d937f-0680-71f6-a2c0-30660ed59d79",
+            "old_game_id": gid
+            or history.load_contract(self.root)[1][0]["itad_game_id"],
+            "new_game_id": "018d937f-0681-7345-8d53-d0b6170cf842",
+            "timestamp": 1767268800,
+            "date": format_datetime(datetime.fromtimestamp(1767268800, timezone.utc)),
+        }
+
+    def test_assignment_reassignment_excludes_touched_title_and_preserves_raw(self):
+        raw = json.dumps([self.change()]).encode()
+        self.assignment_request.return_value = raw
+        with patch(
+            "price_history.request_history", return_value=self.raw
+        ), contextlib.redirect_stdout(io.StringIO()):
+            self.run = history.collect(self.root, key="fixture-secret")
+        self.accept()
+        rows = self.rows(self.build(), "price_history_coverage.csv")
+        affected = next(
+            r for r in rows if r["itad_game_id"] == self.change()["old_game_id"]
+        )
+        self.assertEqual(affected["coverage_status"], "not_requested_assignment_review")
+        self.assertEqual(affected["returned_event_count"], "")
+        self.assertEqual((self.run / "assignment-changes.json").read_bytes(), raw)
+        manifest = json.loads((self.run / "manifest.json").read_bytes())
+        self.assertEqual(manifest["eligible_title_count"], 30)
+        self.assertEqual(manifest["mapping_exclusion_count"], 1)
+        self.assertEqual(manifest["assignment_exclusion_count"], 1)
+
+    def test_assignment_raw_tamper_blocks_admission(self):
+        self.accept()
+        (self.run / "assignment-changes.json").write_bytes(b"[{}]")
+        with self.assertRaises(ValueError):
+            self.build()
+
+    def test_assignment_cap_blocks_history_requests_and_admission(self):
+        self.assignment_request.return_value = json.dumps(
+            [self.change()] * 1000
+        ).encode()
+        with patch(
+            "price_history.request_history"
+        ) as fetch, contextlib.redirect_stdout(io.StringIO()):
+            self.run = history.collect(self.root, key="fixture-secret")
+        fetch.assert_not_called()
+        self.accept()
+        with self.assertRaisesRegex(ValueError, "did not pass"):
+            self.build()
+        self.assertFalse((self.root / "data/pricing-analysis/current.json").exists())
+
+    def test_assignment_failure_blocks_history_and_secret_diagnostics(self):
+        self.assignment_request.side_effect = RuntimeError("fixture-secret")
+        with patch(
+            "price_history.request_history"
+        ) as fetch, contextlib.redirect_stdout(io.StringIO()):
+            self.run = history.collect(self.root, key="fixture-secret")
+        fetch.assert_not_called()
+        self.assertNotIn("fixture-secret", (self.run / "manifest.json").read_text())
+
+    def test_assignment_malformed_future_and_date_mismatch_are_rejected(self):
+        contract, scope = history.load_contract(self.root)
+        for payload in (
+            {"data": []},
+            [{}],
+            [dict(self.change(), date="Wed, 01 Jan 2020 00:00:00 +0000")],
+            [dict(self.change(), timestamp=True)],
+            [dict(self.change(), old_game_id="bad")],
+        ):
+            with self.subTest(payload=payload), self.assertRaises(
+                (ValueError, TypeError)
+            ):
+                history.assignment_check(
+                    json.dumps(payload).encode(),
+                    scope,
+                    contract,
+                    "2026-10-06T23:00:00Z",
+                )
+        with self.assertRaises(ValueError):
+            history.assignment_check(
+                json.dumps([self.change()]).encode(),
+                scope,
+                contract,
+                "2025-12-31T00:00:00Z",
+            )
+
+    @patch("price_history.time.sleep")
+    @patch("price_history.requests.get")
+    def test_assignment_request_uses_header_and_explicit_unix_since(self, get, sleep):
+        self.assignment_patch.stop()
+        get.return_value = Mock(status_code=200, content=b"[]")
+        contract, _ = history.load_contract(self.root)
+        history.request_assignments(contract, "fixture-secret")
+        self.assertEqual(get.call_args.args[0], contract["assignment_endpoint"])
+        self.assertEqual(
+            get.call_args.kwargs["params"],
+            {
+                "since": int(history.instant(contract["window_start_utc"]).timestamp())
+                - 1
+            },
+        )
+        self.assertEqual(
+            get.call_args.kwargs["headers"]["ITAD-API-Key"], "fixture-secret"
         )
 
     def test_source_failure_never_overwrites_existing_analysis(self):

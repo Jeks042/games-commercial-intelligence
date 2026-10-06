@@ -10,8 +10,10 @@
   "as_of_utc": "2026-10-06T19:47:04.519515+00:00",
   "discovery_path": "data/price-history/discovery-20261006",
   "discovery_manifest_sha256": "435497cc9d83b77b66d4f29759e43537c315cfe4895a074cb241736530fd6aae",
-  "product_basis": "App-linked ITAD game/Steam-shop context; exact purchase SKU is unresolved. Multi-app mappings excluded.",
+  "product_basis": "current ITAD game-container Steam-shop history; historical Steam-app association and exact SKU attribution not independently verified",
   "coverage_basis": "Returned change log since explicit start; no verified continuous monitoring or left-boundary price state.",
   "response_basis": "Only admitted independently dated observations; no back-cast current activity or causal uplift.",
-  "model_manifest_sha256": "532758480dd82073ef942f8a3c7b7298e45a99417a65d1921dcc7ff5e2c0b7cf"
+  "model_manifest_sha256": "532758480dd82073ef942f8a3c7b7298e45a99417a65d1921dcc7ff5e2c0b7cf",
+  "assignment_endpoint": "https://api.isthereanydeal.com/unstable/games/dots/v1",
+  "assignment_policy": "preserve_and_replay_returned_change_log; exclude_scoped_game_touched_since_window_start; fail_at_1000_row_cap_or_unverified_response"
 }
