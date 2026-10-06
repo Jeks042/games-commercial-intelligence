@@ -23,6 +23,19 @@
   "live_pricing_releases": 0,
   "production_pricing_build": "unavailable_no_reviewed_history_run",
   "stage4_state": "in_progress_live_access_and_findings_pending",
-  "independent_foundation_review": "pending_corrective_commit_review",
-  "note": "Tests exercise isolated fixtures. Hosted prior-stage model and positioning builds and identical reruns passed. These checks do not validate a live pricing dataset or establish historical response."
+  "independent_foundation_review": "accepted_at_c3436d9_source_foundation_only_not_live_data_or_stage4_final_signoff",
+  "note": "Tests exercise isolated fixtures. Hosted prior-stage model and positioning builds and identical reruns passed. These checks do not validate a live pricing dataset or establish historical response.",
+  "follow_up_validation": {
+    "workflow_run_id": 37544809642,
+    "workflow_url": "https://github.com/Jeks042/games-commercial-intelligence/actions/runs/37544809642",
+    "head_sha": "c3436d9b43482157b9cb912cf641d0823628c9c4",
+    "conclusion": "success",
+    "test_count": 108,
+    "price_foundation_test_count": 41,
+    "prior_stage_test_count": 67,
+    "post_collection_assignment_controls": "passed_fixture_tests_and_hosted_validation",
+    "live_history_runs": 0,
+    "accepted_history_runs": 0,
+    "live_pricing_releases": 0
+  }
 }
