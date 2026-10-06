@@ -2,7 +2,7 @@
 
 ## Delivery state
 
-The SQL model is implemented and locally verified. Hosted execution and independent review are the remaining release gates.
+The SQL model is implemented and verified locally and on GitHub. Independent review is the remaining release gate.
 
 The [current analytical release](../data/analytical/current.json) admits the two owner-reviewed Stage 1 runs. It contains 32 titles, seven groups, 365 calendar dates, two run records, 38 governed reference relationships, 32 observed Steam facts, 32 external benchmark facts and 20 metric definitions.
 
@@ -27,3 +27,9 @@ Analytical lifecycle is calculated as of Store retrieval using Steam's listed re
 The SQL database and matching CSV exports share definitions, grain, lineage and availability gates. Power BI should consume one release with explicit dimension/fact relationships, avoiding duplicated measures from simultaneously loading base facts and convenience views.
 
 Issue 3 will use the admitted model to assess portfolio/reference positioning and develop qualified findings. No commercial ranking, investment recommendation, forecast or promotion-effect claim is approved in this modelling release.
+
+## Hosted verification
+
+[GitHub run 37526644848](https://github.com/Jeks042/games-commercial-intelligence/actions/runs/37526644848) passed all 44 tests, model construction, an identical repeat build and artifact upload. The downloaded artifact passed ZIP/CSV/database hash checks, database integrity, foreign-key checks and all 13 SQL quality checks.
+
+The hosted Python 3.13.15 / SQLite 3.45.1 build produced identical hashes for all 13 CSV outputs to the published Python 3.13.7 / SQLite 3.50.4 release. Runtime fingerprints intentionally differ; analytical outputs agree. The [verification receipt](../data/analytical/verification-37526644848.json) records both runtimes and counts. A durable private artifact copy is retained.

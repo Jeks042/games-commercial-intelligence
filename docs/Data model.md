@@ -2,7 +2,7 @@
 
 ## Build and release
 
-Run `python src/build_model.py` after installing pinned dependencies. The reference runtime is Python 3.13 with SQLite 3.50.4; STRICT tables require SQLite 3.37 or newer. Exact Python/SQLite versions are recorded and included in each release fingerprint. No database service or credentials are required.
+Run `python src/build_model.py` after installing pinned dependencies. The reference runtime is Python 3.13 with SQLite 3.50.4; STRICT tables require SQLite 3.37 or newer. Exact Python/SQLite versions are recorded and included in each release fingerprint. Hosted verification also passed on Python 3.13.15 / SQLite 3.45.1, producing identical table/view CSV hashes to the local reference runtime. No database service or credentials are required.
 
 Python validates and loads records. The [schema](../sql/01_schema.sql), [reporting views](../sql/02_reporting_views.sql) and [quality gate](../sql/03_quality_checks.sql) define the shared SQL contract.
 
