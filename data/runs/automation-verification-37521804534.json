@@ -1,0 +1,34 @@
+{
+  "workflow_run_id": 37521804534,
+  "workflow_url": "https://github.com/Jeks042/games-commercial-intelligence/actions/runs/37521804534",
+  "head_sha": "758ec285c774578e8482d17574c58298f3d666aa",
+  "conclusion": "success",
+  "artifact_id": 11439114177,
+  "artifact_sha256": "5643208aa78e353d887729b9edce3575ced585844030dce3d2f5bf677e10c9ef",
+  "verified_outputs": [
+    "runs/",
+    "snapshots/",
+    "benchmarks/"
+  ],
+  "accepted_workflow_runs": [
+    {
+      "run_id": "steam-20261006T195007105550Z-7d552f14",
+      "coverage": {
+        "steam_store": 32,
+        "steam_reviews": 32,
+        "current_players": 32
+      },
+      "observations_sha256": "0b8095c9383b26cfb9c82b4fcf1998582d0325e755271df19f8abbf25f5289e1"
+    },
+    {
+      "run_id": "steamspy-20261006T195117842038Z-8d576778",
+      "coverage": {
+        "steamspy": 32
+      },
+      "observations_sha256": "633af11bfa338a4a7b55b501f31a071350ef6b56d59c58979c402480967a614b"
+    }
+  ],
+  "artifact_history_rows": 128,
+  "published_history_rows": 96,
+  "note": "Automation outputs verified and archived privately. Same-day workflow observations have not been added to the published baseline."
+}
