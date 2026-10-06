@@ -495,7 +495,10 @@ class PriceAdmissionTests(unittest.TestCase):
         }
 
     def test_assignment_reassignment_excludes_touched_title_and_preserves_raw(self):
-        raw = json.dumps([self.change()]).encode()
+        # UUID comparison must preserve exclusion despite valid source casing differences.
+        raw = json.dumps(
+            [self.change(gid=self.change()["old_game_id"].upper())]
+        ).encode()
         self.assignment_request.return_value = raw
         with patch(
             "price_history.request_history", return_value=self.raw

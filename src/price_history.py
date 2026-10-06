@@ -251,7 +251,9 @@ def assignment_check(raw, scope, contract, retrieved):
             raise ValueError(
                 "Assignment change leaves the requested identity-check window"
             )
-        touched.update((change["old_game_id"], change["new_game_id"]))
+        touched.update(
+            str(UUID(change[field])) for field in ("old_game_id", "new_game_id")
+        )
     return {
         "status": "passed_returned_assignment_log_check_not_independent_continuity_proof",
         "endpoint": contract["assignment_endpoint"],
@@ -259,7 +261,13 @@ def assignment_check(raw, scope, contract, retrieved):
         "checked_through_utc": retrieved,
         "raw_sha256": sha(raw),
         "returned_change_count": len(changes),
-        "touched_scoped_game_ids": sorted({t["itad_game_id"] for t in scope} & touched),
+        "touched_scoped_game_ids": sorted(
+            {
+                t["itad_game_id"]
+                for t in scope
+                if t["itad_game_id"] and str(UUID(t["itad_game_id"])) in touched
+            }
+        ),
     }
 
 

@@ -20,6 +20,8 @@ The [contract](Price%20history%20contract.md) defines the explicit history windo
 
 Thirty-six price-history tests exercise source validation, duplicate/conflict handling, missing and zero prices, explicit dates, censoring, sequence changes, bounded retries, secret-safe diagnostics, assignment/reassignment and cap controls, admission/tamper controls, repeated publication and exclusion of a current snapshot from historical response. These fixtures demonstrate processing behavior; they are not real historical observations or findings.
 
+[Hosted validation](https://github.com/Jeks042/games-commercial-intelligence/actions/runs/37544130387) passed all 103 tests, rebuilt the prior-stage model and positioning outputs, and verified identical reruns. The downloaded artifact matches all six committed pricing source-foundation inputs and contains no accepted history run or live pricing release. The [verification receipt](verification/pricing-foundation-37544130387.json) records the commit, artifact digest and scope of this check.
+
 The next gates are live API access, successful collection and payload review, explicit admission, real output verification, peer-context interpretation and independent sign-off. Commercial response remains unavailable until independently dated evidence and a defensible comparison design exist. Pricing or promotion recommendations will state the evidence they depend on; source availability cannot substitute for evidence of effectiveness.
 
 Issue 5 remains unstarted.

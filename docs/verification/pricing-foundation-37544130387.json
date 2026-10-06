@@ -1,0 +1,28 @@
+{
+  "verification_scope": "pricing_source_foundation_only_not_live_history_or_commercial_findings",
+  "workflow_run_id": 37544130387,
+  "workflow_url": "https://github.com/Jeks042/games-commercial-intelligence/actions/runs/37544130387",
+  "head_sha": "2f85e91ae1464e36f16ef22c10e8cb6d3ff09513",
+  "conclusion": "success",
+  "artifact_id": 11449797812,
+  "artifact_sha256": "556aedd5d504b14d9d58bb7f9436f5e178000f00cf5dbc30fe3f68878c6361ab",
+  "test_count": 103,
+  "price_foundation_test_count": 36,
+  "prior_stage_test_count": 67,
+  "source_artifact_matches_committed_inputs": true,
+  "source_artifact_sha256": {
+    "price-history/accepted-runs.json": "f6b1a46811e1968f3524d5639f42d17646e446b713ee3c070f3314b2a66fb497",
+    "price-history/discovery-20261006/app-lookup.json": "cfc2690dd75823782ad553c3c50eee4f120b37d32521a3a2333532f0a159e868",
+    "price-history/discovery-20261006/manifest.json": "435497cc9d83b77b66d4f29759e43537c315cfe4895a074cb241736530fd6aae",
+    "price-history/discovery-20261006/reverse-lookup.json": "ce06031afdd987365c7a58f56d02781d1e299dbf1d9444a66f9c2c1ffd03eab6",
+    "price-history/discovery-20261006/shops.json": "20f51c98fdf31b0369611a40bc37368bc2fa379816960dc12dce128857649cbd",
+    "price-history/source-contract.json": "789c2605e155cf98d32a435f24e903e413bd2df55fe7e7c4e595b56e9db06175"
+  },
+  "accepted_history_runs": 0,
+  "live_price_history_runs": 0,
+  "live_pricing_releases": 0,
+  "production_pricing_build": "unavailable_no_reviewed_history_run",
+  "stage4_state": "in_progress_live_access_and_findings_pending",
+  "independent_foundation_review": "pending_corrective_commit_review",
+  "note": "Tests exercise isolated fixtures. Hosted prior-stage model and positioning builds and identical reruns passed. These checks do not validate a live pricing dataset or establish historical response."
+}
