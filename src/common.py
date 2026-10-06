@@ -20,4 +20,13 @@ def load_titles() -> list[dict[str, str]]:
                 row = dict(row)
                 row["cohort"] = cohort
                 rows.append(row)
+    ids = [row["app_id"] for row in rows]
+    if (
+        not rows
+        or len(ids) != len(set(ids))
+        or any(not app_id.isdigit() for app_id in ids)
+    ):
+        raise ValueError("Title universe must contain unique numeric Steam app IDs")
+    if any(not row.get("title") or not row.get("peer_group") for row in rows):
+        raise ValueError("Every scoped title requires a name and peer group")
     return rows

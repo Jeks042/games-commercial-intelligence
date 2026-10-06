@@ -1,45 +1,58 @@
-name: Collect Steam commercial data
+name: Collect commercial source data
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - "trigger-data-collection.txt"
-      - ".github/workflows/collect-steam-data.yml"
   schedule:
     - cron: "15 6 * * 1"
 
 permissions:
-  contents: write
+  contents: read
+
+concurrency:
+  group: commercial-source-collection
+  cancel-in-progress: false
 
 jobs:
   collect:
     runs-on: ubuntu-latest
-
+    timeout-minutes: 15
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
-
+        with:
+          persist-credentials: false
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
-
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-
-      - name: Collect live Steam snapshot
+          python-version: "3.13"
+      - name: Install pinned dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Validate acquisition contracts
+        run: python -m unittest discover -s tests -v
+      - name: Collect observed Steam data
+        id: steam
+        continue-on-error: true
         run: python src/collect_snapshot.py
-
-      - name: Collect SteamSpy market benchmark
+      - name: Collect separate SteamSpy estimates
+        id: benchmark
+        continue-on-error: true
         run: python src/collect_market_benchmark.py
-
-      - name: Commit new data
+      - name: Retain source observations and run manifests
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: commercial-source-data-${{ github.run_id }}
+          path: |
+            data/runs/
+            data/snapshots/
+            data/benchmarks/
+          retention-days: 90
+          if-no-files-found: error
+      - name: Enforce complete acquisition
+        if: always()
+        env:
+          STEAM_RESULT: ${{ steps.steam.outcome }}
+          BENCHMARK_RESULT: ${{ steps.benchmark.outcome }}
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/snapshots/commercial-snapshot-history.csv
-          git add data/benchmarks/steamspy-market-benchmark.csv
-          git diff --cached --quiet && exit 0
-          git commit -m "Update commercial data snapshot"
-          git push
+          test "$STEAM_RESULT" = "success"
+          test "$BENCHMARK_RESULT" = "success"

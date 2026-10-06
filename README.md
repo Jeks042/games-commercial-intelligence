@@ -1,84 +1,50 @@
 # Games Commercial Intelligence
 
-**Status: Stage 1 complete — baseline data acquired and validated**
+Commercial portfolio analysis of 12 selected 505 Games titles and 20 market reference titles on Steam. The analysis assesses price positioning, player response and engagement signals to support decisions about portfolio attention and promotional priorities.
 
-This is an independent portfolio project built around a commercial analytics question:
+**Current delivery:** source acquisition and assurance. Analytical modelling is the next delivery stage; performance recommendations and the Power BI report are pending.
 
-> How should a premium games publisher use player demand, pricing, product performance and market signals to decide where to invest, promote, monitor or deprioritise across its portfolio?
+## Evidence base
 
-The initial case portfolio uses a curated set of 505 Games titles on Steam and a peer set of comparable premium games. The project is not affiliated with 505 Games, Digital Bros, Valve, Steam or any competitor publisher.
+| Source | Coverage | Measures |
+|---|---|---|
+| Steam Store | 32 scoped titles | UK storefront price, discount, publisher, developer and release metadata |
+| Steam reviews | 32 scoped titles | Lifetime positive and negative counts, review category and positivity |
+| Steam player API | 32 scoped titles | Concurrent players at retrieval time |
+| SteamSpy | Separate benchmark | Estimated owner bands and supporting market fields, subject to suitability review |
 
-## Why this project exists
+[Acquisition findings](docs/Stage%201%20acquisition%20findings.md) record the accepted runs, field availability and quality decisions. [Source contracts](docs/Data%20sources.md) and [acquisition controls](docs/Acquisition%20controls.md) define how evidence is collected and released.
 
-The goal is not to build another games dashboard. The goal is to recreate the type of decision support expected from a commercial insight / BI analyst working with a Head of Commercial or premium-products team.
+## Commercial scope
 
-The analysis will eventually connect:
+The planned analysis compares titles within documented reference groups, distinguishes lifecycle effects from product performance, and evaluates pricing and player response before proposing actions. Historical promotion analysis and scenarios require additional evidence and are tracked in the [delivery backlog](https://github.com/Jeks042/games-commercial-intelligence/issues).
 
-- portfolio and market performance
-- player demand and engagement
-- pricing and promotion
-- player reviews and brand perception
-- commercial forecasting and scenario analysis
-- clear investment and product recommendations
+Public Steam signals do not establish publisher revenue, units sold, retention or marketing return. SteamSpy estimates remain separate from observed Steam measures. Small reference groups support contextual comparison; they do not constitute a representative market sample.
 
-## Stage 1 data foundation
+## Reproduce the acquisition
 
-The repository starts with:
-
-- 12 505 Games portfolio titles across new release, growth, mature and back-catalogue stages
-- 20 comparable games grouped by commercial peer set
-- Steam Store metadata and pricing acquisition
-- Steam review-summary acquisition
-- current-player snapshots
-- a separate SteamSpy market benchmark for estimated owner / CCU fields, kept apart from observed Steam metrics
-- a scheduled GitHub Actions collector so the project can build its own weekly time series
-
-Run locally:
+Python 3.13; dependencies are pinned.
 
 ```bash
-pip install -r requirements.txt
+python -m venv .venv
+# Activate the environment for your operating system.
+python -m pip install -r requirements.txt
+python -m unittest discover -s tests -v
 python src/collect_snapshot.py
+python src/collect_market_benchmark.py
 ```
 
-The output is appended to:
+Each collector saves an immutable observation file and manifest under `data/runs/`. Complete, validated runs update the Steam history or latest benchmark; failed runs retain diagnostic evidence and leave published data intact.
 
-`data/snapshots/commercial-snapshot-history.csv`
+Scheduled collection produces downloadable GitHub Actions artifacts. Accepted observations must be reviewed and committed by the repository owner to extend the published history. Artifacts expire after 90 days; the schedule is a weekly engagement pulse, not continuous monitoring.
 
-## Commercial questions
+## Repository guide
 
-1. Which titles are outperforming or underperforming their peer group?
-2. Where is player sentiment improving or deteriorating?
-3. Which back-catalogue titles still show durable demand?
-4. Which products appear over- or under-positioned on price relative to peers?
-5. How do promotions and price changes relate to player/review momentum?
-6. Which titles should receive additional commercial support?
-7. What evidence would be needed before making a real revenue or acquisition decision?
+- [Business brief](docs/Business%20brief.md): decision scope and deliverables.
+- [Title universe](data/portfolio-titles.csv) and [market reference set](data/competitor-titles.csv): scoped products and comparison rationale.
+- [Steam observation history](data/snapshots/commercial-snapshot-history.csv): versioned source observations.
+- [SteamSpy benchmark](data/benchmarks/steamspy-market-benchmark.csv): external estimates and availability flags.
+- [Metric dictionary](docs/Metric%20dictionary.md): current and planned measures.
+- [Evidence limitations](docs/Data%20limitations.md): interpretation boundaries.
 
-## Milestones
-
-1. Acquire and validate the baseline data.
-2. Build the analytical model and metric dictionary.
-3. Benchmark portfolio and market performance.
-4. Analyse pricing, promotions and commercial response.
-5. Analyse player reviews and brand perception.
-6. Build forecasts and commercial scenarios.
-7. Build the Power BI executive report and recommendation.
-8. Verify reproducibility and publish the portfolio case study / interview pack.
-
-## Analytical safeguards
-
-Public data does **not** equal internal publisher data.
-
-- Estimated owners are treated as estimates, not unit sales.
-- Public player counts are engagement proxies, not DAU or MAU.
-- Steam reviews are self-selected and do not represent every player.
-- Observed promotional movements are not automatically causal.
-- Any external revenue estimate will be labelled as an estimate or scenario, never as 505 Games' actual revenue.
-- Steam-only analysis will be clearly separated from conclusions about console or total portfolio performance.
-
-See `docs/Data limitations.md` for the full boundary conditions.
-
-
-## Current progress
-
-Stage 1 is complete. The initial acquisition pipeline collected live Steam data for all 32 scoped titles and a separate market benchmark. See [Stage 1 acquisition findings](docs/Stage%201%20acquisition%20findings.md) for coverage, limitations and the decision on which fields are safe to use.
+Independent public-data analysis; no affiliation with the publishers or platforms referenced.

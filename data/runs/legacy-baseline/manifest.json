@@ -1,0 +1,9 @@
+{
+  "schema_version": "legacy-1",
+  "status": "retained_unverified",
+  "note": "Original bytes preserved. No retrospective payload validation or per-source retrieval times are asserted.",
+  "files": {
+    "commercial-snapshot-history.csv": "6777b9243c7ea7ed21fa7b8d67b442c3363dcec314675de45d23e01259cf17a1",
+    "steamspy-market-benchmark.csv": "bb203344e0977eaec7afd25936ed212f7bf52497de3d9be9a18f8df224a11b4f"
+  }
+}

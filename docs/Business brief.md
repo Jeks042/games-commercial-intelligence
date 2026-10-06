@@ -1,34 +1,24 @@
-# Business brief
+# Commercial decision brief
 
 ## Decision context
 
-Assume the analyst supports a premium-games commercial team with limited time and promotional budget. The team needs a repeatable way to identify where portfolio attention should go and what evidence supports the decision.
+Premium-games portfolios compete for limited promotional budget and commercial attention. This analysis assesses where public evidence supports closer investigation, a pricing test or continued monitoring across selected 505 Games products on Steam.
 
-## Primary decision
+## Decision framework
 
-For each title, recommend one of the following only when the evidence is sufficient:
+Title-level recommendations will distinguish Invest, Promote, Maintain, Monitor and Deprioritise. Recommendations require a defined reference set, lifecycle context, evidence strength and a clear statement of what internal information is missing.
 
-- Invest / increase commercial support
-- Promote / test a pricing or campaign action
-- Maintain
-- Monitor
-- Deprioritise
+## Analysis priorities
 
-## Questions to answer
+- Establish current price, player-response and engagement positioning.
+- Compare titles against relevant references without equating category leaders with direct competitors.
+- Identify back-catalogue products with sustained observed activity.
+- Separate changes in player response from differences in release timing and sampling.
+- Evaluate promotional response only when historical data supports a defensible comparison.
+- State the evidence required before committing budget.
 
-- What is each title's current commercial position?
-- Is momentum driven by demand, sentiment, price, lifecycle or a combination?
-- Is a title outperforming its natural peer set?
-- Are recent player signals stronger or weaker than long-run signals?
-- Which mature / back-catalogue titles still have monetisation potential?
-- Which apparent opportunities are too uncertain to act on?
+## Delivery
 
-## Expected final outputs
+The delivery comprises reproducible acquisition, a governed SQL analytical model, a Power BI report, documented scenarios and a commercial decision memo. The source acquisition stage precedes modelling and performance analysis.
 
-- reproducible Python / SQL data pipeline
-- clean analytical tables
-- Power BI executive report
-- commercial scenario / forecast layer
-- one-page decision memo
-- GitHub case study
-- interview-ready explanation of assumptions, limitations and recommendations
+Steam-only observations cannot determine consolidated publisher performance, net revenue, acquisition cost or cross-platform demand. Any commercial scenario must expose its assumptions and avoid presenting modelled values as reported accounts.
