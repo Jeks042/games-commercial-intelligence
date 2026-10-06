@@ -2,7 +2,7 @@
 
 Commercial portfolio analysis of 12 selected 505 Games titles and 20 market reference titles on Steam. The analysis assesses price positioning, player response and engagement signals to support decisions about portfolio attention and promotional priorities.
 
-**Status:** Acquisition and the SQL analytical model are accepted. Portfolio benchmarking is implemented and under verification. The frozen baseline covers 32 scoped titles. Historical promotion analysis and the Power BI report remain subsequent deliveries.
+**Status:** Acquisition, the SQL analytical model and snapshot portfolio benchmarking are accepted. The frozen baseline covers 32 scoped titles. Historical pricing and promotion analysis is the next delivery; the Power BI report follows later.
 
 ## Evidence base
 

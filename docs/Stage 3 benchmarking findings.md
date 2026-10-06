@@ -79,8 +79,12 @@ Recent sentiment and review themes belong to Issue 5; historical pricing and pro
 
 ## Delivery assurance
 
-The implementation passes 67 tests locally and on GitHub: 20 acquisition, 24 modelling and 23 positioning tests. All nine positioning SQL quality gates pass. Tests cover sparse/non-direct references, missing prices, low review counts, source-date/time and review-contract mismatches, median and tie handling, genuine zero and undefined ratios, lifecycle context, input/dictionary/output tampering and repeatable publication. Independent review is the remaining acceptance gate.
+Issue 3 is accepted. The implementation passes 67 tests locally and on GitHub: 20 acquisition, 24 modelling and 23 positioning tests. All nine positioning SQL quality gates pass. Tests cover sparse/non-direct references, missing prices, low review counts, source-date/time and review-contract mismatches, median and tie handling, genuine zero and undefined ratios, lifecycle context, input/dictionary/output tampering and repeatable publication.
 
 [Hosted validation](https://github.com/Jeks042/games-commercial-intelligence/actions/runs/37538939826) passed both the model and positioning builds, identical reruns and artifact upload. The downloaded artifact passed ZIP and database hashes, integrity and foreign-key checks, all 13 model checks and all nine positioning checks. All five positioning CSV hashes match the local release and independently regenerated exports from the hosted database. The pinned model's 13 CSV hashes were also verified.
 
 Hosted Python 3.13.15 / SQLite 3.45.1 and local Python 3.13.7 / SQLite 3.50.4 produce matching consumer CSVs. Runtime fingerprints intentionally differ. The [verification receipt](../data/positioning/verification-37538939826.json) records the evidence; a durable private artifact copy is retained.
+
+Independent read-only review accepted the implementation and findings contract with no blocking issue. It checked input lineage, reference roles and coverage, temporal comparability, review contracts, lifecycle context, zero/NULL semantics, percentiles, publication controls and interpretation. Downloaded-artifact verification satisfied the final acceptance condition. [Issue 3](https://github.com/Jeks042/games-commercial-intelligence/issues/3) records completion.
+
+Issue 4 remains unstarted. Its next requirement is an appropriate historical pricing source and dated commercial-response observations; this snapshot is not promotion-effect evidence.
