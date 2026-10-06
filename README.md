@@ -2,7 +2,7 @@
 
 Commercial portfolio analysis of 12 selected 505 Games titles and 20 market reference titles on Steam. The analysis assesses price positioning, player response and engagement signals to support decisions about portfolio attention and promotional priorities.
 
-**Status:** Acquisition and the SQL analytical model are accepted. The baseline covers 32 scoped titles; local and hosted builds passed verification and independent review. Portfolio benchmarking is the next delivery. Performance recommendations and the Power BI report remain subsequent deliveries.
+**Status:** Acquisition and the SQL analytical model are accepted. Portfolio benchmarking is implemented and under verification. The frozen baseline covers 32 scoped titles. Historical promotion analysis and the Power BI report remain subsequent deliveries.
 
 ## Evidence base
 
@@ -26,6 +26,12 @@ python src/build_model.py
 The builder publishes a versioned release with typed table/view CSVs and a verification manifest. See the [model specification](docs/Data%20model.md), [current release](data/analytical/current.json), [metric contract](docs/Metric%20dictionary.md) and [model verification findings](docs/Stage%202%20modelling%20findings.md). These outputs share one measurement definition across SQL, Python and Power BI.
 
 ## Commercial scope
+
+[Portfolio positioning findings](docs/Stage%203%20benchmarking%20findings.md) assess the 12 selected portfolio titles using separate price, review-response, review-scale and current-player signals. The [benchmarking contract](docs/Benchmarking%20methodology.md) retains reference roles, lifecycle context and availability gates. Only one title currently qualifies for direct-peer group measures; sparse comparisons and trends remain unavailable.
+
+```bash
+python src/benchmark_portfolio.py
+```
 
 The planned analysis compares titles within documented reference groups, distinguishes lifecycle effects from product performance, and evaluates pricing and player response before proposing actions. Historical promotion analysis and scenarios require additional evidence and are tracked in the [delivery backlog](https://github.com/Jeks042/games-commercial-intelligence/issues).
 

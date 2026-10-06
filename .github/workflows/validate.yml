@@ -7,8 +7,11 @@ on:
       - "sql/**"
       - "requirements.txt"
       - "docs/metric-dictionary.csv"
+      - "docs/benchmark-metrics.csv"
       - "data/accepted-runs.json"
       - "data/title-references.csv"
+      - "data/benchmarking-contract.json"
+      - "data/analytical/**"
       - "data/portfolio-titles.csv"
       - "data/competitor-titles.csv"
       - "data/runs/**"
@@ -38,11 +41,20 @@ jobs:
           cp data/analytical/current.json /tmp/model-current.json
           python src/build_model.py
           cmp /tmp/model-current.json data/analytical/current.json
+      - name: Build portfolio positioning from the accepted model
+        run: python src/benchmark_portfolio.py
+      - name: Verify identical positioning rerun
+        run: |
+          cp data/positioning/current.json /tmp/positioning-current.json
+          python src/benchmark_portfolio.py
+          cmp /tmp/positioning-current.json data/positioning/current.json
       - name: Retain model release evidence
         if: always()
         uses: actions/upload-artifact@v7
         with:
           name: analytical-model-${{ github.run_id }}
-          path: data/analytical/
+          path: |
+            data/analytical/
+            data/positioning/
           retention-days: 90
           if-no-files-found: error

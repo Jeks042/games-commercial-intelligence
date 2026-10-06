@@ -1,0 +1,17 @@
+{
+  "status": "accepted",
+  "model_release_id": "3b2e883513623cfa",
+  "model_release_path": "data/analytical/releases/3b2e883513623cfa",
+  "model_manifest_sha256": "532758480dd82073ef942f8a3c7b7298e45a99417a65d1921dcc7ff5e2c0b7cf",
+  "acceptance_evidence": "Issue 2 accepted after local, hosted and independent verification; https://github.com/Jeks042/games-commercial-intelligence/issues/2",
+  "analysis_policy": {
+    "minimum_direct_peers": 3,
+    "minimum_reviews_for_positivity": 100,
+    "maximum_pair_collection_seconds": 300,
+    "require_same_source_utc_date": true,
+    "require_same_review_contract": true,
+    "percentile": "100 * (references_below_target + 0.5 * references_equal_target) / valid_reference_count",
+    "classification": "No composite or overall performance score; unadjusted snapshot signals only."
+  },
+  "metric_dictionary_sha256": "519bf863fa0479ae30f779461fdbabb68a2b0bf16563f89961d71bf65fb88c09"
+}

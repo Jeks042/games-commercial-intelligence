@@ -1,0 +1,7 @@
+cohort,analytical_lifecycle,title_count,represented_peer_groups,minimum_title_age_days,maximum_title_age_days,interpretation
+competitor,back_catalogue,15,7,1111,3981,inventory_only_no_cross_genre_performance_ranking
+competitor,established,5,3,441,1089,inventory_only_no_cross_genre_performance_ranking
+portfolio,back_catalogue,5,4,1232,4309,inventory_only_no_cross_genre_performance_ranking
+portfolio,early_access,2,1,327,628,inventory_only_no_cross_genre_performance_ranking
+portfolio,early_lifecycle,1,1,145,145,inventory_only_no_cross_genre_performance_ranking
+portfolio,established,4,4,440,1076,inventory_only_no_cross_genre_performance_ranking
