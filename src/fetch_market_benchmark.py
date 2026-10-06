@@ -16,7 +16,7 @@ def fetch_market_benchmark(app_id: str) -> dict:
             "where": f"\"appID\"='{app_id}'",
             "length": 1,
         },
-        timeout=45,
+        timeout=15,
     )
     response.raise_for_status()
     payload = response.json()
