@@ -1,1 +1,2 @@
 * text=auto eol=lf
+data/runs/legacy-baseline/*.csv -text

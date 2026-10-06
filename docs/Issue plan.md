@@ -10,7 +10,7 @@ Tasks:
 - validate 505 portfolio title list and Steam app IDs
 - validate competitor app IDs and peer-group rationale
 - run Steam Store, review-summary and current-player collectors
-- retrieve market benchmark rows from the Hugging Face Steam dataset
+- acquire and validate a separate SteamSpy benchmark; retain Hugging Face as a research fallback
 - record source, retrieval time and failures
 - confirm no field is being interpreted as internal sales / revenue
 
@@ -83,7 +83,7 @@ Tasks:
 - final Invest / Promote / Maintain / Monitor / Deprioritise recommendations
 - one-page commercial decision memo
 
-## Issue 8 — Verify reproducibility and publish interview case study
+## Issue 8 — Verify reproducibility and publish commercial case study
 
 Tasks:
 - rerun acquisition and analysis from a clean environment
@@ -91,4 +91,4 @@ Tasks:
 - document limitations and source dates
 - polish README around the commercial decision
 - publish portfolio case study
-- prepare interview questions and answers from the project's real findings
+- publish the commercial decision memo and evidence traceability

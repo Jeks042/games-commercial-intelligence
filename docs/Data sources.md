@@ -22,7 +22,9 @@ Limitation: Steam storefront data only; price can vary by region and time.
 
 Endpoint pattern:
 
-`https://store.steampowered.com/appreviews/{APP_ID}?json=1`
+`https://api.steampowered.com/IUserReviewsService/GetAppReviews/v1/`
+
+Parameters use `input_json`: numeric app ID, all languages, all purchase origins, all review types and Steam's off-topic filter enabled. The collector retains the lifetime query summary only. See [Valve's interface and migration contract](https://partner.steamgames.com/doc/webapi/IUserReviewsService). The earlier appreviews endpoint is deprecated; legacy observations remain explicitly versioned. Anonymous responses can be cached for up to ten minutes.
 
 Use:
 - positive / negative review counts
@@ -41,7 +43,7 @@ Endpoint pattern:
 Use:
 - point-in-time concurrent player count
 
-The scheduled workflow stores repeated snapshots so we can build our own longitudinal series.
+The scheduled workflow retains run artifacts. The owner reviews and publishes accepted runs to extend the longitudinal series.
 
 Limitation: current concurrent players are not DAU, MAU, active owners or retention.
 
@@ -54,7 +56,7 @@ Endpoint pattern:
 Use:
 - estimated owner range
 - public CCU estimate
-- average / median playtime
+- average / median playtime only when available; zero values are treated as unavailable
 - positive / negative review counts
 - price and genre fields
 
