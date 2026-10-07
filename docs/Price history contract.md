@@ -14,11 +14,19 @@ After the final price retrieval, the collector queries the assignment log again 
 
 The endpoint is unstable and returns at most 1,000 changes. A response reaching that cap is rejected: the documented `last` parameter retrieves newer IDs and does not establish a way to retrieve omitted older changes. An uncapped response with no scoped reassignment means **no scoped reassignment returned by this source for the requested interval**. It is not an independent guarantee of historical identity continuity, source-log retention or SKU attribution. These limitations remain in the output basis even after the check passes.
 
-History requests explicitly set `country=GB`, `shops=61` and `since=2025-10-06T00:00:00+00:00`; the API's US and three-month defaults are not used. The analysis cutoff is the accepted Steam run's finish on 6 October 2026. Later source changes are retained in raw evidence and excluded from this frozen analysis. The documented route returns an array with no paging contract; wrapped/paged shapes are rejected pending adaptation.
+History requests explicitly set `country=GB`, `shops=61` and `since=2026-09-15T00:00:00+00:00`; the API's US and three-month defaults are not used. The analysis cutoff is the accepted Steam run's finish on 6 October 2026. Later source changes are retained in raw evidence and excluded from this frozen analysis. The documented route returns an array with no paging contract; wrapped/paged shapes are rejected pending adaptation.
 
 Returned currency must be GBP and shop must be Steam/61. Decimal amounts and integer penny representations must agree; prices, regular prices and cuts must reconcile. Original offsets and timestamps remain alongside UTC-normalised event times. `deal=null` means removed/unavailable price state; it is never changed to full price or zero. Identical duplicate events are deduplicated for analysis; conflicting states at one UTC time fail validation.
 
 A successful request proves a returned change log, not continuous monitoring or complete historical campaign coverage. The price before the first returned event is unknown. Empty history means no events returned for this request, not that the title was never discounted. Coverage remains explicit per title.
+
+## Bounded analysis window
+
+The initial full-year assignment check returned the 1,000-record ceiling and was retained as a failed run. Documented forward-cursor probes returned the same capped newest records; no undocumented paging or date partitioning is used to reconstruct the omitted year. A recent-window feasibility check from 12 September returned 989 valid changes with no scoped game touched.
+
+Before collecting or inspecting prices, the analytical start was fixed at **15 September 2026**, with the existing accepted-model cutoff on **6 October 2026**. This provides a shorter recent period and more headroom below the assignment cap. Both live assignment checks must still remain uncapped; no guard is relaxed. The [scope-selection evidence](../data/price-history/assignment-probe-20261007/manifest.json) is diagnostic evidence rather than analytical pricing data. The window is not moved in response to observed prices.
+
+Any findings apply only to roughly three weeks of recorded ITAD Steam-shop GB/GBP context. Annual promotion frequency, yearly strategy, response attribution, uplift and elasticity remain unsupported. Exact historical app and SKU continuity is still not independently verified.
 
 ## Recorded discount sequences
 

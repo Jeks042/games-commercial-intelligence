@@ -2,9 +2,9 @@
 
 ## Delivery state
 
-Issue 4 is in progress. Source identity discovery, a validated history collector, reviewed-run admission and deterministic recorded-discount sequence construction are implemented. Live historical-price acquisition requires an IsThereAnyDeal API key; no historical run is accepted and no pricing-analysis output is published yet.
+Issue 4 is in progress. Live access is validated and a bounded recent-period history run has been collected. Admission and final interpretation remain under review; no pricing-analysis output is published yet. The period was fixed at 15 September through the accepted 6 October cutoff before inspecting prices.
 
-The available evidence remains the accepted October 6 snapshot and the Stage 3 positioning findings. This stage has no new historical pricing or promotional-response conclusion to report.
+The candidate run contains 45 in-window records across 28 ITAD game contexts, three successful requests with no in-window events and one unresolved mapping excluded. Both assignment checks returned 938 records, below the 1,000-row cap, with no scoped game reassignment. The failed full-year attempt and documented cursor probes are retained as evidence for the narrower scope. These are recorded Steam-shop GB/GBP price states; response effects are not established.
 
 ## Source discovery
 
@@ -16,6 +16,10 @@ Foundation review identified that current lookup alone cannot establish historic
 
 The [contract](Price%20history%20contract.md) defines the explicit history window, as-of cutoff, currency checks, source timestamps, unknown boundaries, empty histories, source removals and sequence rules. The [source evidence](../data/price-history/discovery-20261006/manifest.json) records request and hash provenance.
 
+## Price suitability review
+
+The latest in-window record matches the accepted Steam final price in 27 of the 28 contexts with returned events. EA SPORTS WRC instead has a source-reported zero/zero price state against an accepted Steam final price of GBP 19.99. The original record is preserved as a suitability exception and must not support a free-offer claim or commercial comparison. Agreement for other contexts is a reconciliation check, not proof of exact historical SKU identity. The [diagnostic evidence](../data/price-history/reconciliation-20261007/latest-vs-accepted-steam.json) keeps current-source diagnostics separate from historical as-of evidence.
+
 ## Validation and remaining evidence
 
 Forty-one price-history tests exercise source validation, duplicate/conflict handling, missing and zero prices, explicit dates, censoring, sequence changes, bounded retries, secret-safe diagnostics, assignment/reassignment and cap controls, admission/tamper controls, repeated publication and exclusion of a current snapshot from historical response. These fixtures demonstrate processing behavior; they are not real historical observations or findings.
@@ -24,6 +28,6 @@ Forty-one price-history tests exercise source validation, duplicate/conflict han
 
 Separate source-foundation review accepted corrective commit `c3436d9`, including the post-collection temporal coverage control. This acceptance applies to the tested foundation only; no live data or final Stage 4 findings are signed off.
 
-The next gates are live API access, successful collection and payload review, explicit admission, real output verification, peer-context interpretation and independent sign-off. Commercial response remains unavailable until independently dated evidence and a defensible comparison design exist. Pricing or promotion recommendations will state the evidence they depend on; source availability cannot substitute for evidence of effectiveness.
+The next gates are candidate payload and suitability review, explicit admission, real output verification, peer-context interpretation and independent sign-off. Commercial response remains unavailable until independently dated evidence and a defensible comparison design exist. Pricing or promotion recommendations will state the evidence they depend on; source availability cannot substitute for evidence of effectiveness.
 
 Issue 5 remains unstarted.

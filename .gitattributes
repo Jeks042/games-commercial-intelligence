@@ -1,6 +1,8 @@
 * text=auto eol=lf
 data/runs/legacy-baseline/*.csv -text
 data/price-history/discovery-*/*.json -text
+data/price-history/assignment-probe-*/*.json -text
+data/price-history/reconciliation-*/*.json -text
 data/price-history/runs/*/responses/*.json -text
 data/price-history/runs/*/assignment-changes.json -text
 data/price-history/runs/*/assignment-changes-postflight.json -text

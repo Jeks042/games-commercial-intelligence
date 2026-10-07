@@ -1,0 +1,257 @@
+{
+  "purpose": "Price-value reconciliation diagnostic; not proof of historicalSKUidentity or continuous state",
+  "results": [
+    {
+      "app_id": 244210,
+      "title": "Assetto Corsa",
+      "latest_history_at_utc": "2026-10-01T20:11:01+00:00",
+      "latest_history_price_minor": 387,
+      "accepted_steam_price_minor": 387,
+      "accepted_steam_retrieved_at_utc": "2026-10-06T19:46:17.380254+00:00",
+      "status": "equal_recorded_latest_and_snapshot"
+    },
+    {
+      "app_id": 365960,
+      "title": "rFactor 2",
+      "latest_history_at_utc": "2026-10-01T17:25:01+00:00",
+      "latest_history_price_minor": 374,
+      "accepted_steam_price_minor": 374,
+      "accepted_steam_retrieved_at_utc": "2026-10-06T19:46:26.208945+00:00",
+      "status": "equal_recorded_latest_and_snapshot"
+    },
+    {
+      "app_id": 460950,
+      "title": "Katana ZERO",
+      "latest_history_at_utc": "2026-10-01T18:23:41+00:00",
+      "latest_history_price_minor": 767,
+      "accepted_steam_price_minor": 767,
+      "accepted_steam_retrieved_at_utc": "2026-10-06T19:46:48.203973+00:00",
+      "status": "equal_recorded_latest_and_snapshot"
+    },
+    {
+      "app_id": 493520,
+      "title": "GTFO",
+      "latest_history_at_utc": "2026-10-01T19:42:48+00:00",
+      "latest_history_price_minor": 944,
+      "accepted_steam_price_minor": 944,
+      "accepted_steam_retrieved_at_utc": "2026-10-06T19:46:42.639935+00:00",
+      "status": "equal_recorded_latest_and_snapshot"
+    },
+    {
+      "app_id": 805550,
+      "title": "Assetto Corsa Competizione",
+      "latest_history_at_utc": "2026-10-01T20:11:22+00:00",
+      "latest_history_price_minor": 874,
+      "accepted_steam_price_minor": 874,
+      "accepted_steam_retrieved_at_utc": "2026-10-06T19:46:16.258275+00:00",
+      "status": "equal_recorded_latest_and_snapshot"
+    },
+    {
+      "app_id": 1066890,
+      "title": "Automobilista 2",
+      "latest_history_at_utc": "2026-10-01T18:14:35+00:00",
+      "latest_history_price_minor": 1749,
+      "accepted_steam_price_minor": 1749,
+      "accepted_steam_retrieved_at_utc": "2026-10-06T19:46:21.120850+00:00",
+      "status": "equal_recorded_latest_and_snapshot"
+    },
+    {
+      "app_id": 1084160,
+      "title": "Jagged Alliance 3",
+      "latest_history_at_utc": "2026-09-24T17:20:51+00:00",
+      "latest_history_price_minor": 399,
+      "accepted_steam_price_minor": 399,
+      "accepted_steam_retrieved_at_utc": "2026-10-06T19:46:57.021658+00:00",
+      "status": "equal_recorded_latest_and_snapshot"
+    },
+    {
+      "app_id": 1139900,
+      "title": "Ghostrunner",
+      "latest_history_at_utc": "2026-10-01T20:11:30+00:00",
+      "latest_history_price_minor": 624,
+      "accepted_steam_price_minor": 624,
+      "accepted_steam_retrieved_at_utc": "2026-10-06T19:46:12.964268+00:00",
+      "status": "equal_recorded_latest_and_snapshot"
+    },
+    {
+      "app_id": 1164940,
+      "title": "Trepang2",
+      "latest_history_at_utc": "2026-10-01T20:11:30+00:00",
+      "latest_history_price_minor": 624,
+      "accepted_steam_price_minor": 624,
+      "accepted_steam_retrieved_at_utc": "2026-10-06T19:46:43.796909+00:00",
+      "status": "equal_recorded_latest_and_snapshot"
+    },
+    {
+      "app_id": 1182900,
+      "title": "A Plague Tale: Requiem",
+      "latest_history_at_utc": "2026-10-01T19:35:35+00:00",
+      "latest_history_price_minor": 1349,
+      "accepted_steam_price_minor": 1349,
+      "accepted_steam_retrieved_at_utc": "2026-10-06T19:47:00.298362+00:00",
+      "status": "equal_recorded_latest_and_snapshot"
+    },
+    {
+      "app_id": 1229240,
+      "title": "Chained Echoes",
+      "latest_history_at_utc": "2026-10-01T19:55:10+00:00",
+      "latest_history_price_minor": 874,
+      "accepted_steam_price_minor": 874,
+      "accepted_steam_retrieved_at_utc": "2026-10-06T19:46:55.926396+00:00",
+      "status": "equal_recorded_latest_and_snapshot"
+    },
+    {
+      "app_id": 1244090,
+      "title": "Sea of Stars",
+      "latest_history_at_utc": "2026-10-01T19:54:27+00:00",
+      "latest_history_price_minor": 1475,
+      "accepted_steam_price_minor": 1475,
+      "accepted_steam_retrieved_at_utc": "2026-10-06T19:46:52.605378+00:00",
+      "status": "equal_recorded_latest_and_snapshot"
+    },
+    {
+      "app_id": 1259420,
+      "title": "Days Gone",
+      "latest_history_at_utc": "2026-10-01T17:35:03+00:00",
+      "latest_history_price_minor": 1399,
+      "accepted_steam_price_minor": 1399,
+      "accepted_steam_retrieved_at_utc": "2026-10-06T19:47:01.357693+00:00",
+      "status": "equal_recorded_latest_and_snapshot"
+    },
+    {
+      "app_id": 1501750,
+      "title": "Lords of the Fallen",
+      "latest_history_at_utc": "2026-09-24T17:20:58+00:00",
+      "latest_history_price_minor": 824,
+      "accepted_steam_price_minor": 824,
+      "accepted_steam_retrieved_at_utc": "2026-10-06T19:46:33.854127+00:00",
+      "status": "equal_recorded_latest_and_snapshot"
+    },
+    {
+      "app_id": 1533420,
+      "title": "Neon White",
+      "latest_history_at_utc": "2026-10-01T19:04:39+00:00",
+      "latest_history_price_minor": 799,
+      "accepted_steam_price_minor": 799,
+      "accepted_steam_retrieved_at_utc": "2026-10-06T19:46:47.194840+00:00",
+      "status": "equal_recorded_latest_and_snapshot"
+    },
+    {
+      "app_id": 1627720,
+      "title": "Lies of P",
+      "latest_history_at_utc": "2026-10-01T19:54:30+00:00",
+      "latest_history_price_minor": 2499,
+      "accepted_steam_price_minor": 2499,
+      "accepted_steam_retrieved_at_utc": "2026-10-06T19:46:30.607966+00:00",
+      "status": "equal_recorded_latest_and_snapshot"
+    },
+    {
+      "app_id": 1649010,
+      "title": "Miasma Chronicles",
+      "latest_history_at_utc": "2026-10-01T20:11:40+00:00",
+      "latest_history_price_minor": 899,
+      "accepted_steam_price_minor": 899,
+      "accepted_steam_retrieved_at_utc": "2026-10-06T19:46:08.541470+00:00",
+      "status": "equal_recorded_latest_and_snapshot"
+    },
+    {
+      "app_id": 1658280,
+      "title": "Eiyuden Chronicle: Hundred Heroes",
+      "latest_history_at_utc": "2026-10-01T20:11:39+00:00",
+      "latest_history_price_minor": 1349,
+      "accepted_steam_price_minor": 1349,
+      "accepted_steam_retrieved_at_utc": "2026-10-06T19:46:04.258295+00:00",
+      "status": "equal_recorded_latest_and_snapshot"
+    },
+    {
+      "app_id": 1849250,
+      "title": "EA SPORTS WRC",
+      "latest_history_at_utc": "2026-09-28T17:20:19+00:00",
+      "latest_history_price_minor": 0,
+      "accepted_steam_price_minor": 1999,
+      "accepted_steam_retrieved_at_utc": "2026-10-06T19:46:25.206106+00:00",
+      "status": "different_values_requires_review"
+    },
+    {
+      "app_id": 1850570,
+      "title": "DEATH STRANDING DIRECTOR'S CUT",
+      "latest_history_at_utc": "2026-10-01T20:11:26+00:00",
+      "latest_history_price_minor": 874,
+      "accepted_steam_price_minor": 874,
+      "accepted_steam_retrieved_at_utc": "2026-10-06T19:46:11.910344+00:00",
+      "status": "equal_recorded_latest_and_snapshot"
+    },
+    {
+      "app_id": 1971650,
+      "title": "OCTOPATH TRAVELER II",
+      "latest_history_at_utc": "2026-09-18T17:21:51+00:00",
+      "latest_history_price_minor": 1999,
+      "accepted_steam_price_minor": 1999,
+      "accepted_steam_retrieved_at_utc": "2026-10-06T19:46:51.561894+00:00",
+      "status": "equal_recorded_latest_and_snapshot"
+    },
+    {
+      "app_id": 2091020,
+      "title": "Blades of Fire",
+      "latest_history_at_utc": "2026-10-01T20:11:36+00:00",
+      "latest_history_price_minor": 1749,
+      "accepted_steam_price_minor": 1749,
+      "accepted_steam_retrieved_at_utc": "2026-10-06T19:45:54.198644+00:00",
+      "status": "equal_recorded_latest_and_snapshot"
+    },
+    {
+      "app_id": 2144740,
+      "title": "Ghostrunner 2",
+      "latest_history_at_utc": "2026-10-01T20:11:26+00:00",
+      "latest_history_price_minor": 699,
+      "accepted_steam_price_minor": 699,
+      "accepted_steam_retrieved_at_utc": "2026-10-06T19:46:07.460533+00:00",
+      "status": "equal_recorded_latest_and_snapshot"
+    },
+    {
+      "app_id": 2277560,
+      "title": "WUCHANG: Fallen Feathers",
+      "latest_history_at_utc": "2026-10-01T20:11:40+00:00",
+      "latest_history_price_minor": 3149,
+      "accepted_steam_price_minor": 3149,
+      "accepted_steam_retrieved_at_utc": "2026-10-06T19:45:58.602126+00:00",
+      "status": "equal_recorded_latest_and_snapshot"
+    },
+    {
+      "app_id": 2399420,
+      "title": "Le Mans Ultimate",
+      "latest_history_at_utc": "2026-10-01T20:21:15+00:00",
+      "latest_history_price_minor": 1814,
+      "accepted_steam_price_minor": 1814,
+      "accepted_steam_retrieved_at_utc": "2026-10-06T19:46:21.837174+00:00",
+      "status": "equal_recorded_latest_and_snapshot"
+    },
+    {
+      "app_id": 2933080,
+      "title": "Crime Boss: Rockay City",
+      "latest_history_at_utc": "2026-10-01T20:11:17+00:00",
+      "latest_history_price_minor": 159,
+      "accepted_steam_price_minor": 159,
+      "accepted_steam_retrieved_at_utc": "2026-10-06T19:46:02.041020+00:00",
+      "status": "equal_recorded_latest_and_snapshot"
+    },
+    {
+      "app_id": 3058630,
+      "title": "Assetto Corsa EVO",
+      "latest_history_at_utc": "2026-10-01T20:11:11+00:00",
+      "latest_history_price_minor": 2639,
+      "accepted_steam_price_minor": 2639,
+      "accepted_steam_retrieved_at_utc": "2026-10-06T19:45:59.865690+00:00",
+      "status": "equal_recorded_latest_and_snapshot"
+    },
+    {
+      "app_id": 3917090,
+      "title": "Assetto Corsa Rally",
+      "latest_history_at_utc": "2026-10-01T20:03:51+00:00",
+      "latest_history_price_minor": 1999,
+      "accepted_steam_price_minor": 1999,
+      "accepted_steam_retrieved_at_utc": "2026-10-06T19:45:55.353214+00:00",
+      "status": "equal_recorded_latest_and_snapshot"
+    }
+  ]
+}

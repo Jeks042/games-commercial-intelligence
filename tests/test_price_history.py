@@ -18,6 +18,10 @@ import price_history as history
 class PriceHistoryTests(unittest.TestCase):
     def setUp(self):
         self.contract, self.scope = history.load_contract()
+        # Unit fixtures deliberately use a broad independent window; production is contract-bound.
+        self.contract = dict(
+            self.contract, window_start_utc="2025-10-06T00:00:00+00:00"
+        )
         self.title = next(t for t in self.scope if t["cohort"] == "portfolio")
         self.retrieved = "2026-10-06T22:00:00+00:00"
 
@@ -350,9 +354,9 @@ class PriceAdmissionTests(unittest.TestCase):
 
         self.raw = json.dumps(
             [
-                event("2026-01-01T12:00:00Z", 1000),
-                event("2026-01-02T12:00:00Z", 500),
-                event("2026-01-04T12:00:00Z", 1000),
+                event("2026-09-20T12:00:00Z", 1000),
+                event("2026-09-21T12:00:00Z", 500),
+                event("2026-09-23T12:00:00Z", 1000),
             ]
         ).encode()
         with patch(
@@ -490,8 +494,8 @@ class PriceAdmissionTests(unittest.TestCase):
             "old_game_id": gid
             or history.load_contract(self.root)[1][0]["itad_game_id"],
             "new_game_id": "018d937f-0681-7345-8d53-d0b6170cf842",
-            "timestamp": 1767268800,
-            "date": format_datetime(datetime.fromtimestamp(1767268800, timezone.utc)),
+            "timestamp": 1789905600,
+            "date": format_datetime(datetime.fromtimestamp(1789905600, timezone.utc)),
         }
 
     def test_assignment_reassignment_excludes_touched_title_and_preserves_raw(self):

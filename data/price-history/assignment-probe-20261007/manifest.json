@@ -1,0 +1,44 @@
+{
+  "purpose": "Read-only documented forward-cursor behavior probe; not accepted history evidence",
+  "requests": [
+    {
+      "count": 1000,
+      "endpoint": "https://api.isthereanydeal.com/unstable/games/dots/v1",
+      "first_id": 117539,
+      "last_id": 116418,
+      "maximum_timestamp": 1791326724,
+      "minimum_timestamp": 1789151456,
+      "name": "last-zero",
+      "parameters": {
+        "last": 0
+      },
+      "raw_sha256": "90cba6adc586e1cbda700883771a10554d895059b0211dc6c7d197fad9d79ac4",
+      "retrieved_at_utc": "2026-10-06T23:57:16.098063+00:00"
+    },
+    {
+      "count": 1000,
+      "endpoint": "https://api.isthereanydeal.com/unstable/games/dots/v1",
+      "first_id": 117539,
+      "last_id": 116418,
+      "maximum_timestamp": 1791326724,
+      "minimum_timestamp": 1789151456,
+      "name": "last-before-returned-tail",
+      "parameters": {
+        "last": 116417
+      },
+      "raw_sha256": "90cba6adc586e1cbda700883771a10554d895059b0211dc6c7d197fad9d79ac4",
+      "retrieved_at_utc": "2026-10-06T23:57:17.675778+00:00"
+    }
+  ],
+  "recent_window_feasibility": {
+    "checked_through_utc": "2026-10-06T23:57:52.440120+00:00",
+    "endpoint": "https://api.isthereanydeal.com/unstable/games/dots/v1",
+    "raw_sha256": "080f8d83857870c7b688a3059240c7fbf9586e326e2b3b296ab9d756e2cf1fd5",
+    "returned_change_count": 989,
+    "since_unix": 1789171199,
+    "status": "passed_returned_assignment_log_check_not_independent_continuity_proof",
+    "touched_scoped_game_ids": []
+  },
+  "analysis_start_selected_before_price_collection": "2026-09-15T00:00:00+00:00",
+  "decision": "Narrowed period for uncapped source evidence; no reconstruction of omitted older changes."
+}
