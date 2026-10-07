@@ -65,6 +65,6 @@
   "lifetime_theme_changes_all_null": true,
   "raw_text_not_in_hosted_artifact": true,
   "independent_source_control_review": "accepted_at_c325746",
-  "independent_analytical_control_review": "pending",
+  "independent_analytical_control_review": "language_semantics_correction_required_current_release_superseded_by_1aafe6fad5038c76",
   "final_stage5_signoff": "not_requested_language_theme_refinement_pending"
 }

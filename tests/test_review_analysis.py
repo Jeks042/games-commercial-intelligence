@@ -113,6 +113,17 @@ class ReviewAnalysisTests(unittest.TestCase):
             self.assertIsNone(r["theme_change_percent"])
         self.assertIsNone(result[0]["lifetime_theme_change_percent"])
 
+    def test_every_output_preserves_unverified_source_language_semantics(self):
+        cohorts, themes, titles = self.analyse()
+        for row in cohorts + themes + titles:
+            self.assertEqual(
+                row["language_suitability_status"],
+                "Steam_label_not_independently_verified_text_language",
+            )
+        self.assertIn("steam_labelled_english_lifetime_total_at_retrieval", titles[0])
+        self.assertNotIn("english_lifetime_total_at_retrieval", titles[0])
+        self.assertIn("Steam_labelled_English", titles[0]["comparability_limit"])
+
     def test_audit_selects_matched_and_unmatched_strata_deterministically(self):
         self.features[0]["theme_matches"] = {t: [] for t in collection.THEMES}
         selected = analysis.audit_selection(self.features)

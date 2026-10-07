@@ -13,6 +13,8 @@ import tempfile
 from build_model import ROOT, canonical, sha
 from review_collection import THEMES, inputs, integer, windows
 
+LANGUAGE_STATUS = "Steam_label_not_independently_verified_text_language"
+
 
 def audit_selection(features, minimum_words=5):
     chosen = {}
@@ -270,6 +272,7 @@ def analyse(contract, manifest, features):
                 "app_id": app,
                 "title": title["title"],
                 "creation_cohort": window,
+                "language_suitability_status": LANGUAGE_STATUS,
                 "creation_start_utc": datetime.fromtimestamp(
                     cover["start_timestamp"], timezone.utc
                 ).isoformat(),
@@ -308,6 +311,7 @@ def analyse(contract, manifest, features):
                         "app_id": app,
                         "title": title["title"],
                         "creation_cohort": window,
+                        "language_suitability_status": LANGUAGE_STATUS,
                         "theme": theme,
                         "screenable_text_count": len(screenable),
                         "keyword_matched_review_count": len(matched),
@@ -358,8 +362,10 @@ def analyse(contract, manifest, features):
                     if ready
                     else "unavailable_incomplete_or_below_30_reviews_per_cohort"
                 ),
-                "english_lifetime_total_at_retrieval": summary["total_reviews"],
-                "english_lifetime_positive_percent_at_retrieval": (
+                "steam_labelled_english_lifetime_total_at_retrieval": summary[
+                    "total_reviews"
+                ],
+                "steam_labelled_english_lifetime_positive_percent_at_retrieval": (
                     round(100 * summary["total_positive"] / summary["total_reviews"], 4)
                     if summary["total_reviews"]
                     else None
@@ -368,7 +374,8 @@ def analyse(contract, manifest, features):
                 "lifetime_theme_change_percent": None,
                 "commercial_response_status": "unavailable_no_linked_sales_conversion_or_campaign_evidence",
                 "causal_effect_status": "not_identified",
-                "comparability_limit": "self_selected_English_creation_cohorts_current_mutable_text_and_votes_composition_unadjusted",
+                "comparability_limit": "self_selected_Steam_labelled_English_creation_cohorts_current_mutable_text_and_votes_composition_unadjusted",
+                "language_suitability_status": LANGUAGE_STATUS,
             }
         )
     return cohorts, themes, contrasts
@@ -414,6 +421,7 @@ def build(root=ROOT):
         },
         "reproduction": "Public coded-feature analytical rebuild; private immutable raw archive required for source-to-feature replay.",
         "theme_interpretation": "Provisional keyword matches; confirmed aspect sentiment and population concern prevalence unavailable.",
+        "language_suitability_status": LANGUAGE_STATUS,
     }
     output["build-manifest.json"] = canonical(receipt) + b"\n"
     releases = root / "data/review-analysis/releases"
