@@ -42,7 +42,7 @@
   "raw_text_not_in_hosted_artifact": true,
   "production_review_build": "skipped_no_admitted_coded_source",
   "accepted_review_runs": 0,
-  "independent_source_control_review": "pending",
+  "independent_source_control_review": "accepted_at_c325746_bounded_coded_source_only_not_final_stage5",
   "stage5_state": "in_progress",
   "private_raw_backup_verified": true,
   "private_raw_backup_sha256": "30e6f446847e82b3a3a68cf70508904dfa32e9ffe9029fa8fa5b44acccd61972"
