@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "endpoint": "https://api.steampowered.com/IUserReviewsService/GetAppReviews/v1/",
+  "documentation": "https://partner.steamgames.com/doc/webapi/IUserReviewsService",
+  "scope": "pinned_model_portfolio_only",
+  "as_of_utc": "2026-10-07T15:00:00+00:00",
+  "window_days": 30,
+  "maximum_pages_per_window": 5,
+  "page_size": 100,
+  "query": {
+    "filter": 1,
+    "languages": ["english"],
+    "review_type": 0,
+    "purchase_type": 1,
+    "filter_offtopic_activity": true,
+    "display_language": "english"
+  },
+  "minimum_comparison_reviews_per_window": 30,
+  "minimum_words_for_theme_screening": 5,
+  "screening_rule_version": 1,
+  "audit_protocol": {
+    "version": 1,
+    "strata": ["app_id", "window", "voted_up", "has_theme_match"],
+    "reviews_per_nonempty_stratum": 1,
+    "selection": "lowest_sha256_project_review_key_among_screenable_reviews",
+    "include_unmatched": true,
+    "interpretation": "Context checks of matched and unmatched text, not classifier accuracy or aspect-sentiment validation."
+  },
+  "interpretation": "Dated creation cohorts, current retrieved text and recommendation state. Bounded chronological samples are not representative lifetime theme corpora. Text and author identifiers remain private; public analytics reproduce from admitted coded features."
+}

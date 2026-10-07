@@ -12,6 +12,7 @@ on:
       - "data/title-references.csv"
       - "data/benchmarking-contract.json"
       - "data/price-history/**"
+      - "data/player-reviews/**"
       - "data/analytical/**"
       - "data/portfolio-titles.csv"
       - "data/competitor-titles.csv"
@@ -70,6 +71,21 @@ jobs:
           else:
               print("Pricing analysis unavailable: no reviewed history run. Source foundation tests passed separately.")
           PY
+      - name: Verify player-review analysis when a reviewed coded run exists
+        run: |
+          PYTHONPATH=src python - <<'PY'
+          import json
+          from review_analysis import ROOT, build
+          register = json.loads((ROOT / "data/player-reviews/accepted-runs.json").read_bytes())
+          if register["accepted_runs"]:
+              build()
+              pointer = ROOT / "data/review-analysis/current.json"
+              before = pointer.read_bytes()
+              build()
+              assert before == pointer.read_bytes()
+          else:
+              print("Player-review analysis unavailable: no reviewed coded run.")
+          PY
       - name: Retain model release evidence
         if: always()
         uses: actions/upload-artifact@v7
@@ -81,5 +97,7 @@ jobs:
             data/price-history/
             data/pricing-analysis/
             data/pricing-review/
+            data/player-reviews/
+            data/review-analysis/
           retention-days: 90
           if-no-files-found: error

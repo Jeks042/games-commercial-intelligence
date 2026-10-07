@@ -6,3 +6,4 @@ data/price-history/reconciliation-*/*.json -text
 data/price-history/runs/*/responses/*.json -text
 data/price-history/runs/*/assignment-changes.json -text
 data/price-history/runs/*/assignment-changes-postflight.json -text
+data/player-reviews/runs/*/features.json -text
