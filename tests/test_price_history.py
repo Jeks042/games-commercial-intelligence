@@ -333,9 +333,11 @@ class PriceAdmissionTests(unittest.TestCase):
         for relative in (
             "data/benchmarking-contract.json",
             "data/price-history/source-contract.json",
-            "data/price-history/accepted-runs.json",
         ):
             shutil.copyfile(history.ROOT / relative, self.root / relative)
+        (self.root / "data/price-history/accepted-runs.json").write_bytes(
+            history.canonical({"accepted_runs": []}) + b"\n"
+        )
 
         def event(at, price):
             return {

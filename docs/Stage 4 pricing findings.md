@@ -10,7 +10,7 @@ No new discount level is recommended from this evidence. The commercial next ste
 
 ## Scope and suitability
 
-The analytical window is **15 September–6 October 2026**, frozen at the accepted Steam observation cutoff. It was selected before price inspection because the original full-year assignment-change request reached the provider's 1,000-record cap. Documented forward-cursor probes returned the same newest records. A 12 September feasibility check returned 989 changes; the fixed 15 September window returned **938 in both preflight and postflight**, with no scoped game touched by reassignment. No older year is reconstructed through undocumented paging or partitioned requests.
+The analytical window is **15 Septemberâ€“6 October 2026**, frozen at the accepted Steam observation cutoff. It was selected before price inspection because the original full-year assignment-change request reached the provider's 1,000-record cap. Documented forward-cursor probes returned the same newest records. A 12 September feasibility check returned 989 changes; the fixed 15 September window returned **938 in both preflight and postflight**, with no scoped game touched by reassignment. No older year is reconstructed through undocumented paging or partitioned requests.
 
 The admitted fresh run was collected on 7 October and contains **45 in-window records**. Its 31 raw price responses and both assignment payloads match the separately reviewed first bounded candidate. The [repeat verification](../data/price-history/verification/source-repeat-20261007.json) records that equivalence. Source admission accepts what the provider returned; historical Steam-app association, exact SKU identity and campaign attribution remain unverified.
 
@@ -37,7 +37,7 @@ The measure is the **maximum source-reported cut among returned records in the f
 | Direct-reference median | 60% |
 | Eiyuden Chronicle: Hundred Heroes | 70% |
 
-Eiyuden is the only portfolio context meeting this coverage rule. The other **11 direct-reference comparison results remain NULL**. [Portfolio discount context](../data/pricing-review/releases/b23ab47bfdc878b7/portfolio_discount_context.csv) exposes expected and usable counts alongside every result.
+Eiyuden is the only portfolio context meeting this coverage rule. The other **11 direct-reference comparison results remain NULL**. [Portfolio discount context](../data/pricing-review/releases/d805e08327a98488/portfolio_discount_context.csv) exposes expected and usable counts alongside every result.
 
 ## Temporal and response limits
 

@@ -78,6 +78,7 @@ class PriceContextTests(unittest.TestCase):
         titles, _, result = self.evaluate()
         empty = next(r for r in titles if r["app_id"] == 203)
         self.assertEqual(empty["returned_record_count"], 0)
+        self.assertEqual(empty["window_coverage"], "no_in_window_records_returned")
         self.assertIsNone(empty["maximum_source_reported_cut_percent"])
         self.assertIsNone(result[0]["target_minus_reference_median_cut_pp"])
 
@@ -135,6 +136,18 @@ class PriceContextTests(unittest.TestCase):
         excluded = next(t for t in titles if t["app_id"] == 203)
         self.assertIsNone(excluded["returned_record_count"])
         self.assertEqual(excluded["history_status"], "not_requested_assignment_review")
+        self.assertEqual(excluded["window_coverage"], "not_requested_assignment_review")
+
+    def test_unresolved_mapping_does_not_claim_returned_window_coverage(self):
+        self.scope[2]["identity_status"] = "unresolved"
+        self.events = [r for r in self.events if r["app_id"] != 202]
+        titles, _, result = self.evaluate()
+        excluded = next(t for t in titles if t["app_id"] == 202)
+        self.assertEqual(
+            excluded["window_coverage"], "not_requested_mapping_unresolved"
+        )
+        self.assertIsNone(excluded["returned_record_count"])
+        self.assertIsNone(result[0]["target_minus_reference_median_cut_pp"])
 
     def test_duplicate_reference_cannot_inflate_usable_count(self):
         self.references.append(deepcopy(self.references[0]))

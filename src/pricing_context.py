@@ -58,6 +58,14 @@ def evaluate(scope, events, observations, references, coverage=None):
             suitability = "unavailable_no_in_window_records"
         else:
             suitability = price_suitability(latest, steam)
+        if title["identity_status"] != "eligible_app_linked_game_context":
+            window_coverage = "not_requested_mapping_unresolved"
+        elif source_status.startswith(("not_requested_", "excluded_")):
+            window_coverage = source_status
+        elif not rows:
+            window_coverage = "no_in_window_records_returned"
+        else:
+            window_coverage = "returned_records_only_left_state_unknown"
         suitable = suitability == "corroborated_latest_price_context_only"
         cuts = [
             float(r["cut_percent_source"]) for r in priced if r["regular_minor"] > 0
@@ -101,7 +109,7 @@ def evaluate(scope, events, observations, references, coverage=None):
                     max(cuts) if suitable and cuts else None
                 ),
                 "historical_sku_identity": "not_independently_verified",
-                "window_coverage": "returned_records_only_left_state_unknown",
+                "window_coverage": window_coverage,
                 "response_change_percent": None,
                 "response_status": "unavailable_no_comparable_historical_response_series",
             }
