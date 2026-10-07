@@ -1,0 +1,49 @@
+{
+  "verification_scope": "player_review_source_and_coded_analysis_foundation_only_not_admitted_live_analytics_or_final_stage5",
+  "workflow_run_id": 37643119050,
+  "workflow_url": "https://github.com/Jeks042/games-commercial-intelligence/actions/runs/37643119050",
+  "head_sha": "e0df92535173756c85edace5d9f04e412d41a321",
+  "conclusion": "success",
+  "test_count": 159,
+  "prior_stage_test_count": 122,
+  "review_source_test_count": 22,
+  "review_analysis_test_count": 15,
+  "artifact_id": 11492723630,
+  "artifact_sha256": "82bd05b064cca3aabf3d2188bc2ca14f3729dc3c70d48d991f1089939f550765",
+  "source_artifact_matches_committed_inputs": true,
+  "source_artifact_sha256": {
+    "player-reviews/accepted-runs.json": "f6b1a46811e1968f3524d5639f42d17646e446b713ee3c070f3314b2a66fb497",
+    "player-reviews/source-contract.json": "57b5146d6459208a196d6efd9c650f0073b7a99ad99733af5ddca7cea5c8a078",
+    "player-reviews/audit/context-check-20261007.json": "e7d1bafee3879eaca51afdec4d6f4a079a77afd939f600d57f2f1705676db78f",
+    "player-reviews/audit/selection-20261007.json": "63a8dd23239f22116dbbaf790ae7ae43b6a69b82e5668b1a6feb98d2198b1045",
+    "player-reviews/verification/private-replay-20261007.json": "68179220ace572ba09b0c64d2b800e173fff5803ca5965840b00bce454c4afca",
+    "player-reviews/runs/steam-reviews-20261007T150919249039Z-e90c0e3d/manifest.json": "06242c68eaf19c43b85f1f1de438eb78777881513f697fbe9c40bd100e245e55",
+    "player-reviews/runs/steam-reviews-20261007T151137522597Z-17a5d59e/features.json": "fd616c720cccc5dc91250ba3843ccd08739fab102043665d956dcf29c24dc17d",
+    "player-reviews/runs/steam-reviews-20261007T151137522597Z-17a5d59e/manifest.json": "2af318ea79fa0bacb82fd49a275eef37ec10bfb85aa94859789486b2170b92dc"
+  },
+  "prior_stage_csvs": {
+    "analytical": {
+      "csv_count": 13,
+      "csvs_match_committed_local": true
+    },
+    "positioning": {
+      "csv_count": 5,
+      "csvs_match_committed_local": true
+    },
+    "pricing-analysis": {
+      "csv_count": 3,
+      "csvs_match_committed_local": true
+    },
+    "pricing-review": {
+      "csv_count": 3,
+      "csvs_match_committed_local": true
+    }
+  },
+  "raw_text_not_in_hosted_artifact": true,
+  "production_review_build": "skipped_no_admitted_coded_source",
+  "accepted_review_runs": 0,
+  "independent_source_control_review": "pending",
+  "stage5_state": "in_progress",
+  "private_raw_backup_verified": true,
+  "private_raw_backup_sha256": "30e6f446847e82b3a3a68cf70508904dfa32e9ffe9029fa8fa5b44acccd61972"
+}

@@ -30,9 +30,11 @@ Use:
 - positive / negative review counts
 - total review count
 - review score
-- later: review timestamps, playtime-at-review and review text for player / brand analysis
+- dated creation cohorts and retrieved review text for player-feedback context; see the [review contract](Review%20analysis%20contract.md)
 
 Limitation: reviewers are self-selected. Review sentiment is not the same as customer satisfaction for the entire player base.
+
+The player-feedback extension collects the twelve portfolio titles with identical adjacent 30-day creation filters and bounded chronological paging. Original text and author identifiers remain private; public coded features and raw-response hashes support traceable analysis. Steam's English label is not independently verified text language. Current text/votes can be edited, so creation cohorts do not represent historical text snapshots. [Player-feedback findings](Stage%205%20player%20findings.md) record coverage and screening limitations.
 
 ## 3. Steam current-player API
 
