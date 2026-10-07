@@ -1,0 +1,71 @@
+{
+  "verification_scope": "admitted_bounded_coded_review_context_only_not_final_stage5_or_validated_theme_prevalence",
+  "workflow_run_id": 37645508179,
+  "workflow_url": "https://github.com/Jeks042/games-commercial-intelligence/actions/runs/37645508179",
+  "head_sha": "b9741abc0d7f57719b90c6dc95a4a6747b5c9980",
+  "conclusion": "success",
+  "test_count": 160,
+  "artifact_id": 11493967500,
+  "artifact_sha256": "b7f73f20b2124010d294d736a29d7c3f05e861882be6cbb33ba9c5cc28140d5d",
+  "hosted_release_id": "34ddb2778a560283",
+  "local_release_id": "1aafe6fad5038c76",
+  "hosted_python_version": "3.13.15",
+  "output_sha256": {
+    "audit_selection.json": "0d18fc49691afe6e71afdea5f19932aeae34a242091f6f30b340be2d004b8d91",
+    "cohort_review_context.csv": "672a06c1abab3caea7e2da6330a5aa894d31de5a345c0d7a70cc89fa076dde9b",
+    "theme_screening_context.csv": "5b4110ab9c5242a5dea787fa4035ee194a89e515ed04e8f8870ff4b3124ed190",
+    "title_review_context.csv": "dd8fe71b27f693de323b106424084da093445bbbca1f88f118a453e4e8e5100b"
+  },
+  "outputs_match_committed_local": true,
+  "row_counts": {
+    "audit_selection": 93,
+    "cohort_review_context": 24,
+    "theme_screening_context": 144,
+    "title_review_context": 12
+  },
+  "analytical_build_and_identical_rerun_passed": true,
+  "source_run_id": "steam-reviews-20261007T151137522597Z-17a5d59e",
+  "source_artifact_matches_committed_inputs": true,
+  "source_artifact_sha256": {
+    "player-reviews/accepted-runs.json": "b39516849d1ccbf63e10b5a3d6e7dbe080991fe568d20c9fd04f89d9dfb7ce7c",
+    "player-reviews/source-contract.json": "57b5146d6459208a196d6efd9c650f0073b7a99ad99733af5ddca7cea5c8a078",
+    "player-reviews/audit/context-check-20261007.json": "e7d1bafee3879eaca51afdec4d6f4a079a77afd939f600d57f2f1705676db78f",
+    "player-reviews/audit/selection-20261007.json": "63a8dd23239f22116dbbaf790ae7ae43b6a69b82e5668b1a6feb98d2198b1045",
+    "player-reviews/verification/private-replay-20261007.json": "944d3e0c9c5d90ed5523a400c6d5fe440e5db1bc45c571e65a9a2a5cbd0ed5c4",
+    "player-reviews/runs/steam-reviews-20261007T150919249039Z-e90c0e3d/manifest.json": "06242c68eaf19c43b85f1f1de438eb78777881513f697fbe9c40bd100e245e55",
+    "player-reviews/runs/steam-reviews-20261007T151137522597Z-17a5d59e/features.json": "fd616c720cccc5dc91250ba3843ccd08739fab102043665d956dcf29c24dc17d",
+    "player-reviews/runs/steam-reviews-20261007T151137522597Z-17a5d59e/manifest.json": "2af318ea79fa0bacb82fd49a275eef37ec10bfb85aa94859789486b2170b92dc"
+  },
+  "prior_stage_outputs": {
+    "analytical": {
+      "hosted_release_id": "a6569c95deb9fbb5",
+      "csv_count": 13,
+      "csvs_match_committed_local": true
+    },
+    "positioning": {
+      "hosted_release_id": "f4d95d5348f65100",
+      "csv_count": 5,
+      "csvs_match_committed_local": true
+    },
+    "pricing-analysis": {
+      "hosted_release_id": "c9570a6002f2204c",
+      "csv_count": 3,
+      "csvs_match_committed_local": true
+    },
+    "pricing-review": {
+      "hosted_release_id": "fd0ee9b38074c6d7",
+      "csv_count": 3,
+      "csvs_match_committed_local": true
+    }
+  },
+  "eligible_descriptive_recommendation_contrasts": 7,
+  "unavailable_recommendation_contrasts": 5,
+  "confirmed_concern_prevalence_all_null": true,
+  "theme_changes_all_null": true,
+  "lifetime_theme_changes_all_null": true,
+  "raw_text_not_in_hosted_artifact": true,
+  "independent_source_control_review": "accepted_at_c325746",
+  "independent_analytical_control_review": "pending_corrected_language_semantics_and_hosted_proof_review",
+  "final_stage5_signoff": "not_requested_language_theme_refinement_pending",
+  "language_semantics_explicitly_Steam_labelled_and_unverified": true
+}
