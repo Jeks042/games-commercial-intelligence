@@ -1,0 +1,131 @@
+{
+  "verification_scope": "bounded_provider_price_context_only_not_annual_history_or_promotional_effectiveness",
+  "workflow_run_id": 37551299593,
+  "workflow_url": "https://github.com/Jeks042/games-commercial-intelligence/actions/runs/37551299593",
+  "head_sha": "3bf56ec51b363f4e8acb8c4615354124a1e47c6e",
+  "conclusion": "success",
+  "artifact_id": 11452044033,
+  "artifact_sha256": "533ea8455d38788d65e6f10db32b9f691f87f1dab4e7aef9ffa540d71c9b3117",
+  "test_count": 122,
+  "prior_stage_test_count": 67,
+  "price_source_test_count": 42,
+  "price_context_test_count": 13,
+  "pricing_builds_and_identical_reruns_passed": true,
+  "pricing_releases": {
+    "pricing-analysis": {
+      "local_release_id": "956514931659a2f0",
+      "hosted_release_id": "c9570a6002f2204c",
+      "hosted_python_version": "3.13.15",
+      "local_python_version": "3.13.7",
+      "csv_matches_local": true,
+      "output_csv_sha256": {
+        "price_history_coverage.csv": "dc08854f4ed164a2a2bd5cb91bae78d8764b9abba1d2f7defc540fa15ed54718",
+        "recorded_discount_sequences.csv": "6fe0713671feedd945ac5cdbf2dcb2b6287a472224b608de0ca689ea9ed9624c",
+        "recorded_price_events.csv": "7cfdb798e99850cfb7ced940815eab5651fee8873f471f47cd09a4b48ee2e8f7"
+      },
+      "row_counts": {
+        "price_history_coverage": 32,
+        "recorded_discount_sequences": 27,
+        "recorded_price_events": 45
+      },
+      "source_manifest_sha256": "eae939135ed0da8c33d217e2b021b62c48d1f837d944d1eada62112efcb97217"
+    },
+    "pricing-review": {
+      "local_release_id": "d805e08327a98488",
+      "hosted_release_id": "fd0ee9b38074c6d7",
+      "hosted_python_version": "3.13.15",
+      "local_python_version": "3.13.7",
+      "csv_matches_local": true,
+      "output_csv_sha256": {
+        "portfolio_discount_context.csv": "2f9f34fa5db6a714397b5c52d197e91c24a00688328c927d36e94683c3e3e766",
+        "reference_discount_context.csv": "09049544bd8d705eae4cf96fa5ef5c39d6bf293d377643a2bd27c8753ab16ce2",
+        "title_price_context.csv": "6af0c6fec6105ba49f52e4592493ed4deace1dad853e9f574f1f589dd08f396a"
+      },
+      "row_counts": {
+        "portfolio_discount_context": 12,
+        "reference_discount_context": 38,
+        "title_price_context": 32
+      },
+      "source_manifest_sha256": "eae939135ed0da8c33d217e2b021b62c48d1f837d944d1eada62112efcb97217"
+    }
+  },
+  "source_run_id": "itad-history-20261007T001043928750Z-9875a16e",
+  "source_artifact_matches_committed_inputs": true,
+  "source_artifact_sha256": {
+    "price-history/source-contract.json": "c22d1f313eb3e71bab4a23308c91e27adb6a425658b8b07e74d47d547a41770d",
+    "price-history/accepted-runs.json": "a2c372f20324a923bea35b073c69b02691936f90ac56cdb5967b94814f9579b2",
+    "price-history/runs/itad-history-20261007T001043928750Z-9875a16e/assignment-changes-postflight.json": "c09053577410166943561a6b58f04325520ca9e7e6915953b8a2e162aeed7c2c",
+    "price-history/runs/itad-history-20261007T001043928750Z-9875a16e/assignment-changes.json": "c09053577410166943561a6b58f04325520ca9e7e6915953b8a2e162aeed7c2c",
+    "price-history/runs/itad-history-20261007T001043928750Z-9875a16e/events.csv": "7cfdb798e99850cfb7ced940815eab5651fee8873f471f47cd09a4b48ee2e8f7",
+    "price-history/runs/itad-history-20261007T001043928750Z-9875a16e/manifest.json": "eae939135ed0da8c33d217e2b021b62c48d1f837d944d1eada62112efcb97217",
+    "price-history/runs/itad-history-20261007T001043928750Z-9875a16e/responses/1066890.json": "a6660240cd03a22dd3bf206d1f12014a5189a09535129ade66c6c07dbb5f0c42",
+    "price-history/runs/itad-history-20261007T001043928750Z-9875a16e/responses/1084160.json": "5145cbb579849b52df29d501180cc01d104048f30fdd59fead34b8bd03a7207d",
+    "price-history/runs/itad-history-20261007T001043928750Z-9875a16e/responses/1139900.json": "55e286ca89f77af34e7a7b18c284917b41cd9a900438bb3f31704896c19db8c6",
+    "price-history/runs/itad-history-20261007T001043928750Z-9875a16e/responses/1164940.json": "6c73cb3a0d783d7dc254bee1644aa32b2021dd051537cf90a1e76203b289385e",
+    "price-history/runs/itad-history-20261007T001043928750Z-9875a16e/responses/1182900.json": "698fc7040b44dc9ccd8dd0771e19614ef029539621c1c574c14d0f4b38f9e2f6",
+    "price-history/runs/itad-history-20261007T001043928750Z-9875a16e/responses/1229240.json": "1b1f485323f3e1fc7126aeaaa9f7415791cc5208b23ff4c2f6251747a4be8a50",
+    "price-history/runs/itad-history-20261007T001043928750Z-9875a16e/responses/1244090.json": "b356e814a18b6a285a63adc26ab097ad6390dddbcc56ad22ea1b03068bc362f6",
+    "price-history/runs/itad-history-20261007T001043928750Z-9875a16e/responses/1245620.json": "695df229b32b504340b6dc6e22c665bb3928648598111bb0b24f5d8aee32bf44",
+    "price-history/runs/itad-history-20261007T001043928750Z-9875a16e/responses/1259420.json": "5274bb59d294831955448c23080d554070113efd2ae9cebe87bf74316d224aad",
+    "price-history/runs/itad-history-20261007T001043928750Z-9875a16e/responses/1272080.json": "95818b267644eb0509abc9456f65d4283d6a04d1f7317f2c4fa0c3026f4f6a7f",
+    "price-history/runs/itad-history-20261007T001043928750Z-9875a16e/responses/1501750.json": "28052885946c60c4b23eaa550df7636a044f8666e27ebb6f3f187dfe90c9dd55",
+    "price-history/runs/itad-history-20261007T001043928750Z-9875a16e/responses/1533420.json": "230b0d91ff05ffb0a587abae2aeccd14355e48727580fc1665bc3abbe9881782",
+    "price-history/runs/itad-history-20261007T001043928750Z-9875a16e/responses/1627720.json": "1766bea8aee4ef6f0cf010c087fa66b3d279785875929815e475b3fd573dd09e",
+    "price-history/runs/itad-history-20261007T001043928750Z-9875a16e/responses/1649010.json": "2e70e074657bfde704c9d1187631f3dc529631265509519765fd3631f9199f95",
+    "price-history/runs/itad-history-20261007T001043928750Z-9875a16e/responses/1658280.json": "b7afe49123e75d2c970efa1f0bb74572e9fcbe1845303b6d1afc476eb682c5ea",
+    "price-history/runs/itad-history-20261007T001043928750Z-9875a16e/responses/1849250.json": "6b2af81897298d03a33b94c1f10e82ff58680c90ab9b2309f42e93949fb944cd",
+    "price-history/runs/itad-history-20261007T001043928750Z-9875a16e/responses/1850570.json": "2471bc8960beefd79b4561009756037857bb38132bd9c66c7d81ef8b4839ddec",
+    "price-history/runs/itad-history-20261007T001043928750Z-9875a16e/responses/1971650.json": "918afc9c90920d88916d0cfe204799457a357c8fe40afffdc0f7215c04d470a7",
+    "price-history/runs/itad-history-20261007T001043928750Z-9875a16e/responses/2091020.json": "31eaf0d703239dd071126a82881ccb5de9294e55a4cfcf7f51af21cfa1c767bc",
+    "price-history/runs/itad-history-20261007T001043928750Z-9875a16e/responses/2144740.json": "4091a305949025df46b1df5cd732d3461f9e8b245647c6d9ee54791ecdd9e04a",
+    "price-history/runs/itad-history-20261007T001043928750Z-9875a16e/responses/2277560.json": "9c6d5bbc1654acbf0e2c51f86e43b8e4946998d2ab71ece73987261f90bbd988",
+    "price-history/runs/itad-history-20261007T001043928750Z-9875a16e/responses/2358720.json": "695df229b32b504340b6dc6e22c665bb3928648598111bb0b24f5d8aee32bf44",
+    "price-history/runs/itad-history-20261007T001043928750Z-9875a16e/responses/2399420.json": "9d6f57b8d06f98d4d02773e91b1a3beff5d4b4cfbda46d372f70df5ecc25a208",
+    "price-history/runs/itad-history-20261007T001043928750Z-9875a16e/responses/244210.json": "d95c8c3c3b1f57ec64a3cbc33f9f3891bde00734750ae10d9a7cb75e860bc979",
+    "price-history/runs/itad-history-20261007T001043928750Z-9875a16e/responses/2933080.json": "587abfb46331c1b1598b3e5145a6dd89ecc65905f893ef1a50783cfccd5c4aad",
+    "price-history/runs/itad-history-20261007T001043928750Z-9875a16e/responses/3058630.json": "b690ad48e5b74a12072175c3234817482da4685b6bf0a93f66ae9bed9f89453f",
+    "price-history/runs/itad-history-20261007T001043928750Z-9875a16e/responses/365960.json": "5d0f4c94051aafa3bcbc4272836cb182aa4d02ee87644b7aebf4e6fafdfad8eb",
+    "price-history/runs/itad-history-20261007T001043928750Z-9875a16e/responses/3917090.json": "1a05cddac5f82ea1a4b9c64f92c425cb42b3523cdfeb2ce1d8fd43dfac7cf88f",
+    "price-history/runs/itad-history-20261007T001043928750Z-9875a16e/responses/460950.json": "be8ec38b3bd6a451fccd7e0d63822be5b383ad2b072641fdeded388888e41f6c",
+    "price-history/runs/itad-history-20261007T001043928750Z-9875a16e/responses/493520.json": "2f4e5023ffd019b4d03dc060aacff981ee8bcbca8e6abec086be10598fc1c54d",
+    "price-history/runs/itad-history-20261007T001043928750Z-9875a16e/responses/805550.json": "5a7cf34c599121629e0a79dd7c8c980b225cf6bb5ccebfc490bf03a7cda3132f"
+  },
+  "prior_stage_outputs": {
+    "analytical": {
+      "hosted_release_id": "a6569c95deb9fbb5",
+      "csv_matches_accepted_local": true,
+      "csv_count": 13
+    },
+    "positioning": {
+      "hosted_release_id": "f4d95d5348f65100",
+      "csv_matches_accepted_local": true,
+      "csv_count": 5
+    }
+  },
+  "suitability_counts": {
+    "corroborated_latest_price_context_only": 27,
+    "excluded_current_mapping_unresolved": 1,
+    "unavailable_no_in_window_records": 3,
+    "requires_review_zero_zero_price_context": 1
+  },
+  "wrc_raw_zero_preserved_commercial_measures_null": true,
+  "coverage_labels_preserve_missing_and_excluded_contexts": true,
+  "available_direct_reference_comparisons": 1,
+  "unavailable_direct_reference_comparisons": 11,
+  "available_comparison": {
+    "app_id": 1658280,
+    "maximum_returned_source_cut_percent": 70,
+    "direct_reference_median_percent": 60,
+    "gap_percentage_points": 10
+  },
+  "sequence_count": 27,
+  "open_sequence_count": 27,
+  "observed_transition_starts": 17,
+  "left_censored_starts": 10,
+  "response_measures_all_null": true,
+  "sequence_durations_all_null": true,
+  "window_start_utc": "2026-09-15T00:00:00+00:00",
+  "as_of_utc": "2026-10-06T19:47:04.519515+00:00",
+  "historical_sku_identity": "not_independently_verified",
+  "independent_stage4_review": "pending_final_signoff_after_hosted_verification"
+}
