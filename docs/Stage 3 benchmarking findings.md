@@ -87,4 +87,4 @@ Hosted Python 3.13.15 / SQLite 3.45.1 and local Python 3.13.7 / SQLite 3.50.4 pr
 
 Independent read-only review accepted the implementation and findings contract with no blocking issue. It checked input lineage, reference roles and coverage, temporal comparability, review contracts, lifecycle context, zero/NULL semantics, percentiles, publication controls and interpretation. Downloaded-artifact verification satisfied the final acceptance condition. [Issue 3](https://github.com/Jeks042/games-commercial-intelligence/issues/3) records completion.
 
-Issue 4 remains unstarted. Its next requirement is an appropriate historical pricing source and dated commercial-response observations; this snapshot is not promotion-effect evidence.
+At Issue 3 delivery, Issue 4 required a historical price source and dated commercial-response observations. The subsequent [pricing findings](Stage%204%20pricing%20findings.md) now publish bounded recorded-price context. Comparable historical response remains unavailable; this snapshot is not promotion-effect evidence.

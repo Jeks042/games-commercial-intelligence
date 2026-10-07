@@ -85,9 +85,9 @@ Do not infer title-level accounting revenue unless directly disclosed.
 
 ## 7. Historical price / promotion source — Milestone 4
 
-Preferred source: IsThereAnyDeal API.
+Source: IsThereAnyDeal API.
 
-The source adapter is prepared; authenticated history acquisition is pending. See the [history contract](Price%20history%20contract.md) and [pricing delivery state](Stage%204%20pricing%20findings.md). Official app/shop lookup has been verified for the scope. History will be explicit GB/GBP Steam-shop context, with SKU and temporal coverage limits; it cannot establish publisher campaign timing by itself.
+Authenticated acquisition produced 45 in-window records for Steam shop 61 in GB/GBP, covering 15 September–6 October 2026. The source's capped assignment log prevented verified annual coverage; the shorter window was fixed before inspecting prices. Of 32 scoped contexts, 27 have usable corroborated price context, three returned no in-window records, one mapping is unresolved and one unexplained zero/zero price is quarantined. See the [history contract](Price%20history%20contract.md) and [pricing findings](Stage%204%20pricing%20findings.md). Historical app/SKU identity and campaign attribution remain unverified. Comparable historical player/review response is unavailable.
 
 ## 8. Optional external commercial estimates
 

@@ -46,12 +46,14 @@ Tasks:
 ## Issue 4 — Analyse pricing, promotions and commercial response
 
 Tasks:
-- connect a historical price source
-- build price / discount history
-- measure review / player movement around promotions
-- distinguish temporary spikes from sustained momentum
-- avoid causal claims where no valid counterfactual exists
-- create pricing / promotion recommendations
+- acquire and admit bounded provider price history with raw provenance and assignment checks
+- publish recorded price states and discount sequences with explicit missingness, suitability and unknown boundaries
+- compare maximum returned source-reported cuts only where three usable direct references exist
+- assess dated review/player coverage; publish movement and sustained-response measures only when comparable evidence exists
+- retain unsupported response, annual frequency, elasticity and causal uplift as unavailable
+- publish qualified commercial next steps and verify repeatable hosted outputs
+
+The implemented window is 15 September–6 October 2026. [Pricing findings](Stage%204%20pricing%20findings.md) record source limits and the verified outputs. Promotional effectiveness remains unavailable; this delivery does not establish annual history or completed publisher campaigns.
 
 ## Issue 5 — Analyse player reviews and brand perception
 
