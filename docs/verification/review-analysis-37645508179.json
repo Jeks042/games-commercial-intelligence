@@ -65,7 +65,8 @@
   "lifetime_theme_changes_all_null": true,
   "raw_text_not_in_hosted_artifact": true,
   "independent_source_control_review": "accepted_at_c325746",
-  "independent_analytical_control_review": "pending_corrected_language_semantics_and_hosted_proof_review",
+  "independent_analytical_control_review": "accepted_bounded_analytical_intermediate_no_remaining_blocker_at_corrected_b9741ab",
   "final_stage5_signoff": "not_requested_language_theme_refinement_pending",
-  "language_semantics_explicitly_Steam_labelled_and_unverified": true
+  "language_semantics_explicitly_Steam_labelled_and_unverified": true,
+  "acceptance_boundary": "Descriptive recommendation context from admitted Steam-labelled-English creation cohorts, unverified text language explicit, keyword screening diagnostic only. Not final Stage5/player-insight signoff."
 }
