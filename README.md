@@ -2,7 +2,7 @@
 
 Commercial portfolio analysis of 12 selected 505 Games titles and 20 market reference titles on Steam. The analysis assesses price positioning, player response and engagement signals to support decisions about portfolio attention and promotional priorities.
 
-**Status:** Acquisition, the SQL analytical model and snapshot portfolio benchmarking are accepted. Bounded historical price context is collected and under analytical review; promotional response remains unavailable without comparable dated observations. The frozen analytical baseline covers 32 scoped titles. The Power BI report follows later.
+**Status:** Acquisition, the SQL analytical model, snapshot portfolio benchmarking and bounded recorded-price analysis are accepted. The frozen baseline covers 32 scoped titles; usable price context covers 27 for 15 September–6 October 2026. Promotional effectiveness remains unavailable without comparable dated response evidence. Player-review analysis and the Power BI report are subsequent deliveries.
 
 ## Evidence base
 
@@ -12,6 +12,7 @@ Commercial portfolio analysis of 12 selected 505 Games titles and 20 market refe
 | Steam reviews | 32 scoped titles | Lifetime positive and negative counts, review category and positivity |
 | Steam player API | 32 scoped titles | Concurrent players at retrieval time |
 | SteamSpy | Separate benchmark | Estimated owner bands and supporting market fields, subject to suitability review |
+| IsThereAnyDeal | 27 suitable bounded contexts; exclusions documented | Recorded Steam-shop GB/GBP prices and source-reported cuts; historical SKU identity unverified |
 
 [Acquisition findings](docs/Stage%201%20acquisition%20findings.md) record the accepted runs, field availability and quality decisions. [Source contracts](docs/Data%20sources.md) and [acquisition controls](docs/Acquisition%20controls.md) define how evidence is collected and released.
 
@@ -33,9 +34,14 @@ The builder publishes a versioned release with typed table/view CSVs and a verif
 python src/benchmark_portfolio.py
 ```
 
-The planned analysis compares titles within documented reference groups, distinguishes lifecycle effects from product performance, and evaluates pricing and player response before proposing actions. Historical promotion analysis and scenarios require additional evidence and are tracked in the [delivery backlog](https://github.com/Jeks042/games-commercial-intelligence/issues).
+The analysis keeps reference roles, lifecycle context and availability alongside each result. Bounded discount-depth comparison is available for Eiyuden and three direct references; the other 11 portfolio comparisons remain unavailable. Promotional effectiveness and scenarios require additional evidence and are tracked in the [delivery backlog](https://github.com/Jeks042/games-commercial-intelligence/issues).
 
-The [pricing delivery state](docs/Stage%204%20pricing%20findings.md) and [history contract](docs/Price%20history%20contract.md) document the prepared extension and remaining data requirements.
+The [pricing findings](docs/Stage%204%20pricing%20findings.md) and [history contract](docs/Price%20history%20contract.md) document the accepted bounded analysis, suitability controls and remaining data requirements. The published outputs can be rebuilt from admitted source files without an API key:
+
+```bash
+python src/price_history.py --analyse
+python src/pricing_context.py
+```
 
 Public Steam signals do not establish publisher revenue, units sold, retention or marketing return. SteamSpy estimates remain separate from observed Steam measures. Small reference groups support contextual comparison; they do not constitute a representative market sample.
 
