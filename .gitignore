@@ -24,3 +24,4 @@ data/model-preview/
 data/analytical/releases/.building-*/
 data/positioning/releases/.building-*/
 data/pricing-analysis/releases/.building-price-*/
+data/pricing-review/releases/.building-context-*/

@@ -484,6 +484,49 @@ class PriceAdmissionTests(unittest.TestCase):
             hashes, {p.name: history.sha(p.read_bytes()) for p in release.iterdir()}
         )
 
+    def test_paid_game_zero_zero_is_preserved_raw_but_not_published_as_free(self):
+        scope = history.load_contract(self.root)[1]
+        wrc = next(t for t in scope if t["app_id"] == 1849250)
+        zero = json.dumps(
+            [
+                {
+                    "timestamp": "2026-09-20T12:00:00Z",
+                    "shop": {"id": 61, "name": "Steam"},
+                    "deal": {
+                        "price": {"amount": 0, "amountInt": 0, "currency": "GBP"},
+                        "regular": {"amount": 0, "amountInt": 0, "currency": "GBP"},
+                        "cut": 0,
+                    },
+                }
+            ]
+        ).encode()
+        with patch(
+            "price_history.request_history",
+            side_effect=lambda contract, gid, key: (
+                zero if gid == wrc["itad_game_id"] else self.raw
+            ),
+        ), contextlib.redirect_stdout(io.StringIO()):
+            self.run = history.collect(self.root, key="fixture-secret")
+        self.accept()
+        release = self.build()
+        row = next(
+            r
+            for r in self.rows(release, "price_history_coverage.csv")
+            if r["app_id"] == "1849250"
+        )
+        self.assertEqual(
+            row["price_suitability_status"], "requires_review_zero_zero_price_context"
+        )
+        self.assertEqual(row["minimum_recorded_price_gbp"], "")
+        self.assertEqual(row["maximum_recorded_price_gbp"], "")
+        self.assertEqual(row["recorded_discount_sequence_count"], "")
+        raw = next(
+            r
+            for r in self.rows(release, "recorded_price_events.csv")
+            if r["app_id"] == "1849250"
+        )
+        self.assertEqual(raw["price_minor"], "0")
+
     def change(self, gid=None):
         from email.utils import format_datetime
         from datetime import datetime, timezone

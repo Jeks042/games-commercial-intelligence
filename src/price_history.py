@@ -859,6 +859,25 @@ def admitted_events(root=ROOT):
     return contract, scope, manifest, rows
 
 
+def price_suitability(latest, steam):
+    """Corroborate the latest source context; never turn unexplained 0/0 into a free offer."""
+    if not latest or latest["price_status"] != "available":
+        return "unavailable_latest_source_price_removed"
+    source = (latest["price_minor"], latest["regular_minor"])
+    if source == (0, 0) and steam["is_free"] != "1":
+        return "requires_review_zero_zero_price_context"
+    if (
+        steam["currency"] != "GBP"
+        or not steam["final_price_minor"]
+        or not steam["list_price_minor"]
+    ):
+        return "requires_review_snapshot_not_comparable"
+    snapshot = (int(steam["final_price_minor"]), int(steam["list_price_minor"]))
+    if source != snapshot:
+        return "requires_review_source_snapshot_price_disagreement"
+    return "corroborated_latest_price_context_only"
+
+
 def build_analysis(root=ROOT, output_dir=None):
     """Publish price-only context and response coverage; unavailable responses stay NULL."""
     root = Path(root).resolve()
@@ -876,6 +895,9 @@ def build_analysis(root=ROOT, output_dir=None):
         rows = [r for r in events if r["app_id"] == title["app_id"]]
         prices = [r for r in rows if r["price_status"] == "available"]
         derived = episodes(rows, contract["as_of_utc"])
+        steam = next(r for r in observations if int(r["app_id"]) == title["app_id"])
+        suitability = price_suitability(rows[-1] if rows else None, steam)
+        suitable = suitability == "corroborated_latest_price_context_only"
         coverage = next(
             r for r in manifest["title_coverage"] if r["app_id"] == title["app_id"]
         )
@@ -887,6 +909,9 @@ def build_analysis(root=ROOT, output_dir=None):
                 "itad_game_id": title["itad_game_id"],
                 "identity_status": title["identity_status"],
                 "history_status": coverage["history_status"],
+                "price_suitability_status": (
+                    suitability if rows else coverage["history_status"]
+                ),
                 "scope_basis": PRODUCT_BASIS,
                 "historical_assignment_status": (
                     "not_assessed_mapping_unresolved"
@@ -913,12 +938,18 @@ def build_analysis(root=ROOT, output_dir=None):
                     len(prices) if coverage["event_count"] is not None else None
                 ),
                 "minimum_recorded_price_gbp": (
-                    min(r["price_minor"] for r in prices) / 100 if prices else None
+                    min(r["price_minor"] for r in prices) / 100
+                    if prices and suitable
+                    else None
                 ),
                 "maximum_recorded_price_gbp": (
-                    max(r["price_minor"] for r in prices) / 100 if prices else None
+                    max(r["price_minor"] for r in prices) / 100
+                    if prices and suitable
+                    else None
                 ),
-                "recorded_discount_sequence_count": len(derived) if prices else None,
+                "recorded_discount_sequence_count": (
+                    len(derived) if prices and suitable else None
+                ),
                 "coverage_status": (
                     coverage["history_status"]
                     if coverage["history_status"].startswith("not_requested_")
@@ -933,6 +964,13 @@ def build_analysis(root=ROOT, output_dir=None):
             }
         )
         for i, episode in enumerate(derived, 1):
+            if not suitable:
+                episode.update(
+                    minimum_price_minor=None,
+                    maximum_discount_percent=None,
+                    duration_days=None,
+                    interpretation="quarantined_recorded_sequence_not_commercially_suitable",
+                )
             start = instant(episode["start_at_utc"])
             closed_end = (
                 instant(episode["end_at_utc"]) if episode["end_at_utc"] else None
@@ -996,6 +1034,7 @@ def build_analysis(root=ROOT, output_dir=None):
                 review_response_change_per_day=None,
                 response_status="unavailable_snapshot_only_unresolved_sku",
                 causal_uplift_status="not_identified",
+                price_suitability_status=suitability,
             )
             sequences.append(episode)
     output_dir = Path(output_dir or root / "data/pricing-analysis")
@@ -1039,6 +1078,7 @@ def build_analysis(root=ROOT, output_dir=None):
         "review_response_change_per_day",
         "response_status",
         "causal_uplift_status",
+        "price_suitability_status",
     ]
     for name, rows, fields in (
         ("price_history_coverage.csv", summaries, list(summaries[0])),

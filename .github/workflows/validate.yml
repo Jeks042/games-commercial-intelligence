@@ -54,6 +54,7 @@ jobs:
           PYTHONPATH=src python - <<'PY'
           import json
           from price_history import ROOT, build_analysis
+          from pricing_context import build as build_price_context
           register = json.loads((ROOT / "data/price-history/accepted-runs.json").read_bytes())
           if register["accepted_runs"]:
               build_analysis()
@@ -61,6 +62,11 @@ jobs:
               before = pointer.read_bytes()
               build_analysis()
               assert before == pointer.read_bytes()
+              build_price_context()
+              context_pointer = ROOT / "data/pricing-review/current.json"
+              context_before = context_pointer.read_bytes()
+              build_price_context()
+              assert context_before == context_pointer.read_bytes()
           else:
               print("Pricing analysis unavailable: no reviewed history run. Source foundation tests passed separately.")
           PY
@@ -74,5 +80,6 @@ jobs:
             data/positioning/
             data/price-history/
             data/pricing-analysis/
+            data/pricing-review/
           retention-days: 90
           if-no-files-found: error

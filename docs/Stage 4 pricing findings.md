@@ -1,33 +1,52 @@
-# Pricing and promotion analysis
+# Pricing and promotion context
 
-## Delivery state
+## Commercial readout
 
-Issue 4 is in progress. Live access is validated and a bounded recent-period history run has been collected. Admission and final interpretation remain under review; no pricing-analysis output is published yet. The period was fixed at 15 September through the accepted 6 October cutoff before inspecting prices.
+The bounded price-context analysis adds discount-depth evidence to the portfolio snapshot. Eiyuden Chronicle: Hundred Heroes has a maximum source-reported cut of **70%** in the returned records, against **60%** for the median of its three usable direct references. The 10 percentage-point difference is context for a diagnostic review; it does not establish that discounting improved player response or sales.
 
-The candidate run contains 45 in-window records across 28 ITAD game contexts, three successful requests with no in-window events and one unresolved mapping excluded. Both assignment checks returned 938 records, below the 1,000-row cap, with no scoped game reassignment. The failed full-year attempt and documented cursor probes are retained as evidence for the narrower scope. These are recorded Steam-shop GB/GBP price states; response effects are not established.
+Recorded portfolio cuts span **20% to 90%** in this period. Crime Boss: Rockay City has a recorded GBP 1.59 price and 90% cut; Ghostrunner 2 has GBP 6.99 and 80%. Assetto Corsa EVO and Assetto Corsa Rally have 20% cuts, while WUCHANG has 30%. Different release ages, product scope and lifecycle make these separate portfolio signals rather than a performance ranking.
 
-## Source discovery
+No new discount level is recommended from this evidence. The commercial next steps are to verify the purchase SKU, examine player concerns and obtain units, net revenue and margin evidence before changing price strategy. A prospective response evaluation also needs comparable observations before, during and after a promotion, campaign/update context and a defensible comparison group.
 
-All 32 scoped Steam app IDs resolve and reverse-check through official IsThereAnyDeal lookup. Thirty-one have a unique app association. Ready or Not has an additional app association and remains excluded from history until reviewed. Complete inverse mappings and package/sub aliases are preserved.
+## Scope and suitability
 
-The source is current ITAD game-container history for Steam shop 61 in GB/GBP. Historical Steam-app association and exact SKU/edition attribution are not independently verified. This limit applies even to currently uniquely app-linked titles.
+The analytical window is **15 September–6 October 2026**, frozen at the accepted Steam observation cutoff. It was selected before price inspection because the original full-year assignment-change request reached the provider's 1,000-record cap. Documented forward-cursor probes returned the same newest records. A 12 September feasibility check returned 989 changes; the fixed 15 September window returned **938 in both preflight and postflight**, with no scoped game touched by reassignment. No older year is reconstructed through undocumented paging or partitioned requests.
 
-Foundation review identified that current lookup alone cannot establish historical identity continuity. The collector now checks and preserves the official assignment-change log before and after price collection, excludes touched game entries, and blocks capped, failed or malformed evidence. A newly detected reassignment fails the run and requires recollection; admission proves that the postflight check covers the final price retrieval. A clean returned log remains source evidence rather than independent proof of continuity. Coverage labels distinguish mapping exclusions, reassignment exclusions, empty returned logs and observed records.
+The admitted fresh run was collected on 7 October and contains **45 in-window records**. Its 31 raw price responses and both assignment payloads match the separately reviewed first bounded candidate. The [repeat verification](../data/price-history/verification/source-repeat-20261007.json) records that equivalence. Source admission accepts what the provider returned; historical Steam-app association, exact SKU identity and campaign attribution remain unverified.
 
-The [contract](Price%20history%20contract.md) defines the explicit history window, as-of cutoff, currency checks, source timestamps, unknown boundaries, empty histories, source removals and sequence rules. The [source evidence](../data/price-history/discovery-20261006/manifest.json) records request and hash provenance.
+| Coverage class | Contexts | Treatment |
+|---|---:|---|
+| Latest recorded final and regular price corroborated by accepted Steam snapshot | 27 | Eligible for bounded recorded-price context |
+| No in-window records returned | 3 | Values and promotion conclusions unavailable |
+| Current mapping ambiguity: Ready or Not | 1 | History not requested; excluded |
+| Source-value conflict: EA SPORTS WRC | 1 | Original zero/zero retained; commercial measures NULL |
 
-## Price suitability review
+The empty contexts are ELDEN RING, PAYDAY 3 and Black Myth: Wukong. Empty returned logs do not establish that a title was never promoted.
 
-The latest in-window record matches the accepted Steam final price in 27 of the 28 contexts with returned events. EA SPORTS WRC instead has a source-reported zero/zero price state against an accepted Steam final price of GBP 19.99. The original record is preserved as a suitability exception and must not support a free-offer claim or commercial comparison. Agreement for other contexts is a reconciliation check, not proof of exact historical SKU identity. The [diagnostic evidence](../data/price-history/reconciliation-20261007/latest-vs-accepted-steam.json) keeps current-source diagnostics separate from historical as-of evidence.
+EA SPORTS WRC's ITAD zero/zero state conflicts with Steam's accepted GBP 19.99 final price and GBP 39.99 list price. Both analytical builders mechanically quarantine it. It cannot contribute a GBP 0 minimum, a free-offer claim, discount-depth benchmark, price denominator or commercially usable sequence. Its exclusion reduces usable reference coverage; no substitute fills the gap. The [reconciliation diagnostic](../data/price-history/reconciliation-20261007/latest-vs-accepted-steam.json) preserves the exception. The separately retrieved current ITAD prices are diagnostic evidence and are not treated as historical as-of values.
 
-## Validation and remaining evidence
+## Direct-reference discount context
 
-Forty-one price-history tests exercise source validation, duplicate/conflict handling, missing and zero prices, explicit dates, censoring, sequence changes, bounded retries, secret-safe diagnostics, assignment/reassignment and cap controls, admission/tamper controls, repeated publication and exclusion of a current snapshot from historical response. These fixtures demonstrate processing behavior; they are not real historical observations or findings.
+The measure is the **maximum source-reported cut among returned records in the fixed window**. It is not a complete-period extremum, annual promotion frequency, same-date price rank or lifecycle-adjusted market benchmark. A target and at least three direct references must have usable, corroborated price context. Other reference roles never fill sparse direct groups.
 
-[Hosted validation](https://github.com/Jeks042/games-commercial-intelligence/actions/runs/37544809642) passed all 108 tests, including the post-collection assignment controls, rebuilt the prior-stage model and positioning outputs, and verified identical reruns. The initial corrective-run artifact matches all six committed pricing source-foundation inputs and contains no accepted history run or live pricing release. The [verification receipt](verification/pricing-foundation-37544130387.json) records the initial artifact digest and the final corrective commit and validation scope.
+| Eiyuden reference context | Maximum reported cut in returned records |
+|---|---:|
+| Chained Echoes | 65% |
+| Sea of Stars | 50% |
+| OCTOPATH TRAVELER II | 60% |
+| Direct-reference median | 60% |
+| Eiyuden Chronicle: Hundred Heroes | 70% |
 
-Separate source-foundation review accepted corrective commit `c3436d9`, including the post-collection temporal coverage control. This acceptance applies to the tested foundation only; no live data or final Stage 4 findings are signed off.
+Eiyuden is the only portfolio context meeting this coverage rule. The other **11 direct-reference comparison results remain NULL**. [Portfolio discount context](../data/pricing-review/releases/b23ab47bfdc878b7/portfolio_discount_context.csv) exposes expected and usable counts alongside every result.
 
-The next gates are candidate payload and suitability review, explicit admission, real output verification, peer-context interpretation and independent sign-off. Commercial response remains unavailable until independently dated evidence and a defensible comparison design exist. Pricing or promotion recommendations will state the evidence they depend on; source availability cannot substitute for evidence of effectiveness.
+## Temporal and response limits
 
-Issue 5 remains unstarted.
+The returned records form **27 recorded discount-state sequences**: 17 follow an observed full-price-to-discount transition and 10 begin at the first returned discount with an unknown left boundary. All 27 remain open at the analytical cutoff. No completed campaign duration is established; these groups are not publisher campaign counts.
+
+For each sequence the admitted response evidence has **zero pre-period observation dates, one during-period date and no completed post window**. Player/review movement, temporary-versus-sustained response, elasticity and incremental uplift cannot be measured. Those outputs remain NULL. No current observation is back-cast into an earlier period. Global player/review activity also cannot establish a UK-specific response to GB prices.
+
+## Reproduction and review
+
+[Source and interpretation contract](Price%20history%20contract.md) documents collection, admission, suitability and the comparison policy. The [history release](../data/pricing-analysis/current.json) contains coverage, original normalised records and bounded sequences. The [suitability-aware release](../data/pricing-review/current.json) contains 32 title contexts, 38 reference pairs and 12 portfolio results. Repeated local builds produce identical bytes.
+
+The source foundation and first bounded candidate received separate review. The updated suitability controls, fresh admitted run, outputs and final commercial wording are awaiting hosted verification and final Stage 4 review. Stage 4 remains in progress; Issue 5 remains unstarted.
