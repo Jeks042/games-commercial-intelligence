@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "purpose": "Context screening diagnostics only; no language certification, aspect sentiment or concern prevalence",
+  "minimum_words": 5,
+  "normalisation": "Use the hash-bound accepted collector clean() function: Unicode NFKC, formatting/URL removal, casefold and whitespace normalisation.",
+  "precedence": "Evaluate each base-term occurrence independently. Suppress an occurrence if any same-theme/same-term rule span contains it; retain the term if any occurrence survives. Record every fired rule ID, sorted and unique. No sentiment inference.",
+  "language_policy": "Unicode letter-script risk flags only. Latin script does not establish English. Any non-Latin letter triggers a risk flag, including names and mixed text. Recommendation denominators are unchanged.",
+  "exclusions": [
+    {"id": "fps_genre", "theme": "performance", "term": "fps", "pattern": "\\bfps\\s+(?:games?|genre|shooters?)\\b"},
+    {"id": "wheel_idiom", "theme": "controls", "term": "wheel", "pattern": "\\breinvent(?:s|ed|ing)?\\s+(?:the\\s+)?wheel\\b"},
+    {"id": "review_edit", "theme": "updates", "term": "update", "pattern": "\\bupdate\\s+(?:(?:this|my|the)\\s+)?review\\b"},
+    {"id": "review_edits", "theme": "updates", "term": "updates", "pattern": "\\bupdates\\s+(?:(?:this|my|the)\\s+)?review\\b"},
+    {"id": "content_creator", "theme": "content", "term": "content", "pattern": "\\bcontent\\s+creators?\\b"},
+    {"id": "story_idiom", "theme": "content", "term": "story", "pattern": "\\badd\\s+to\\s+(?:(?:the|this|my)\\s+)?story\\b"}
+  ],
+  "residual_policy": "Other terms and ambiguous contexts remain unvalidated mentions. Praise, negation, sarcasm, boss roles and hard-to-recommend uses are not classified as concern sentiment.",
+  "development_selection_path": "data/player-reviews/audit/selection-20261007.json",
+  "fresh_audit": {
+    "salt": "review-refinement-v1-holdout-20261008",
+    "exclude_all_development_review_keys": true,
+    "strata": ["app_id", "window", "voted_up", "original_any_match", "retained_any_match", "any_context_exclusion", "language_risk"],
+    "selection": "One eligible review per nonempty stratum, lowest SHA256(salt:review_key). Short texts excluded. No accuracy or population inference from the stratified audit.",
+    "rule_revision": "Any refinement after inspecting the fresh audit requires a new method version and a new untouched holdout."
+  }
+}

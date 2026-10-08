@@ -26,3 +26,5 @@ data/positioning/releases/.building-*/
 data/pricing-analysis/releases/.building-price-*/
 data/pricing-review/releases/.building-context-*/
 data/review-analysis/releases/.building-reviews-*/
+data/review-refinement/candidates/.building-refinement-*/
+data/review-refinement/diagnostics/.building-refinement-*/
