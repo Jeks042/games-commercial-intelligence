@@ -201,5 +201,70 @@ class RefinementPipelineTests(unittest.TestCase):
             self.build(candidate)
 
 
+class PublicAuditEvidenceTests(unittest.TestCase):
+    def test_published_fresh_audit_is_complete_bound_and_excludes_development(self):
+        base = collection.ROOT / refinement.BASE
+        selection_path = (
+            base / "diagnostics/94c88909fe4c88a1/fresh-audit-selection.json"
+        )
+        audit = json.loads((base / "audit/context-check-v1-20261008.json").read_bytes())
+        selected = json.loads(selection_path.read_bytes())
+        development = json.loads(
+            (
+                collection.ROOT / "data/player-reviews/audit/selection-20261007.json"
+            ).read_bytes()
+        )
+        self.assertEqual(
+            audit["selection_sha256"], collection.sha(selection_path.read_bytes())
+        )
+        self.assertEqual(
+            audit["method_sha256"],
+            collection.sha((base / "method-v1.json").read_bytes()),
+        )
+        self.assertEqual(audit["selected_count"], len(selected))
+        self.assertEqual(len(audit["entries"]), len(selected))
+        self.assertEqual(
+            {r["review_key"] for r in selected}
+            & {r["review_key"] for r in development},
+            set(),
+        )
+        for selected_row, checked in zip(selected, audit["entries"], strict=True):
+            for field in [
+                "audit_index",
+                "app_id",
+                "window",
+                "voted_up",
+                "review_key",
+                "text_sha256",
+                "language_risk",
+                "any_context_exclusion",
+            ]:
+                self.assertEqual(selected_row[field], checked[field])
+            self.assertTrue(checked["context_note"])
+
+    def test_published_audit_projection_contains_only_declared_fields(self):
+        audit = json.loads(
+            (
+                collection.ROOT
+                / refinement.BASE
+                / "audit/context-check-v1-20261008.json"
+            ).read_bytes()
+        )
+        expected = {
+            "audit_index",
+            "app_id",
+            "window",
+            "voted_up",
+            "review_key",
+            "text_sha256",
+            "language_risk",
+            "any_context_exclusion",
+            "language_context_assessment",
+            "context_note",
+        }
+        for row in audit["entries"]:
+            self.assertEqual(set(row), expected)
+
+
 if __name__ == "__main__":
     unittest.main()

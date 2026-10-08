@@ -13,6 +13,7 @@ on:
       - "data/benchmarking-contract.json"
       - "data/price-history/**"
       - "data/player-reviews/**"
+      - "data/review-refinement/**"
       - "data/analytical/**"
       - "data/portfolio-titles.csv"
       - "data/competitor-titles.csv"
@@ -86,6 +87,18 @@ jobs:
           else:
               print("Player-review analysis unavailable: no reviewed coded run.")
           PY
+      - name: Rebuild public review refinement candidates and verify identical reruns
+        run: |
+          PYTHONPATH=src python - <<'PY'
+          from review_refinement import ROOT, build
+          for candidate in sorted((ROOT / "data/review-refinement/candidates").iterdir()):
+              if candidate.name.startswith("."):
+                  continue
+              release = build(candidate.name)
+              before = {p.name: p.read_bytes() for p in release.iterdir()}
+              build(candidate.name)
+              assert before == {p.name: p.read_bytes() for p in release.iterdir()}
+          PY
       - name: Retain model release evidence
         if: always()
         uses: actions/upload-artifact@v7
@@ -99,5 +112,6 @@ jobs:
             data/pricing-review/
             data/player-reviews/
             data/review-analysis/
+            data/review-refinement/
           retention-days: 90
           if-no-files-found: error

@@ -39,6 +39,18 @@ Keyword counts therefore remain **provisional screening context**. Confirmed con
 
 ## Reproduction and acceptance
 
+### Fresh context check — 8 October
+
+The separate [refinement method](Review%20refinement%20method.md) was frozen before private derivation. It replays the same admitted source without changing the collector, source contract or original features. Six narrow context rules flag misleading lexical uses; Unicode letter-script checks flag language uncertainty. Latin-script text is still not certified English, and these flags do not remove reviews or change recommendation denominators.
+
+The [candidate diagnostics](../data/review-refinement/diagnostics/94c88909fe4c88a1/cohort_diagnostics.csv) retain all 3,572 records across 24 cohorts. Ten records have a context-exclusion flag; this is a screening count, not a complaint count. A [fresh deterministic selection](../data/review-refinement/diagnostics/94c88909fe4c88a1/fresh-audit-selection.json) contains 110 reviews and excludes all 93 development examples. It includes retained matches, unmatched texts, context exclusions and language-risk flags across the available title/cohort/recommendation strata.
+
+All 110 private full texts received an AI-assisted context check. The [coded notes](../data/review-refinement/audit/context-check-v1-20261008.json) record ten clearly non-English examples, three mixed-language examples and one symbol-art example within that targeted selection. Those counts describe the check set, not the corpus or customer population. The five selected context-exclusion records have plausible exclusion contexts, but they do not cover every declared rule or establish general accuracy.
+
+Material ambiguity remains: a utility name can look like a content mention; a confectionery reference can look like a game patch; narrative predictability and conversational idioms can look like difficulty or story feedback. Unmatched texts also contain usability, stability and feature-expectation questions. Positive recommendations can contain detailed criticism, and negative recommendations can praise particular aspects. Publisher-roadmap, hardware and defect assertions remain unverified.
+
+The commercial implication is to investigate the reported experience with product/support evidence rather than rank acquisition priorities from tag counts. The frozen v1 package remains a diagnostic candidate. Further automated refinement requires v2 and a fresh untouched check set excluding both the development examples and this 110-review selection. Concern prevalence, aspect sentiment and theme-change measures remain unavailable. Final Stage 5 sign-off has not been obtained.
+
 Independent review accepted the bounded source/control layer, and the source is explicitly admitted with its [private replay proof](../data/player-reviews/verification/private-replay-20261007.json). Exact source-to-feature replay requires the privately retained immutable archive. Public analytical rebuilds use admitted coded features; fresh acquisition cannot recreate mutable historical text. The [review contract](Review%20analysis%20contract.md) defines filters, boundaries, sampling, interpretation and pseudonymous fingerprints.
 
 The [current analytical release](../data/review-analysis/current.json) contains 24 cohort summaries, 144 provisional screening rows, 12 title contexts and the 93-review audit selection. Seven recommendation contrasts meet the complete-frame and minimum-count rules; five remain unavailable. Every output and the build manifest explicitly flag Steam-labelled English as unverified text language. Concern prevalence and theme changes remain NULL.
@@ -47,4 +59,4 @@ The corrected [GitHub validation](https://github.com/Jeks042/games-commercial-in
 
 Independent final review of this gate accepted the corrected bounded analytical intermediate with no remaining blocker. This accepts descriptive recommendation context and diagnostic screening; it does not validate the theme classifier, English-language purity or concern prevalence.
 
-**Issue 5 remains in progress.** The source/control foundation and bounded analytical intermediate are accepted. Governed language/theme refinement, a fresh audit and final commercial review are still required. The refinement will use a separate versioned derived layer and a fresh audit; it will preserve the admitted collector and original source run. Issue 6 has not started.
+**Issue 5 remains in progress.** The source/control foundation and bounded analytical intermediate are accepted. The separate v1 diagnostic refinement and fresh context check are published for review; residual ambiguity prevents a theme-validity upgrade. Independent refinement review, title-level commercial summaries and final Stage 5 acceptance remain required. Issue 6 has not started.

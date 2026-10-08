@@ -1,0 +1,25 @@
+app_id,title,creation_cohort,returned_review_count_unchanged,latin_letters_only_language_unverified_count,no_letters_language_unverified_count,non_latin_letters_present_language_unverified_count,short_text_not_assessed_count,records_with_context_exclusion,confirmed_concern_prevalence_percent,language_certification,theme_change_percent,interpretation
+244210,Assetto Corsa,prior,490,225,0,1,264,0,,unavailable,,candidate_diagnostics_only_pending_fresh_audit
+244210,Assetto Corsa,recent,500,222,2,3,273,0,,unavailable,,candidate_diagnostics_only_pending_fresh_audit
+805550,Assetto Corsa Competizione,prior,149,83,0,2,64,0,,unavailable,,candidate_diagnostics_only_pending_fresh_audit
+805550,Assetto Corsa Competizione,recent,217,106,0,3,108,0,,unavailable,,candidate_diagnostics_only_pending_fresh_audit
+1139900,Ghostrunner,prior,71,57,0,1,13,1,,unavailable,,candidate_diagnostics_only_pending_fresh_audit
+1139900,Ghostrunner,recent,73,56,0,0,17,0,,unavailable,,candidate_diagnostics_only_pending_fresh_audit
+1649010,Miasma Chronicles,prior,11,8,0,0,3,0,,unavailable,,candidate_diagnostics_only_pending_fresh_audit
+1649010,Miasma Chronicles,recent,23,21,0,0,2,0,,unavailable,,candidate_diagnostics_only_pending_fresh_audit
+1658280,Eiyuden Chronicle: Hundred Heroes,prior,11,7,0,0,4,0,,unavailable,,candidate_diagnostics_only_pending_fresh_audit
+1658280,Eiyuden Chronicle: Hundred Heroes,recent,21,20,0,0,1,0,,unavailable,,candidate_diagnostics_only_pending_fresh_audit
+1850570,DEATH STRANDING DIRECTOR'S CUT,prior,255,191,0,2,62,0,,unavailable,,candidate_diagnostics_only_pending_fresh_audit
+1850570,DEATH STRANDING DIRECTOR'S CUT,recent,499,354,0,5,140,0,,unavailable,,candidate_diagnostics_only_pending_fresh_audit
+2091020,Blades of Fire,prior,12,12,0,0,0,0,,unavailable,,candidate_diagnostics_only_pending_fresh_audit
+2091020,Blades of Fire,recent,22,20,0,0,2,1,,unavailable,,candidate_diagnostics_only_pending_fresh_audit
+2144740,Ghostrunner 2,prior,39,34,0,0,5,0,,unavailable,,candidate_diagnostics_only_pending_fresh_audit
+2144740,Ghostrunner 2,recent,41,35,0,0,6,0,,unavailable,,candidate_diagnostics_only_pending_fresh_audit
+2277560,WUCHANG: Fallen Feathers,prior,157,120,0,1,36,1,,unavailable,,candidate_diagnostics_only_pending_fresh_audit
+2277560,WUCHANG: Fallen Feathers,recent,134,108,0,6,20,0,,unavailable,,candidate_diagnostics_only_pending_fresh_audit
+2933080,Crime Boss: Rockay City,prior,91,83,0,0,8,3,,unavailable,,candidate_diagnostics_only_pending_fresh_audit
+2933080,Crime Boss: Rockay City,recent,117,94,0,0,23,2,,unavailable,,candidate_diagnostics_only_pending_fresh_audit
+3058630,Assetto Corsa EVO,prior,181,141,0,0,40,0,,unavailable,,candidate_diagnostics_only_pending_fresh_audit
+3058630,Assetto Corsa EVO,recent,165,134,0,1,30,1,,unavailable,,candidate_diagnostics_only_pending_fresh_audit
+3917090,Assetto Corsa Rally,prior,86,69,0,0,17,1,,unavailable,,candidate_diagnostics_only_pending_fresh_audit
+3917090,Assetto Corsa Rally,recent,207,170,0,1,36,0,,unavailable,,candidate_diagnostics_only_pending_fresh_audit
