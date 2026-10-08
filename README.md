@@ -2,7 +2,7 @@
 
 Commercial portfolio analysis of 12 selected 505 Games titles and 20 market reference titles on Steam. The analysis assesses price positioning, player response and engagement signals to support decisions about portfolio attention and promotional priorities.
 
-**Status:** Acquisition, the SQL analytical model, snapshot portfolio benchmarking and bounded recorded-price analysis are accepted. The frozen baseline covers 32 scoped titles; usable price context covers 27 for 15 September–6 October 2026. Promotional effectiveness remains unavailable without comparable dated response evidence. [Player-review analysis](docs/Stage%205%20player%20findings.md) is in progress; the Power BI report follows later.
+**Status:** Acquisition, the SQL analytical model, snapshot portfolio benchmarking and bounded recorded-price analysis are accepted. The frozen baseline covers 32 scoped titles; usable price context covers 27 for 15 September–6 October 2026. Promotional effectiveness remains unavailable without comparable dated response evidence. The [player-feedback investigation agenda](docs/Player%20feedback%20investigation%20brief.md) is published for final commercial review; the Power BI report follows later.
 
 ## Evidence base
 
@@ -10,6 +10,7 @@ Commercial portfolio analysis of 12 selected 505 Games titles and 20 market refe
 |---|---|---|
 | Steam Store | 32 scoped titles | UK storefront price, discount, publisher, developer and release metadata |
 | Steam reviews | 32 scoped titles | Lifetime positive and negative counts, review category and positivity |
+| Dated Steam review cohorts | 12 portfolio titles; 3,572 coded records | Current retrieved recommendations and diagnostic text context from two fixed creation cohorts; Steam language labels are unverified |
 | Steam player API | 32 scoped titles | Concurrent players at retrieval time |
 | SteamSpy | Separate benchmark | Estimated owner bands and supporting market fields, subject to suitability review |
 | IsThereAnyDeal | 27 suitable bounded contexts; exclusions documented | Recorded Steam-shop GB/GBP prices and source-reported cuts; historical SKU identity unverified |
@@ -42,6 +43,15 @@ The [pricing findings](docs/Stage%204%20pricing%20findings.md) and [history cont
 python src/price_history.py --analyse
 python src/pricing_context.py
 ```
+
+The [player-feedback findings](docs/Stage%205%20player%20findings.md) and [twelve-title investigation brief](docs/Player%20feedback%20investigation%20brief.md) connect reported experiences to concrete product/support checks. Independent review accepted the source, descriptive analytical intermediate and bounded context-diagnostic foundation, including a fresh 110-review check. Topic prevalence, aspect sentiment and theme trends remain unavailable. Original review text and author identifiers are retained privately; public outputs contain coded evidence and provenance.
+
+```bash
+python src/review_analysis.py
+python src/review_refinement.py --candidate 94c88909fe4c88a1
+```
+
+These commands rebuild public coded analytical context and candidate diagnostics. Exact text-to-code replay requires the private immutable source archive. The [refinement method](docs/Review%20refinement%20method.md) defines that boundary; hosted validation passed 181 tests and byte-identical diagnostic rebuilds.
 
 Public Steam signals do not establish publisher revenue, units sold, retention or marketing return. SteamSpy estimates remain separate from observed Steam measures. Small reference groups support contextual comparison; they do not constitute a representative market sample.
 
