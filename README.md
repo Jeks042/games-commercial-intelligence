@@ -2,7 +2,7 @@
 
 Commercial portfolio analysis of 12 selected 505 Games titles and 20 market reference titles on Steam. The analysis assesses price positioning, player response and engagement signals to support decisions about portfolio attention and promotional priorities.
 
-**Status:** Acquisition, the SQL analytical model, snapshot portfolio benchmarking and bounded recorded-price analysis are accepted. The frozen baseline covers 32 scoped titles; usable price context covers 27 for 15 September–6 October 2026. Promotional effectiveness remains unavailable without comparable dated response evidence. The [player-feedback investigation agenda](docs/Player%20feedback%20investigation%20brief.md) is published for final commercial review; the Power BI report follows later.
+**Status:** Acquisition, the SQL analytical model, snapshot portfolio benchmarking, bounded recorded-price analysis and player-feedback investigation are accepted. The frozen baseline covers 32 scoped titles; usable price context covers 27 for 15 September–6 October 2026. The [player-feedback investigation agenda](docs/Player%20feedback%20investigation%20brief.md) covers all twelve portfolio titles and has passed final independent review. Promotional effectiveness remains unavailable without comparable dated response evidence. Commercial scenarios are next; the Power BI report follows later.
 
 ## Evidence base
 
@@ -44,7 +44,7 @@ python src/price_history.py --analyse
 python src/pricing_context.py
 ```
 
-The [player-feedback findings](docs/Stage%205%20player%20findings.md) and [twelve-title investigation brief](docs/Player%20feedback%20investigation%20brief.md) connect reported experiences to concrete product/support checks. Independent review accepted the source, descriptive analytical intermediate and bounded context-diagnostic foundation, including a fresh 110-review check. Topic prevalence, aspect sentiment and theme trends remain unavailable. Original review text and author identifiers are retained privately; public outputs contain coded evidence and provenance.
+The [player-feedback findings](docs/Stage%205%20player%20findings.md) and [twelve-title investigation brief](docs/Player%20feedback%20investigation%20brief.md) connect reported experiences to concrete product/support checks. Final independent review accepted the bounded investigation framework on 10 October, including the source, descriptive analytical intermediate, context diagnostics, fresh 110-review check and twelve-title synthesis. The [acceptance receipt](docs/verification/review-final-acceptance-20261010.json) records the reviewed evidence and scope. Topic prevalence, aspect sentiment and theme trends remain unavailable. Original review text and author identifiers are retained privately; public outputs contain coded evidence and provenance.
 
 ```bash
 python src/review_analysis.py

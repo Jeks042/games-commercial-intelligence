@@ -1,0 +1,69 @@
+{
+  "acceptance_scope": [
+    "governed review source and controls",
+    "bounded descriptive recommendation context",
+    "frozen v1 context diagnostics",
+    "completed fresh 110-review context audit",
+    "traceable investigation questions, qualifying evidence and validation needs for all 12 portfolio titles",
+    "reproduction and privacy boundaries"
+  ],
+  "frozen_candidate_id": "94c88909fe4c88a1",
+  "further_semantic_refinement_requires": "v2 and a new untouched holdout excluding all 203 previously inspected keys",
+  "independent_review": {
+    "full_verdict_retained_privately": true,
+    "message_id": "7c8b65e0-3b18-406b-ae61-1ce9b4e48057",
+    "mode": "read-only",
+    "review_text_sha256": "70620278d7e9ef20a18232944c9a63df7f2d8fca1a6b5468901061c08d4738d1",
+    "reviewed_repository_head": "91c40c7059d5e37c105ba62611da6b3db36422b6",
+    "reviewed_synthesis_commit": "85754699def8cb3d71191e7db4023b04095c50ae",
+    "reviewer": "Existing Gaming BI Project Planning conversation"
+  },
+  "inherited_code_validation": {
+    "artifact_id": 11578326649,
+    "artifact_sha256": "8240969d80d55cd4633bcc5af6751353fb58dae1245d95330a73413bfce85079",
+    "head_sha": "d85aa87c5f202b35d55e3f514dd94e8c02c129cf",
+    "subsequent_changes": "documentation only; no new code validation claimed",
+    "test_count": 181,
+    "verification_receipt": "docs/verification/review-refinement-37842049911.json",
+    "workflow_run_id": 37842049911
+  },
+  "issue_url": "https://github.com/Jeks042/games-commercial-intelligence/issues/5",
+  "material_repair_blockers": [],
+  "next_issue": 6,
+  "next_issue_status": "unstarted; eligible for the next daily run only",
+  "pricing_boundary": "provider-container Steam-shop GB/GBP price context for 15 September\u20136 October 2026; historical SKU continuity, annual history, promotional response, elasticity and ROI unavailable",
+  "recorded_at_utc": "2026-10-10T15:09:40Z",
+  "refinement_candidate_admission": "none; accepted for bounded diagnostics only",
+  "reviewed_file_sha256": {
+    "README.md": "40d9fa4f8c02a429639889087db07b4d0c94467db277464fc784f09af53c6237",
+    "data/review-refinement/audit/context-check-v1-20261008.json": "0d79e8866a19358afeb453ebf9a3c63f57cc24c7ccea468abf6e87b199cae1de",
+    "docs/Player feedback investigation brief.md": "1cf5364a3e655def5e05dd77602fbfb53e33bd050c9e2037d88c4fe1ad94c6e4",
+    "docs/Stage 5 player findings.md": "c6ff04ba2cb92d9bfb4bb1d497684447c6301f77f598929218496b3659ac2da1",
+    "docs/verification/review-refinement-37842049911.json": "949878604daa87ea71f9fb4fb42082718c73e84290fbe176d3cb12f751386042"
+  },
+  "stage": 5,
+  "synthesis_reference_check": {
+    "all_resolve_to_correct_title": true,
+    "distinct_audit_indices": 62,
+    "earlier_47_reference_handoff_count": "incomplete; superseded by full 62-index mapping check",
+    "portfolio_titles": 12,
+    "ranges_expanded": true,
+    "references_outside_parentheses_included": true
+  },
+  "unavailable": [
+    "verified English-language membership",
+    "population brand perception",
+    "representative inference from capped cohorts",
+    "validated concern prevalence",
+    "aspect sentiment",
+    "theme-change rates",
+    "lifetime thematic trends",
+    "historical text/vote snapshots",
+    "verified defect, hardware, roadmap or fix assertions",
+    "title severity or acquisition-priority ranking",
+    "sales, revenue, conversion or refund rates",
+    "acquisition efficiency or ROI",
+    "causal patch, promotion or messaging effects"
+  ],
+  "verdict": "accepted_bounded_player_feedback_investigation"
+}
