@@ -2,7 +2,7 @@
 
 Commercial portfolio analysis of 12 selected 505 Games titles and 20 market reference titles on Steam. The analysis assesses price positioning, player response and engagement signals to support decisions about portfolio attention and promotional priorities.
 
-**Status:** Acquisition, the SQL analytical model, snapshot portfolio benchmarking, bounded recorded-price analysis and player-feedback investigation are accepted. The frozen baseline covers 32 scoped titles; usable price context covers 27 for 15 September–6 October 2026. The [player-feedback investigation agenda](docs/Player%20feedback%20investigation%20brief.md) covers all twelve portfolio titles and has passed final independent review. Promotional effectiveness remains unavailable without comparable dated response evidence. Commercial scenarios are next; the Power BI report follows later.
+**Status:** Acquisition, the SQL analytical model, snapshot portfolio benchmarking, bounded recorded-price analysis, player-feedback investigation and conditional commercial scenarios are accepted. The frozen baseline covers 32 scoped titles; usable price context covers 27 for 15 September–6 October 2026. The [player-feedback investigation agenda](docs/Player%20feedback%20investigation%20brief.md) covers all twelve portfolio titles and has passed final independent review. Promotional effectiveness and predictive forecasts remain unavailable without eligible evidence. The Power BI executive report is next.
 
 ## Evidence base
 
@@ -53,7 +53,7 @@ python src/review_refinement.py --candidate 94c88909fe4c88a1
 
 These commands rebuild public coded analytical context and candidate diagnostics. Exact text-to-code replay requires the private immutable source archive. The [refinement method](docs/Review%20refinement%20method.md) defines that boundary; hosted validation passed 181 tests and byte-identical diagnostic rebuilds.
 
-The [commercial scenario layer](docs/Commercial%20scenario%20contract.md) calculates conditional price/volume requirements and separate engagement stress cases from dated accepted Steam anchors. Assumptions are explicit; forecasts, validation errors, predictive intervals, elasticity and ROI remain unavailable. [Scenario findings](docs/Stage%206%20scenario%20findings.md) record the delivery and review status.
+The independently accepted [commercial scenario layer](docs/Commercial%20scenario%20contract.md) calculates conditional price/volume requirements and separate engagement stress cases from dated accepted Steam anchors. Assumptions are explicit; forecasts, validation errors, predictive intervals, elasticity and ROI remain unavailable. [Scenario findings](docs/Stage%206%20scenario%20findings.md) and the [verification receipt](docs/verification/scenarios-38150259475.json) record the bounded acceptance and 199-test hosted validation.
 
 ```bash
 python src/commercial_scenarios.py

@@ -41,7 +41,7 @@ Run `python src/commercial_scenarios.py`. [Current built package](../data/scenar
 - `receipts_neutral_thresholds.csv`: 36 conditional price thresholds.
 - `forecast_readiness.csv`: 12 title-level availability assessments with unsupported forecasts, errors and intervals left empty.
 
-The manifest binds the accepted model, contract, builder and every output hash. No new source is collected and no peer role, source admission or prior suitability rule is changed. Build status is a creation-time record, not independent acceptance. A subsequent verification receipt must record review and hosted artifact evidence before a consumer treats the package as accepted. Repeated builds must be byte-identical; a differing existing release fails without moving the pointer.
+The manifest binds the accepted model, contract, builder and every output hash. No new source is collected and no peer role, source admission or prior suitability rule is changed. Build status is a creation-time record, not independent acceptance. The subsequent [verification receipt](verification/scenarios-38150259475.json) records hosted artifact evidence and final independent bounded acceptance on 11 October 2026; consumers must retain that scope when using the package. Repeated builds must be byte-identical; a differing existing release fails without moving the pointer.
 
 ## Forecast validation and uncertainty
 

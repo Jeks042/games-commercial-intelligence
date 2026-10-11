@@ -6,7 +6,19 @@
   "forecast_validation": "not_run_no_eligible_target_series_or_holdout",
   "head_sha": "67eca9ef6e9de28a9fab498bfe2483defaf4d8a2",
   "hosted_python": "3.13.16",
-  "independent_review_status": "pending",
+  "independent_review": {
+    "accepted_date_utc": "2026-10-11",
+    "forecast_validation_criterion": "No empirical validation obtained. Independent review accepts the explicit no-eligible-target-series/holdout assessment as the bounded stage outcome; predictive validation requires future admitted target data and a genuine holdout.",
+    "full_review_retained_privately": true,
+    "material_repair_blockers": [],
+    "message_id": "cc95c20f-b73e-440e-970b-ae23996c541a",
+    "mode": "read-only",
+    "review_text_sha256": "e3af00f87d2f280441a855010fef020db2410cdbd9ed1ea1f396a4f76f3dcad6",
+    "reviewed_code_commit": "67eca9ef6e9de28a9fab498bfe2483defaf4d8a2",
+    "reviewed_through_commit": "30b534f82a05920eff4261510475c85d98c13d07",
+    "scope": "conditional price/paid-unit arithmetic, independent engagement stress cases and completed forecast-readiness assessment; no validated forecast"
+  },
+  "independent_review_status": "accepted_bounded_conditional_scenarios_and_forecast_readiness",
   "local_python": "3.13.7",
   "owner_author_and_committer_verified": true,
   "prior_consumer_outputs_verified_unchanged": 28,
@@ -14,6 +26,10 @@
   "prior_source_and_refinement_files_verified_unchanged": 16,
   "private_raw_absent_from_artifact": true,
   "public_build_and_identical_rerun_passed": true,
+  "reviewed_document_sha256": {
+    "docs/Commercial scenario contract.md": "1e68b2f8000fb88ae3b66712942c92d23c1dd181398d3c865398562ba1baf119",
+    "docs/Stage 6 scenario findings.md": "0a2aec41c25f29570ec6cad8bb6a1eb5279605cb7a527b5b24b24e44dfec1ff2"
+  },
   "scenario_bytes_identical_across_runtimes": true,
   "scenario_files_verified": {
     "scenario-contract.json": "238a455fe7d8fee16487cdb4988d8e189d35bdef635452d40e96942cb492d7c5",
