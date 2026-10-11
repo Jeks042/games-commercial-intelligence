@@ -14,6 +14,8 @@ on:
       - "data/price-history/**"
       - "data/player-reviews/**"
       - "data/review-refinement/**"
+      - "data/scenario-contract.json"
+      - "data/scenarios/**"
       - "data/analytical/**"
       - "data/portfolio-titles.csv"
       - "data/competitor-titles.csv"
@@ -99,6 +101,17 @@ jobs:
               build(candidate.name)
               assert before == {p.name: p.read_bytes() for p in release.iterdir()}
           PY
+      - name: Build conditional commercial scenarios and verify identical rerun
+        run: |
+          PYTHONPATH=src python - <<'PY'
+          from commercial_scenarios import ROOT, build
+          release = build()
+          before = {p.name: p.read_bytes() for p in release.iterdir()}
+          pointer = (ROOT / "data/scenarios/current.json").read_bytes()
+          build()
+          assert before == {p.name: p.read_bytes() for p in release.iterdir()}
+          assert pointer == (ROOT / "data/scenarios/current.json").read_bytes()
+          PY
       - name: Retain model release evidence
         if: always()
         uses: actions/upload-artifact@v7
@@ -113,5 +126,7 @@ jobs:
             data/player-reviews/
             data/review-analysis/
             data/review-refinement/
+            data/scenarios/
+            data/scenario-contract.json
           retention-days: 90
           if-no-files-found: error

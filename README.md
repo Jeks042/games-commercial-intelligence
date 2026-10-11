@@ -53,6 +53,12 @@ python src/review_refinement.py --candidate 94c88909fe4c88a1
 
 These commands rebuild public coded analytical context and candidate diagnostics. Exact text-to-code replay requires the private immutable source archive. The [refinement method](docs/Review%20refinement%20method.md) defines that boundary; hosted validation passed 181 tests and byte-identical diagnostic rebuilds.
 
+The [commercial scenario layer](docs/Commercial%20scenario%20contract.md) calculates conditional price/volume requirements and separate engagement stress cases from dated accepted Steam anchors. Assumptions are explicit; forecasts, validation errors, predictive intervals, elasticity and ROI remain unavailable. [Scenario findings](docs/Stage%206%20scenario%20findings.md) record the delivery and review status.
+
+```bash
+python src/commercial_scenarios.py
+```
+
 Public Steam signals do not establish publisher revenue, units sold, retention or marketing return. SteamSpy estimates remain separate from observed Steam measures. Small reference groups support contextual comparison; they do not constitute a representative market sample.
 
 ## Reproduce the acquisition

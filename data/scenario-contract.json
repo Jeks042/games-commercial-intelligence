@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "status": "specified_pending_independent_review",
+  "purpose": "Conditional arithmetic for commercial investigation; no prediction or spending approval",
+  "baseline": "Pinned accepted Steam GB/GBP final storefront price at its recorded retrieval time; not a current live quote or list-price discount",
+  "rounding": "Hypothetical storefront prices rounded to integer pence, Decimal ROUND_HALF_UP; ratios calculated from rounded pence before six-decimal display rounding",
+  "baseline_paid_units": "Unobserved; relative paid-unit index 100 is a normalization assumption, not a measured volume",
+  "baseline_engagement": "Relative engagement index 100 is a normalization assumption, not measured activity, retention or a demand conversion",
+  "scenarios": [
+    {
+      "name": "hold_reference",
+      "price_factor": "1",
+      "paid_unit_factor": "1",
+      "engagement_factor": "1"
+    },
+    {
+      "name": "downside",
+      "price_factor": "0.9",
+      "paid_unit_factor": "0.9",
+      "engagement_factor": "0.8"
+    },
+    {
+      "name": "base",
+      "price_factor": "0.9",
+      "paid_unit_factor": "1.2",
+      "engagement_factor": "1"
+    },
+    {
+      "name": "upside",
+      "price_factor": "0.9",
+      "paid_unit_factor": "1.4",
+      "engagement_factor": "1.2"
+    }
+  ],
+  "scenario_selection": "Illustrative analyst-selected stress cases; not estimated, elicited, probable or recommended. Base is a named planning case, not an expected forecast.",
+  "sensitivity": {
+    "price_factors": [
+      "1",
+      "0.9",
+      "0.8"
+    ],
+    "paid_unit_factors": [
+      "0.8",
+      "1",
+      "1.2",
+      "1.4"
+    ],
+    "engagement_factors": [
+      "0.8",
+      "1",
+      "1.2"
+    ]
+  },
+  "gross_receipts_index": "100 * (rounded hypothetical price / observed anchor price) * assumed relative paid units; gross storefront transaction value only; does not model tax remittance, refunds, fees, costs or mix changes; not net revenue or profit",
+  "gross_receipts_neutral_paid_unit_factor": "observed anchor price / rounded hypothetical price, only when both prices are positive; not cost break-even",
+  "engagement_use": "Separate hypothetical index only; never enters the receipts equation or predicts purchases",
+  "decision_policy": "Arithmetic above/at/below a receipts index of 100 identifies a conditional requirement, not Invest/Promote or budget approval. Require validated paid-unit response and contribution economics before action.",
+  "forecast_policy": "No forecast, forecast error, confidence interval, elasticity or ROI until an explicitly admitted comparable target series, approved validation design and untouched holdout exist. Existing momentum thresholds do not certify forecasting sufficiency.",
+  "unsupported_measures": [
+    "predicted_paid_units",
+    "predicted_revenue",
+    "forecast_mae",
+    "forecast_wape",
+    "prediction_interval_lower",
+    "prediction_interval_upper",
+    "elasticity",
+    "roi"
+  ]
+}
