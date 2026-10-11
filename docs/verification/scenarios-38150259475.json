@@ -1,0 +1,33 @@
+{
+  "artifact_entry_count": 195,
+  "artifact_id": 11705912607,
+  "artifact_sha256": "a3c09739e123e31ca26232e8bc308aca5ebec68298e5159465f833c3c8a1a37b",
+  "conclusion": "success",
+  "forecast_validation": "not_run_no_eligible_target_series_or_holdout",
+  "head_sha": "67eca9ef6e9de28a9fab498bfe2483defaf4d8a2",
+  "hosted_python": "3.13.16",
+  "independent_review_status": "pending",
+  "local_python": "3.13.7",
+  "owner_author_and_committer_verified": true,
+  "prior_consumer_outputs_verified_unchanged": 28,
+  "prior_hash_receipt": "docs/verification/review-refinement-37842049911.json",
+  "prior_source_and_refinement_files_verified_unchanged": 16,
+  "private_raw_absent_from_artifact": true,
+  "public_build_and_identical_rerun_passed": true,
+  "scenario_bytes_identical_across_runtimes": true,
+  "scenario_files_verified": {
+    "scenario-contract.json": "238a455fe7d8fee16487cdb4988d8e189d35bdef635452d40e96942cb492d7c5",
+    "scenarios/current.json": "a742d743951ca1147222e1bb7c16568ec7abb9189a8028a1e2e5f7538440e51d",
+    "scenarios/releases/1a2624a982917ec1/build-manifest.json": "68590ac8b0709ce9e825d68c50750cf1f1fc1c153a54779d9b76d51bf4c621b7",
+    "scenarios/releases/1a2624a982917ec1/commercial_scenarios.csv": "54af5eb0129b27895e8b7d54061227b6f443a3742496f8a21210071b5e69fb83",
+    "scenarios/releases/1a2624a982917ec1/forecast_readiness.csv": "f9dfa97050e54ec7d943ad1acc1d44c9045662cd0c510846cbc38b809832e724",
+    "scenarios/releases/1a2624a982917ec1/observed_anchors.csv": "cea97491e8f0cae8e63704c82dacc6a7b2700927e00b871a805914a870504024",
+    "scenarios/releases/1a2624a982917ec1/receipts_neutral_thresholds.csv": "fb97e0c87db6e8222bd740570055ceb6d3c643464c64f8d370e0260c7733177e",
+    "scenarios/releases/1a2624a982917ec1/scenario_sensitivity.csv": "5ffa81cae079ab9b33226af8b32a1e1e1913554a81b94a802a788f3adffe845e"
+  },
+  "scenario_release_id": "1a2624a982917ec1",
+  "test_count": 199,
+  "verification_scope": "conditional arithmetic and forecast-readiness controls; no validated forecast or commercial effect",
+  "workflow_run_id": 38150259475,
+  "workflow_url": "https://github.com/Jeks042/games-commercial-intelligence/actions/runs/38150259475"
+}
