@@ -1,0 +1,49 @@
+{
+  "all_five_pages_rendered": "passed_no_visual_or_model_errors",
+  "application": "Power BI Desktop",
+  "checked_date_utc": "2026-10-13",
+  "drillthrough": {
+    "matching_investigation": true,
+    "reference_rows": 4,
+    "selected_title": "Assetto Corsa",
+    "source": "Portfolio",
+    "target": "Title investigation"
+  },
+  "independent_review_status": "pending",
+  "installed_version": "2.158.1304.0",
+  "interpretation": "Native load/refresh/render and tested interactions; no service publication, validated forecast, sentiment prevalence or budget approval. Governance repairs change generator admission only; all66 rendered definition/data files unchanged.",
+  "native_refresh": "passed",
+  "portfolio_cards": {
+    "budget_approvals": 0,
+    "qualifying_groups": 1,
+    "titles": 12,
+    "validated_forecasts": 0
+  },
+  "pricing_title_filter": {
+    "promotion_response": "unavailable",
+    "returned_cut_difference_pp": 10,
+    "title": "Eiyuden Chronicle: Hundred Heroes",
+    "usable_direct_references": 3
+  },
+  "private_capture_sha256": {
+    "01_portfolio.png": "a2a040293f22dc0c6fc1206b2cc788cb39975639982a27ed6d901fde7ed8b189",
+    "02_title.png": "2534800d5701b4481620e365e5d50553027dac7f661660268b069f6807fd0712",
+    "03_pricing.png": "c5f4c29efcce44fc9c81514fe0c8b715881a216fbd43017780bd7e6c854609c7",
+    "04_players.png": "ea9c65f12162821fc469788bcf31215440543219bd88f33c17539b3862f667f8",
+    "05_ambiguous.png": "c4ec34fdf6f8157739f3406446fbf1c19005aaea0bba4f60746c054553c593c0",
+    "05_scenario_selected.png": "8a4270fb46003478c531dca7fbea9e6b2e976d81dd1f3c87eea477db640ecbf1"
+  },
+  "scenario_checks": {
+    "no_selection": "cards_blank",
+    "return_to_portfolio": "full_scope_preserved",
+    "title_and_case": {
+      "case": "base",
+      "displayed_receipts_index": 107.9,
+      "displayed_required_unit_increase_percent": 11.2,
+      "separate_engagement_index": 100.0,
+      "title": "Assetto Corsa"
+    },
+    "title_only": "cards_blank"
+  },
+  "service_publication": "not_performed"
+}

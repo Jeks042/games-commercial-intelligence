@@ -2,6 +2,7 @@
 
 import base64
 import csv
+from datetime import date
 from decimal import Decimal
 import io
 import json
@@ -23,6 +24,7 @@ def read_csv(path):
 def load_inputs(root):
     _, _, _ = verified_inputs(root, root / "data/benchmarking-contract.json")
     contract = json.loads((root / "data/executive-input-contract.json").read_bytes())
+    validate_input_contract(contract)
     sources = {}
     for name, binding in contract["files"].items():
         path = (root / binding["path"]).resolve()
@@ -41,6 +43,100 @@ def load_inputs(root):
         if actual != expected:
             raise ValueError(f"Independent input acceptance differs: {name}")
     return contract, sources
+
+
+def validate_input_contract(contract):
+    required = {
+        "portfolio",
+        "references",
+        "peer_benchmark",
+        "price",
+        "price_comparison",
+        "reviews",
+        "review_cohorts",
+        "scenarios",
+        "forecast",
+        "decision_policy",
+        "investigation_brief",
+        "context_audit",
+        "scenario_acceptance",
+        "review_acceptance",
+    }
+    if (
+        type(contract.get("version")) is not int
+        or contract["version"] != 1
+        or contract.get("status") != "specified_pending_stage7_review"
+        or not isinstance(contract.get("files"), dict)
+        or set(contract["files"]) != required
+    ):
+        raise ValueError(
+            "Executive input contract version/status/inventory is unsupported"
+        )
+    for binding in contract["files"].values():
+        if (
+            not isinstance(binding, dict)
+            or set(binding) != {"path", "sha256"}
+            or not isinstance(binding["path"], str)
+            or not binding["path"]
+            or not isinstance(binding["sha256"], str)
+            or re.fullmatch(r"[0-9a-f]{64}", binding["sha256"]) is None
+        ):
+            raise ValueError("Executive input binding is malformed")
+
+
+def validate_policy(policy):
+    expected_status = {
+        "Invest": "not_supported_missing_internal_economics",
+        "Promote": "not_supported_no_verified_response_or_contribution_case",
+        "Maintain": "not_supported_no_verified_current_allocation_or_economics",
+        "Monitor": "supported_as_investigation_only",
+        "Deprioritise": "not_supported_no_opportunity_cost_or_contribution_case",
+    }
+    if (
+        set(policy)
+        != {
+            "version",
+            "decision_date",
+            "default_current_action",
+            "current_budget_approval",
+            "categories",
+            "interpretation",
+        }
+        or type(policy.get("version")) is not int
+        or policy["version"] != 1
+        or policy.get("default_current_action") != "Monitor"
+        or policy.get("current_budget_approval") != "none"
+        or not isinstance(policy.get("interpretation"), str)
+        or not policy["interpretation"].strip()
+    ):
+        raise ValueError("Decision policy structure/default allocation is unsupported")
+    try:
+        date.fromisoformat(policy["decision_date"])
+    except (ValueError, TypeError) as exc:
+        raise ValueError("Decision policy date is invalid") from exc
+    categories = policy["categories"]
+    if not isinstance(categories, list) or len(categories) != 5:
+        raise ValueError("Decision policy requires five unique categories")
+    actions = []
+    for category in categories:
+        if not isinstance(category, dict) or set(category) != {
+            "action",
+            "gate",
+            "current_status",
+        }:
+            raise ValueError("Decision policy category structure differs")
+        action = category["action"]
+        if (
+            not isinstance(action, str)
+            or action not in expected_status
+            or category["current_status"] != expected_status[action]
+            or not isinstance(category["gate"], str)
+            or not category["gate"].strip()
+        ):
+            raise ValueError("Decision policy gate/eligibility is inconsistent")
+        actions.append(action)
+    if len(set(actions)) != 5 or set(actions) != set(expected_status):
+        raise ValueError("Decision policy requires five unique categories")
 
 
 def typed(rows):
@@ -324,11 +420,7 @@ def build(root=ROOT, output_dir=None):
     if {r["app_id"] for r in investigation} != apps or len(investigation) != 12:
         raise ValueError("Investigation coverage differs")
     policy = json.loads(sources["decision_policy"].read_bytes())
-    if (
-        policy["default_current_action"] != "Monitor"
-        or policy["current_budget_approval"] != "none"
-    ):
-        raise ValueError("Unsupported public-evidence budget action")
+    validate_policy(policy)
     recommendations = [
         {
             "app_id": r["app_id"],

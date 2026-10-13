@@ -1,5 +1,6 @@
 import base64
 import contextlib
+from copy import deepcopy
 import io
 import json
 from pathlib import Path
@@ -210,6 +211,58 @@ class ExecutiveReportTests(unittest.TestCase):
         self.assertEqual(data[0]["value"], 0)
         self.assertIsNone(data[0]["missing"])
         self.assertEqual(types["value"], "double")
+
+    def test_input_contract_version_status_and_inventory_drift_are_rejected(self):
+        c = json.loads(
+            (report.ROOT / "data/executive-input-contract.json").read_bytes()
+        )
+        for field, value in [
+            ("version", 2),
+            ("version", True),
+            ("status", "accepted"),
+            ("status", "failed"),
+        ]:
+            d = deepcopy(c)
+            d[field] = value
+            with self.subTest(field=field, value=value), self.assertRaisesRegex(
+                ValueError, "version/status"
+            ):
+                report.validate_input_contract(d)
+        d = deepcopy(c)
+        d["files"].pop("scenario_acceptance")
+        with self.assertRaisesRegex(ValueError, "inventory"):
+            report.validate_input_contract(d)
+
+    def test_policy_missing_duplicate_and_empty_gates_are_rejected(self):
+        p = json.loads(
+            (report.ROOT / "data/commercial-decision-policy.json").read_bytes()
+        )
+        for change in ["missing", "duplicate", "empty"]:
+            d = deepcopy(p)
+            if change == "missing":
+                d["categories"].pop()
+            elif change == "duplicate":
+                d["categories"][4] = deepcopy(d["categories"][0])
+            else:
+                d["categories"][0]["gate"] = "   "
+            with self.subTest(change=change), self.assertRaises(ValueError):
+                report.validate_policy(d)
+
+    def test_policy_cannot_support_spend_or_contradict_monitor_recommendations(self):
+        p = json.loads(
+            (report.ROOT / "data/commercial-decision-policy.json").read_bytes()
+        )
+        for index in range(5):
+            d = deepcopy(p)
+            d["categories"][index]["current_status"] = "supported"
+            with self.subTest(index=index), self.assertRaisesRegex(
+                ValueError, "inconsistent"
+            ):
+                report.validate_policy(d)
+        d = deepcopy(p)
+        d["current_budget_approval"] = "approved"
+        with self.assertRaises(ValueError):
+            report.validate_policy(d)
 
 
 if __name__ == "__main__":
