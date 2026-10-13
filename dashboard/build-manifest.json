@@ -1,7 +1,7 @@
 {
   "status": "built_pending_native_verification_and_independent_review",
   "builder_sha256": "7e570740b0fab494ee8ee30febf01dd8cb6cee4c027b735fa182a401de96b13c",
-  "input_contract_sha256": "c0eea6ea674caf06eee4d1f3b67b0d94f5cb1beabf23be08d14cf5106b9bdd8f",
+  "input_contract_sha256": "3d0843a90c6595d8b8f6a9be11ebe9c85ac9ce8681f7f31c46dda57ce6d8c3dd",
   "source_files": {
     "context_audit": {
       "path": "data/review-refinement/audit/context-check-v1-20261008.json",
@@ -41,7 +41,7 @@
     },
     "review_acceptance": {
       "path": "docs/verification/review-final-acceptance-20261010.json",
-      "sha256": "2b499708580491dadf6417003ebc4f12c0f8a2041574967ddf37bc2fb16faa80"
+      "sha256": "f58654061e1c9ff8fbc182b7c285b9fcb8506024bc5958f7833af7e1ac120361"
     },
     "review_cohorts": {
       "path": "data/review-analysis/releases/1aafe6fad5038c76/cohort_review_context.csv",

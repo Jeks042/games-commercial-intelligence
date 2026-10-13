@@ -38,7 +38,7 @@
     },
     "review_acceptance": {
       "path": "docs/verification/review-final-acceptance-20261010.json",
-      "sha256": "2b499708580491dadf6417003ebc4f12c0f8a2041574967ddf37bc2fb16faa80"
+      "sha256": "f58654061e1c9ff8fbc182b7c285b9fcb8506024bc5958f7833af7e1ac120361"
     },
     "review_cohorts": {
       "path": "data/review-analysis/releases/1aafe6fad5038c76/cohort_review_context.csv",
