@@ -2,7 +2,7 @@
 
 Commercial portfolio analysis of 12 selected 505 Games titles and 20 market reference titles on Steam. The analysis assesses price positioning, player response and engagement signals to support decisions about portfolio attention and promotional priorities.
 
-**Status:** Acquisition, the SQL analytical model, snapshot portfolio benchmarking, bounded recorded-price analysis, player-feedback investigation and conditional commercial scenarios are accepted. The frozen baseline covers 32 scoped titles; usable price context covers 27 for 15 September–6 October 2026. The [player-feedback investigation agenda](docs/Player%20feedback%20investigation%20brief.md) covers all twelve portfolio titles and has passed final independent review. Promotional effectiveness and predictive forecasts remain unavailable without eligible evidence. The Power BI executive report is next.
+**Status:** Acquisition, the SQL analytical model, snapshot portfolio benchmarking, bounded recorded-price analysis, player-feedback investigation, conditional commercial scenarios and the Power BI Desktop executive report are accepted. The frozen baseline covers 32 scoped titles; usable price context covers 27 for 15 September–6 October 2026. Promotional effectiveness and predictive forecasts remain unavailable without eligible evidence. Reproducibility and the final commercial case study are next; Power BI Service publication has not been performed.
 
 ## Evidence base
 
@@ -61,7 +61,7 @@ python src/commercial_scenarios.py
 
 Public Steam signals do not establish publisher revenue, units sold, retention or marketing return. SteamSpy estimates remain separate from observed Steam measures. Small reference groups support contextual comparison; they do not constitute a representative market sample.
 
-The [Power BI executive project](dashboard/README.md) is being verified in Desktop. Five pages connect accepted evidence to title-specific investigation and conditional requirements. The [commercial memo](docs/Commercial%20decision%20memo.md) defines allocation gates; [report findings](docs/Stage%207%20executive%20findings.md) state the current verification limits. Final report acceptance and service publication are not yet claimed.
+The independently accepted [Power BI executive project](dashboard/README.md) has five pages connecting evidence to title-specific investigation and conditional requirements. Native refresh, title drill-through and scenario-selection behaviour were checked separately from hosted 210-test validation. The [commercial memo](docs/Commercial%20decision%20memo.md) defines allocation gates; [report findings](docs/Stage%207%20executive%20findings.md) state the acceptance scope. Open the project in Desktop and click Refresh to load the embedded frozen evidence. No spending approval or Service publication is claimed.
 
 ## Reproduce the acquisition
 
