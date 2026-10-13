@@ -1,0 +1,98 @@
+[
+  {
+    "app_id": 244210,
+    "question": "Does first-use input setup create avoidable friction?",
+    "qualification": "A controller report describes unsuccessful configuration (1); other examples praise customization and the modded experience (7, 10). The utility-name keyword in 10 is not a game-content concern. Both returned cohorts are capped.",
+    "validation_needed": "Device-specific support tickets, setup completion and reproducible tests of the current build; distinguish base installation from mods.",
+    "coded_audit_indices": "1, 7, 10",
+    "scope": "individual reported experiences; not prevalence, verified defects or population sentiment"
+  },
+  {
+    "app_id": 805550,
+    "question": "Is controller onboarding aligned with the experience presented to new players?",
+    "qualification": "Settings/configuration criticism appears in 12 and 17. Positive social-play and price impressions (18, 15) do not establish that controller problems are resolved.",
+    "validation_needed": "Out-of-box tests across supported controllers, documented configuration paths and support outcomes.",
+    "coded_audit_indices": "12, 15, 17, 18",
+    "scope": "individual reported experiences; not prevalence, verified defects or population sentiment"
+  },
+  {
+    "app_id": 1139900,
+    "question": "Are challenge, pacing and accessibility expectations clear before purchase?",
+    "qualification": "One example describes repeated failure and learning demands (21); another finds the challenge rewarding (25). Narrative/pacing criticism (22) and a mixed positive review (26) show why the overall vote cannot label every aspect.",
+    "validation_needed": "Structured player research by experience and accessibility needs; assess expectation mismatch separately from intended challenge.",
+    "coded_audit_indices": "21, 22, 25, 26",
+    "scope": "individual reported experiences; not prevalence, verified defects or population sentiment"
+  },
+  {
+    "app_id": 1649010,
+    "question": "Do party limits, difficulty options and narrative delivery match the tactical experience promised?",
+    "qualification": "Positive overall reviews still qualify squad design and difficulty balance (32, 36); other examples criticise the ending or world-building (33, 34). Both cohorts are below the comparison threshold.",
+    "validation_needed": "Targeted research on party management and difficulty settings; product-design evidence before treating isolated views as a widespread concern.",
+    "coded_audit_indices": "32, 33, 34, 36",
+    "scope": "individual reported experiences; not prevalence, verified defects or population sentiment"
+  },
+  {
+    "app_id": 1658280,
+    "question": "Are quality-of-life and party-management expectations being met alongside the title's nostalgia appeal?",
+    "qualification": "Narrative/party criticism (37, 40) and resource/inventory concerns (42) coexist with character and music praise (38, 41). Worth in 42 concerns inventory use, not purchase value. Both cohorts are below the comparison threshold.",
+    "validation_needed": "Usability sessions on menus, party recruitment and resource management; distinguish purchase-price perceptions from in-game resources.",
+    "coded_audit_indices": "37, 38, 40, 41, 42",
+    "scope": "individual reported experiences; not prevalence, verified defects or population sentiment"
+  },
+  {
+    "app_id": 1850570,
+    "question": "Should messaging and support better distinguish deliberate pacing from platform-specific technical problems?",
+    "qualification": "Pacing dissatisfaction (44, 49) contrasts with story and gameplay praise (47, 51, 53). A crash report (50) contains unverified hardware/driver assertions. The recent returned frame is capped; mixed-language examples also occur.",
+    "validation_needed": "Reproduce the crash on a documented configuration; review support/telemetry by build and platform. Validate pacing expectations with player research.",
+    "coded_audit_indices": "44, 47, 49, 50, 51, 53",
+    "scope": "individual reported experiences; not prevalence, verified defects or population sentiment"
+  },
+  {
+    "app_id": 2091020,
+    "question": "Are PC interaction and combat expectations clear, and is difficulty balance consistent across settings?",
+    "qualification": "PC usability, difficulty spikes and collision complaints are reported in 55, 56 and 59. Positive records praise combat and exploration while qualifying writing (57, 61). Both cohorts are below the comparison threshold.",
+    "validation_needed": "Reproducible input/collision checks and difficulty-setting research. The isolated financial assertion in 61 is not commercial performance evidence.",
+    "coded_audit_indices": "55, 56, 57, 59, 61",
+    "scope": "individual reported experiences; not prevalence, verified defects or population sentiment"
+  },
+  {
+    "app_id": 2144740,
+    "question": "Does the sequel communicate its hardware requirements, level structure and handling changes clearly?",
+    "qualification": "Reported frame-rate comparisons and narrative concerns appear in 63; level/mechanic criticism in 67; motorcycle/retry-interface friction in 69. Another record values demanding learning (65). Hard in 63 describes animation development, not player difficulty.",
+    "validation_needed": "Controlled performance tests, current hardware guidance, and usability checks for motorcycle/retry sections; validate sequel expectations separately.",
+    "coded_audit_indices": "63, 65, 67, 69",
+    "scope": "individual reported experiences; not prevalence, verified defects or population sentiment"
+  },
+  {
+    "app_id": 2277560,
+    "question": "Which encounter/readability and combat-feel reports deserve reproducible product investigation?",
+    "qualification": "Criticism of encounters and combat feel (70, 71, 75, 77) sits beside praise of world design and mixed positive appraisal (73, 74, 80). The wheel idiom in 74 is excluded correctly; some performance concepts remain unmatched.",
+    "validation_needed": "Product QA by encounter/build and targeted player interviews. Separate intended challenge from readability and input response; do not infer patch effects.",
+    "coded_audit_indices": "70, 71, 73, 74, 75, 77, 80",
+    "scope": "individual reported experiences; not prevalence, verified defects or population sentiment"
+  },
+  {
+    "app_id": 2933080,
+    "question": "Are lobby usability and technical reports distinguishable from general comparison or community commentary?",
+    "qualification": "Lobby/mission-selection criticism (84) and controls criticism (87) provide concrete questions. A crash report appears despite a positive vote (85), while another positive record mentions bugs (89). Story in 87 is an idiom. Cross-title/community statements are not verified publisher facts.",
+    "validation_needed": "Reproduce lobby, input and stability reports on the current build; use structured support evidence. Do not amplify unverified personal or political allegations.",
+    "coded_audit_indices": "84, 85, 87, 89",
+    "scope": "individual reported experiences; not prevalence, verified defects or population sentiment"
+  },
+  {
+    "app_id": 3058630,
+    "question": "Are expectations for progression/features aligned with current delivery, and do launch/performance reports reproduce?",
+    "qualification": "Career/progression expectations appear in 90–93; launch and frame-rate/crash reports in 96–97. Positive recommendations can still qualify physics (98), while 99 reports a favourable first impression. Roadmap assertions are unverified, and expensive in 99 concerns equipment.",
+    "validation_needed": "Verify the current product specification and build; reproduce launch/performance issues on documented configurations; research progression expectations separately from handling quality.",
+    "coded_audit_indices": "90, 91, 92, 93, 96, 97, 98, 99",
+    "scope": "individual reported experiences; not prevalence, verified defects or population sentiment"
+  },
+  {
+    "app_id": 3917090,
+    "question": "Can default input setup, settings transitions and feature expectations be validated separately?",
+    "qualification": "Configuration/handling complaints (101, 102, 106), replay export (100), settings return (109) and VR expectations (105) give different investigation paths. Controller advice/praise (104) and build-number praise (107) are self-reports, not verified fixes or measured update effects.",
+    "validation_needed": "Current-build QA for controller/wheel presets, settings return and replay export; verify supported features and test claimed fixes.",
+    "coded_audit_indices": "100, 101, 102, 104, 105, 106, 107, 109",
+    "scope": "individual reported experiences; not prevalence, verified defects or population sentiment"
+  }
+]

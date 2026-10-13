@@ -35,7 +35,7 @@ The builder publishes a versioned release with typed table/view CSVs and a verif
 python src/benchmark_portfolio.py
 ```
 
-The analysis keeps reference roles, lifecycle context and availability alongside each result. Bounded discount-depth comparison is available for Eiyuden and three direct references; the other 11 portfolio comparisons remain unavailable. Promotional effectiveness and scenarios require additional evidence and are tracked in the [delivery backlog](https://github.com/Jeks042/games-commercial-intelligence/issues).
+The analysis keeps reference roles, lifecycle context and availability alongside each result. Bounded discount-depth comparison is available for Eiyuden and three direct references; the other 11 portfolio comparisons remain unavailable. Promotional effectiveness requires additional evidence; conditional scenarios expose assumptions and are documented below. Remaining delivery is tracked in the [backlog](https://github.com/Jeks042/games-commercial-intelligence/issues).
 
 The [pricing findings](docs/Stage%204%20pricing%20findings.md) and [history contract](docs/Price%20history%20contract.md) document the accepted bounded analysis, suitability controls and remaining data requirements. The published outputs can be rebuilt from admitted source files without an API key:
 
@@ -60,6 +60,8 @@ python src/commercial_scenarios.py
 ```
 
 Public Steam signals do not establish publisher revenue, units sold, retention or marketing return. SteamSpy estimates remain separate from observed Steam measures. Small reference groups support contextual comparison; they do not constitute a representative market sample.
+
+The [Power BI executive project](dashboard/README.md) is being verified in Desktop. Five pages connect accepted evidence to title-specific investigation and conditional requirements. The [commercial memo](docs/Commercial%20decision%20memo.md) defines allocation gates; [report findings](docs/Stage%207%20executive%20findings.md) state the current verification limits. Final report acceptance and service publication are not yet claimed.
 
 ## Reproduce the acquisition
 

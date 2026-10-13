@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "decision_date": "2026-10-13",
+  "default_current_action": "Monitor",
+  "current_budget_approval": "none",
+  "categories": [
+    {"action": "Invest", "gate": "Verified paid-unit demand, reconciled contribution economics, capacity and incremental-return evidence justify additional resources.", "current_status": "not_supported_missing_internal_economics"},
+    {"action": "Promote", "gate": "Current SKU/price eligibility, contribution case, comparable paid-unit response and a governed promotional experiment support a test.", "current_status": "not_supported_no_verified_response_or_contribution_case"},
+    {"action": "Maintain", "gate": "Internal operating objectives, contribution and service evidence justify keeping the existing allocation.", "current_status": "not_supported_no_verified_current_allocation_or_economics"},
+    {"action": "Monitor", "gate": "Public evidence warrants a defined investigation or observation plan before budget or product action.", "current_status": "supported_as_investigation_only"},
+    {"action": "Deprioritise", "gate": "Internal opportunity cost, contribution, strategic obligations and validated response justify reducing allocation.", "current_status": "not_supported_no_opportunity_cost_or_contribution_case"}
+  ],
+  "interpretation": "Monitor is an evidence-gathering action, not an assessment that all titles are commercially equivalent. No forced spending category or composite rank is assigned from sparse public evidence."
+}

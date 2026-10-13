@@ -16,6 +16,9 @@ on:
       - "data/review-refinement/**"
       - "data/scenario-contract.json"
       - "data/scenarios/**"
+      - "data/executive-input-contract.json"
+      - "data/commercial-decision-policy.json"
+      - "dashboard/**"
       - "data/analytical/**"
       - "data/portfolio-titles.csv"
       - "data/competitor-titles.csv"
@@ -112,6 +115,20 @@ jobs:
           assert before == {p.name: p.read_bytes() for p in release.iterdir()}
           assert pointer == (ROOT / "data/scenarios/current.json").read_bytes()
           PY
+      - name: Build governed executive report and verify identical definitions
+        run: |
+          PYTHONPATH=src python - <<'PY'
+          from pathlib import Path
+          from tempfile import TemporaryDirectory
+          from build_executive_report import ROOT, build
+          with TemporaryDirectory() as folder:
+              output = build(output_dir=Path(folder))
+              before = {p.relative_to(output): p.read_bytes() for p in output.rglob("*") if p.is_file()}
+              build(output_dir=output)
+              assert before == {p.relative_to(output): p.read_bytes() for p in output.rglob("*") if p.is_file()}
+              for name, body in before.items():
+                  assert (ROOT / "dashboard" / name).read_bytes() == body, name
+          PY
       - name: Retain model release evidence
         if: always()
         uses: actions/upload-artifact@v7
@@ -128,5 +145,14 @@ jobs:
             data/review-refinement/
             data/scenarios/
             data/scenario-contract.json
+            dashboard/Games.pbip
+            dashboard/Games.Report/definition.pbir
+            dashboard/Games.Report/definition/
+            dashboard/Games.SemanticModel/definition.pbism
+            dashboard/Games.SemanticModel/model.bim
+            dashboard/aggregates/
+            dashboard/build-manifest.json
+            data/executive-input-contract.json
+            data/commercial-decision-policy.json
           retention-days: 90
           if-no-files-found: error

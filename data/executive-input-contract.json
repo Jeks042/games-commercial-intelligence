@@ -1,0 +1,62 @@
+{
+  "files": {
+    "context_audit": {
+      "path": "data/review-refinement/audit/context-check-v1-20261008.json",
+      "sha256": "0d79e8866a19358afeb453ebf9a3c63f57cc24c7ccea468abf6e87b199cae1de"
+    },
+    "decision_policy": {
+      "path": "data/commercial-decision-policy.json",
+      "sha256": "a9fb5522eddabdf813d9b51c5fcb9f5eb5b97f7eacb848702c365c90ed45d6bc"
+    },
+    "forecast": {
+      "path": "data/scenarios/releases/1a2624a982917ec1/forecast_readiness.csv",
+      "sha256": "f9dfa97050e54ec7d943ad1acc1d44c9045662cd0c510846cbc38b809832e724"
+    },
+    "investigation_brief": {
+      "path": "docs/Player feedback investigation brief.md",
+      "sha256": "6a30b89041918d2c9a0521078290f471a713a956a0a21b5234d4495933c35657"
+    },
+    "peer_benchmark": {
+      "path": "data/positioning/releases/13d024216f341692/v_direct_peer_benchmark.csv",
+      "sha256": "9b59db63e271b00bbaceac84ee065f8591d256123c583304e0e2c4a95a1b61c2"
+    },
+    "portfolio": {
+      "path": "data/positioning/releases/13d024216f341692/v_portfolio_positioning.csv",
+      "sha256": "d9a4d37be71bd8ffa3d9e20214aa0633d14b3f09a802508cc6046bce3d76232e"
+    },
+    "price": {
+      "path": "data/pricing-review/releases/d805e08327a98488/title_price_context.csv",
+      "sha256": "6af0c6fec6105ba49f52e4592493ed4deace1dad853e9f574f1f589dd08f396a"
+    },
+    "price_comparison": {
+      "path": "data/pricing-review/releases/d805e08327a98488/portfolio_discount_context.csv",
+      "sha256": "2f9f34fa5db6a714397b5c52d197e91c24a00688328c927d36e94683c3e3e766"
+    },
+    "references": {
+      "path": "data/positioning/releases/13d024216f341692/v_reference_pair_context.csv",
+      "sha256": "2b471725494e4152a8880834b57e1eaef06e60c40bf657c6efa952e593f9e30c"
+    },
+    "review_acceptance": {
+      "path": "docs/verification/review-final-acceptance-20261010.json",
+      "sha256": "2b499708580491dadf6417003ebc4f12c0f8a2041574967ddf37bc2fb16faa80"
+    },
+    "review_cohorts": {
+      "path": "data/review-analysis/releases/1aafe6fad5038c76/cohort_review_context.csv",
+      "sha256": "672a06c1abab3caea7e2da6330a5aa894d31de5a345c0d7a70cc89fa076dde9b"
+    },
+    "reviews": {
+      "path": "data/review-analysis/releases/1aafe6fad5038c76/title_review_context.csv",
+      "sha256": "dd8fe71b27f693de323b106424084da093445bbbca1f88f118a453e4e8e5100b"
+    },
+    "scenario_acceptance": {
+      "path": "docs/verification/scenarios-38150259475.json",
+      "sha256": "e2120ee0a6c7bed4c591b3bd52ca2e517a69701044808a01977368958d294963"
+    },
+    "scenarios": {
+      "path": "data/scenarios/releases/1a2624a982917ec1/commercial_scenarios.csv",
+      "sha256": "54af5eb0129b27895e8b7d54061227b6f443a3742496f8a21210071b5e69fb83"
+    }
+  },
+  "status": "specified_pending_stage7_review",
+  "version": 1
+}

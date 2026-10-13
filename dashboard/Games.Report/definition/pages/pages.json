@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.0.0/schema.json",
+  "pageOrder": [
+    "01_Portfolio",
+    "02_Title",
+    "03_Pricing",
+    "04_Players",
+    "05_Scenarios"
+  ],
+  "activePageName": "01_Portfolio"
+}

@@ -1,0 +1,110 @@
+[
+  {
+    "app_id": 244210,
+    "action": "Monitor",
+    "commercial_question": "Does first-use input setup create avoidable friction?",
+    "next_validation": "Device-specific support tickets, setup completion and reproducible tests of the current build; distinguish base installation from mods.",
+    "audit_indices": "1, 7, 10",
+    "budget_approval": "none",
+    "basis": "accepted snapshot + qualified individual review examples; internal economics unavailable"
+  },
+  {
+    "app_id": 805550,
+    "action": "Monitor",
+    "commercial_question": "Is controller onboarding aligned with the experience presented to new players?",
+    "next_validation": "Out-of-box tests across supported controllers, documented configuration paths and support outcomes.",
+    "audit_indices": "12, 15, 17, 18",
+    "budget_approval": "none",
+    "basis": "accepted snapshot + qualified individual review examples; internal economics unavailable"
+  },
+  {
+    "app_id": 1139900,
+    "action": "Monitor",
+    "commercial_question": "Are challenge, pacing and accessibility expectations clear before purchase?",
+    "next_validation": "Structured player research by experience and accessibility needs; assess expectation mismatch separately from intended challenge.",
+    "audit_indices": "21, 22, 25, 26",
+    "budget_approval": "none",
+    "basis": "accepted snapshot + qualified individual review examples; internal economics unavailable"
+  },
+  {
+    "app_id": 1649010,
+    "action": "Monitor",
+    "commercial_question": "Do party limits, difficulty options and narrative delivery match the tactical experience promised?",
+    "next_validation": "Targeted research on party management and difficulty settings; product-design evidence before treating isolated views as a widespread concern.",
+    "audit_indices": "32, 33, 34, 36",
+    "budget_approval": "none",
+    "basis": "accepted snapshot + qualified individual review examples; internal economics unavailable"
+  },
+  {
+    "app_id": 1658280,
+    "action": "Monitor",
+    "commercial_question": "Are quality-of-life and party-management expectations being met alongside the title's nostalgia appeal?",
+    "next_validation": "Usability sessions on menus, party recruitment and resource management; distinguish purchase-price perceptions from in-game resources.",
+    "audit_indices": "37, 38, 40, 41, 42",
+    "budget_approval": "none",
+    "basis": "accepted snapshot + qualified individual review examples; internal economics unavailable"
+  },
+  {
+    "app_id": 1850570,
+    "action": "Monitor",
+    "commercial_question": "Should messaging and support better distinguish deliberate pacing from platform-specific technical problems?",
+    "next_validation": "Reproduce the crash on a documented configuration; review support/telemetry by build and platform. Validate pacing expectations with player research.",
+    "audit_indices": "44, 47, 49, 50, 51, 53",
+    "budget_approval": "none",
+    "basis": "accepted snapshot + qualified individual review examples; internal economics unavailable"
+  },
+  {
+    "app_id": 2091020,
+    "action": "Monitor",
+    "commercial_question": "Are PC interaction and combat expectations clear, and is difficulty balance consistent across settings?",
+    "next_validation": "Reproducible input/collision checks and difficulty-setting research. The isolated financial assertion in 61 is not commercial performance evidence.",
+    "audit_indices": "55, 56, 57, 59, 61",
+    "budget_approval": "none",
+    "basis": "accepted snapshot + qualified individual review examples; internal economics unavailable"
+  },
+  {
+    "app_id": 2144740,
+    "action": "Monitor",
+    "commercial_question": "Does the sequel communicate its hardware requirements, level structure and handling changes clearly?",
+    "next_validation": "Controlled performance tests, current hardware guidance, and usability checks for motorcycle/retry sections; validate sequel expectations separately.",
+    "audit_indices": "63, 65, 67, 69",
+    "budget_approval": "none",
+    "basis": "accepted snapshot + qualified individual review examples; internal economics unavailable"
+  },
+  {
+    "app_id": 2277560,
+    "action": "Monitor",
+    "commercial_question": "Which encounter/readability and combat-feel reports deserve reproducible product investigation?",
+    "next_validation": "Product QA by encounter/build and targeted player interviews. Separate intended challenge from readability and input response; do not infer patch effects.",
+    "audit_indices": "70, 71, 73, 74, 75, 77, 80",
+    "budget_approval": "none",
+    "basis": "accepted snapshot + qualified individual review examples; internal economics unavailable"
+  },
+  {
+    "app_id": 2933080,
+    "action": "Monitor",
+    "commercial_question": "Are lobby usability and technical reports distinguishable from general comparison or community commentary?",
+    "next_validation": "Reproduce lobby, input and stability reports on the current build; use structured support evidence. Do not amplify unverified personal or political allegations.",
+    "audit_indices": "84, 85, 87, 89",
+    "budget_approval": "none",
+    "basis": "accepted snapshot + qualified individual review examples; internal economics unavailable"
+  },
+  {
+    "app_id": 3058630,
+    "action": "Monitor",
+    "commercial_question": "Are expectations for progression/features aligned with current delivery, and do launch/performance reports reproduce?",
+    "next_validation": "Verify the current product specification and build; reproduce launch/performance issues on documented configurations; research progression expectations separately from handling quality.",
+    "audit_indices": "90, 91, 92, 93, 96, 97, 98, 99",
+    "budget_approval": "none",
+    "basis": "accepted snapshot + qualified individual review examples; internal economics unavailable"
+  },
+  {
+    "app_id": 3917090,
+    "action": "Monitor",
+    "commercial_question": "Can default input setup, settings transitions and feature expectations be validated separately?",
+    "next_validation": "Current-build QA for controller/wheel presets, settings return and replay export; verify supported features and test claimed fixes.",
+    "audit_indices": "100, 101, 102, 104, 105, 106, 107, 109",
+    "budget_approval": "none",
+    "basis": "accepted snapshot + qualified individual review examples; internal economics unavailable"
+  }
+]

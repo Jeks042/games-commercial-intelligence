@@ -29,3 +29,5 @@ data/review-analysis/releases/.building-reviews-*/
 data/review-refinement/candidates/.building-refinement-*/
 data/review-refinement/diagnostics/.building-refinement-*/
 data/scenarios/releases/.building-scenarios-*/
+**/.pbi/
+*.pbix
