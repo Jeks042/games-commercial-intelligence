@@ -2,7 +2,9 @@
 
 Commercial portfolio analysis of 12 selected 505 Games titles and 20 market reference titles on Steam. The analysis assesses price positioning, player response and engagement signals to support decisions about portfolio attention and promotional priorities.
 
-**Status:** Acquisition, the SQL analytical model, snapshot portfolio benchmarking, bounded recorded-price analysis, player-feedback investigation, conditional commercial scenarios and the Power BI Desktop executive report are accepted. The frozen baseline covers 32 scoped titles; usable price context covers 27 for 15 September–6 October 2026. Promotional effectiveness and predictive forecasts remain unavailable without eligible evidence. Reproducibility and the final commercial case study are next; Power BI Service publication has not been performed.
+**Status:** The Power BI Desktop report and commercial memo are accepted. Final release verification has rebuilt the frozen public package and checked fresh acquisition separately; the commercial case study is published for independent final review. No spending approval, predictive forecast or Power BI Service publication is claimed.
+
+[Commercial case study](docs/Commercial%20case%20study.md) · [Executive decision memo](docs/Commercial%20decision%20memo.md) · [Power BI report](dashboard/README.md) · [Reproduction guide](docs/Reproduction%20guide.md) · [Final release evidence](docs/Stage%208%20release%20findings.md)
 
 ## Evidence base
 
@@ -35,7 +37,7 @@ The builder publishes a versioned release with typed table/view CSVs and a verif
 python src/benchmark_portfolio.py
 ```
 
-The analysis keeps reference roles, lifecycle context and availability alongside each result. Bounded discount-depth comparison is available for Eiyuden and three direct references; the other 11 portfolio comparisons remain unavailable. Promotional effectiveness requires additional evidence; conditional scenarios expose assumptions and are documented below. Remaining delivery is tracked in the [backlog](https://github.com/Jeks042/games-commercial-intelligence/issues).
+The analysis keeps reference roles, lifecycle context and availability alongside each result. Bounded discount-depth comparison is available for Eiyuden and three direct references; the other 11 portfolio comparisons remain unavailable. Promotional effectiveness requires additional evidence; conditional scenarios expose assumptions and are documented below. Delivery decisions are tracked in the [backlog](https://github.com/Jeks042/games-commercial-intelligence/issues).
 
 The [pricing findings](docs/Stage%204%20pricing%20findings.md) and [history contract](docs/Price%20history%20contract.md) document the accepted bounded analysis, suitability controls and remaining data requirements. The published outputs can be rebuilt from admitted source files without an API key:
 
@@ -63,22 +65,11 @@ Public Steam signals do not establish publisher revenue, units sold, retention o
 
 The independently accepted [Power BI executive project](dashboard/README.md) has five pages connecting evidence to title-specific investigation and conditional requirements. Native refresh, title drill-through and scenario-selection behaviour were checked separately from hosted 210-test validation. The [commercial memo](docs/Commercial%20decision%20memo.md) defines allocation gates; [report findings](docs/Stage%207%20executive%20findings.md) state the acceptance scope. Open the project in Desktop and click Refresh to load the embedded frozen evidence. No spending approval or Service publication is claimed.
 
-## Reproduce the acquisition
+## Reproduce the release
 
-Python 3.13; dependencies are pinned.
+Start with a fresh clone, Python 3.13 and pinned dependencies. Run the tests and `python src/verify_release.py` to rebuild all eight public layers twice and compare their accepted output bytes without changing release pointers. The [reproduction guide](docs/Reproduction%20guide.md) includes environment setup, native Desktop use, separate live acquisition and the private source-replay boundary.
 
-```bash
-python -m venv .venv
-# Activate the environment for your operating system.
-python -m pip install -r requirements.txt
-python -m unittest discover -s tests -v
-python src/collect_snapshot.py
-python src/collect_market_benchmark.py
-```
-
-Each collector saves an immutable observation file and manifest under `data/runs/`. Complete, validated runs update the Steam history or latest benchmark; failed runs retain diagnostic evidence and leave published data intact.
-
-Scheduled collection produces downloadable GitHub Actions artifacts. Accepted observations must be reviewed and committed by the repository owner to extend the published history. Artifacts expire after 90 days; the schedule is a weekly engagement pulse, not continuous monitoring.
+Scheduled acquisition retains downloadable artifacts for 90 days. New observations require explicit owner review and source admission; workflows never commit as a bot. The committed frozen package and verification receipts are the durable evidence.
 
 ## Repository guide
 

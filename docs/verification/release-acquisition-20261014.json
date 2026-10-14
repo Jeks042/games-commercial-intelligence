@@ -1,0 +1,81 @@
+{
+  "analysis_admission": "none",
+  "baseline_unchanged": true,
+  "date_utc": "2026-10-14",
+  "interpretation": "Successful live collection demonstrates endpoint execution and coverage, not historical reproducibility or analytical fitness. Observations and full manifests retained privately; accepted consumer evidence unchanged.",
+  "run_evidence": [
+    {
+      "accepted_register_unchanged": true,
+      "collected_titles": 32,
+      "collector_revision": "ec421f5c7f547c3667b151fc061d1571cd5dad82",
+      "coverage": {
+        "current_players": 32,
+        "steam_reviews": 32,
+        "steam_store": 32
+      },
+      "distinct_titles_verified": 32,
+      "expected_titles": 32,
+      "finished_at_utc": "2026-10-14T15:08:43.265365+00:00",
+      "manifest_sha256": "b5aba24eded35b3bbedcb3ad7d5b7c75ca99ca25289eab31d252e237e1487280",
+      "new_source_admitted": false,
+      "observations_sha256": "9ec89ca628a62ea768a3b762d8d312b4e2ea1e215bb723c6a798a1ab55edc335",
+      "python_version": "3.13.7",
+      "requests_version": "2.32.5",
+      "run_id": "steam-20261014T150732215689Z-e7ae4aff",
+      "source_contracts": {
+        "current_players": {
+          "endpoint": "https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/",
+          "measure": "point-in-time concurrency"
+        },
+        "steam_reviews": {
+          "endpoint": "https://api.steampowered.com/IUserReviewsService/GetAppReviews/v1/",
+          "filter_offtopic_activity": true,
+          "languages": [
+            "all"
+          ],
+          "purchase_type": 1,
+          "query_version": "steam-service-v1-all-languages-all-purchases-offtopic-filtered",
+          "review_type": 0
+        },
+        "steam_store": {
+          "country": "gb",
+          "currency": "GBP",
+          "endpoint": "https://store.steampowered.com/api/appdetails",
+          "language": "english"
+        }
+      },
+      "started_at_utc": "2026-10-14T15:07:32.215672+00:00",
+      "status": "passed",
+      "working_tree_modified": false
+    },
+    {
+      "accepted_register_unchanged": true,
+      "collected_titles": 32,
+      "collector_revision": "ec421f5c7f547c3667b151fc061d1571cd5dad82",
+      "coverage": {
+        "steamspy": 32
+      },
+      "distinct_titles_verified": 32,
+      "expected_titles": 32,
+      "finished_at_utc": "2026-10-14T15:08:08.223709+00:00",
+      "manifest_sha256": "d1dc30768e78e30370ee41feb29ffc0374ab704c7364dcf8e8ee75281d37ffdf",
+      "new_source_admitted": false,
+      "observations_sha256": "1adc7bc18d5ce6de0e1b0fe974860df13553eab72fbd6ea49cd247baaaa5bf39",
+      "python_version": "3.13.7",
+      "requests_version": "2.32.5",
+      "run_id": "steamspy-20261014T150732156962Z-5c95d6bd",
+      "source_contracts": {
+        "steamspy": {
+          "endpoint": "https://steamspy.com/api.php",
+          "evidence_class": "third-party benchmark",
+          "owner_estimate_status": "requires_review",
+          "request": "appdetails"
+        }
+      },
+      "started_at_utc": "2026-10-14T15:07:32.156946+00:00",
+      "status": "passed",
+      "working_tree_modified": false
+    }
+  ],
+  "scope": "Fresh Steam and SteamSpy collector execution in separate public clones with a newly created pinned-dependency virtual environment. Historical ITAD retrieval and private review-text replay were not rerun."
+}

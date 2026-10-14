@@ -19,6 +19,9 @@ on:
       - "data/executive-input-contract.json"
       - "data/commercial-decision-policy.json"
       - "dashboard/**"
+      - "docs/Reproduction guide.md"
+      - "docs/Commercial case study.md"
+      - "docs/Stage 8 release findings.md"
       - "data/analytical/**"
       - "data/portfolio-titles.csv"
       - "data/competitor-titles.csv"
@@ -129,6 +132,8 @@ jobs:
               for name, body in before.items():
                   assert (ROOT / "dashboard" / name).read_bytes() == body, name
           PY
+      - name: Verify the complete frozen public release without modifying accepted pointers
+        run: python src/verify_release.py --receipt data/release-verification/public-rebuild.json
       - name: Retain model release evidence
         if: always()
         uses: actions/upload-artifact@v7
@@ -154,5 +159,6 @@ jobs:
             dashboard/build-manifest.json
             data/executive-input-contract.json
             data/commercial-decision-policy.json
+            data/release-verification/public-rebuild.json
           retention-days: 90
           if-no-files-found: error
