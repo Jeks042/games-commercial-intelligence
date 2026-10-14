@@ -1,0 +1,194 @@
+{
+  "acquisition_receipt": "docs/verification/release-acquisition-20261014.json",
+  "artifact_databases": "Two rebuilt public SQLite analytical databases are legitimate artifact outputs; no native Power BI cache is included.",
+  "artifact_entry_count": 265,
+  "artifact_id": 11906082951,
+  "artifact_sha256": "f3208e1b515dc74cb3d56dfb751d3a1f0bc7dd3aa736f152d5ece0a2ceb07abc",
+  "clean_clone_working_tree_after_checks": "clean",
+  "clean_public_clone_head": "b59bd370d06a7f0a991799996a256348dc7f052c",
+  "clean_virtual_environment": true,
+  "conclusion": "success",
+  "dashboard_files_unchanged": 67,
+  "date_utc": "2026-10-14",
+  "head_sha": "b59bd370d06a7f0a991799996a256348dc7f052c",
+  "hosted_python": "3.13.16",
+  "independent_review_status": "pending_final_release_review",
+  "local_and_hosted_reproduction_results_match": true,
+  "local_python": "3.13.7",
+  "native_execution_evidence": "docs/verification/executive-native-20261013.json; unchanged report definitions, no new native execution claimed",
+  "owner_author_and_committer_verified": true,
+  "pinned_dependencies_installed": true,
+  "pip_check": "passed",
+  "prior_consumer_outputs_unchanged": 28,
+  "private_raw_secrets_and_native_cache_absent": true,
+  "public_rebuild": {
+    "accepted_files_verified_unchanged": 119,
+    "api_key_used": false,
+    "builds": {
+      "analytical": {
+        "files_matched_to_accepted_evidence": 13,
+        "output_sha256": {
+          "bridge_title_reference.csv": "009ff2bf1cb3bbd34691591f57e1211520716c7c66a22f2c1479d39a5c81ea6c",
+          "dim_date.csv": "6029787205a77013c0879b910e8463580e13befcd8e904ab96ef317b18628ef3",
+          "dim_metric.csv": "4c133a7159b5867603c9c374769a7cddd382b342aca7e10499579008c448ffaa",
+          "dim_peer_group.csv": "4962b06f079d47709b4e136cb0647bacaf455e425be1008e0848df9f9501bf46",
+          "dim_run.csv": "9bdeef4cfba7b09e1e0e68886e7e1f515e1369471d20b06143756e798823cd85",
+          "dim_title.csv": "cf73d8558fe0aa437e143d757e295e454519b9ba76bdce83bf4e2c8cdb322503",
+          "fact_external_benchmark.csv": "02e8f4635bc870a45231069ec1dd17d37bf1ee69fa52174a57726a905501c598",
+          "fact_steam_observation.csv": "02d4ac3ba4924a40895a9c4cf3d7dd897b8e1d69dfa10576fcfb98adeffa9f30",
+          "v_latest_steam_metrics.csv": "f4290811873106ce46cb0af29be5fc40bc08eb8b74c4008f5c1dceb6e96831e8",
+          "v_momentum_readiness.csv": "091f2949f3e52b251c6665206f19feb9b3ae782d74a1170f7cf5f06d0484a88d",
+          "v_price_reference.csv": "f22d611f975dd3198122a0c5354c44727760c3b7454c7f42416f7d13ff618257",
+          "v_steam_metrics.csv": "7d9ecbb2d0de4540d9f759b9a4fb9036efed943a9a979520f6204e09f42fdde8",
+          "v_weekly_comparable_pulse.csv": "adac62d2046dd05a1445f0f4b272512fd0686db74a4c5d4a075515712d8e7eea"
+        },
+        "repeated_build_identical": true
+      },
+      "executive": {
+        "files_matched_to_accepted_evidence": 67,
+        "output_sha256": {
+          "Games.Report/definition.pbir": "a12dd707a7ea3b60033c28e24888c91d8b0d21138b2a01e67afdb605a89e9248",
+          "Games.Report/definition/pages/01_Portfolio/page.json": "a36c27889fe6334ba67a2c4ed8117a5a06cd7744cab036e77f814cad116e0ceb",
+          "Games.Report/definition/pages/01_Portfolio/visuals/boundary/visual.json": "f180b8832d6ac757626905b0c5aef93a957bc77cb7aa5bb2d991421e2fbeeee5",
+          "Games.Report/definition/pages/01_Portfolio/visuals/card0/visual.json": "aae4c49c8fa35b6193786e08d457d12a1e8146198e77b76a8eba1a7e65768f4c",
+          "Games.Report/definition/pages/01_Portfolio/visuals/card1/visual.json": "c86edcc7ebdebae7d5d95c24f483920d9f30dfa59504156341d4189ef72211ca",
+          "Games.Report/definition/pages/01_Portfolio/visuals/card2/visual.json": "21551e5bb95eb9e553b25fe851195c03a45f99885dad1a6092a3cee021da4f23",
+          "Games.Report/definition/pages/01_Portfolio/visuals/card3/visual.json": "f28aefbb72eb8f5cdb996b4ef2e7c5ff714f16ef0ed1d3db78b57bea5696bf61",
+          "Games.Report/definition/pages/01_Portfolio/visuals/decisions/visual.json": "0dcf2cb430ed0b61c38602ffe4287ee850020b42079dfc5e6fa4df8e40cc2d3c",
+          "Games.Report/definition/pages/01_Portfolio/visuals/footer/visual.json": "5e35af38d33aaf9034a3086ddd64926cbeab5cfd7ccc96e95107d257cb77a110",
+          "Games.Report/definition/pages/01_Portfolio/visuals/heading/visual.json": "7e11773e4e1b99cbd74b24bf1ea0340658988b504d11c317263d3e39a1e53867",
+          "Games.Report/definition/pages/01_Portfolio/visuals/portfolio/visual.json": "f9b8f357029a64947e21484c51cce31f8a2ddfa57d2950ed29608c25bb9e632b",
+          "Games.Report/definition/pages/02_Title/page.json": "a551b0bc7f33d8a6b83e6ec0a0f3e8e8aaf4c298f3e2d1e5ee34b1785c8a87a7",
+          "Games.Report/definition/pages/02_Title/visuals/boundary/visual.json": "f180b8832d6ac757626905b0c5aef93a957bc77cb7aa5bb2d991421e2fbeeee5",
+          "Games.Report/definition/pages/02_Title/visuals/footer/visual.json": "5e35af38d33aaf9034a3086ddd64926cbeab5cfd7ccc96e95107d257cb77a110",
+          "Games.Report/definition/pages/02_Title/visuals/heading/visual.json": "310b703d108601cfda47060c907a77013be07ee6a47c124fe4803c6ffcb46336",
+          "Games.Report/definition/pages/02_Title/visuals/peers/visual.json": "da2f4bf4587bc91330049368305e19b310d38f496872652108e5380096eb83a9",
+          "Games.Report/definition/pages/02_Title/visuals/question/visual.json": "679657477e911c2e8fdad746922aaab372466d38d4d0845efc64caadb40a53e4",
+          "Games.Report/definition/pages/02_Title/visuals/title_selector/visual.json": "0e90e3c672552e2c8e839b6fcdbc860f27f4b906fe86a6b8b70a349726c504ac",
+          "Games.Report/definition/pages/02_Title/visuals/validation/visual.json": "15ec2f9b5e7a08abd74e624d0ec2dfbc23ee9e18c914274604599105764f522e",
+          "Games.Report/definition/pages/03_Pricing/page.json": "544723b50ab1d710292fa1db43bd1f3884df525153e71f875078540e203b5da3",
+          "Games.Report/definition/pages/03_Pricing/visuals/boundary/visual.json": "f180b8832d6ac757626905b0c5aef93a957bc77cb7aa5bb2d991421e2fbeeee5",
+          "Games.Report/definition/pages/03_Pricing/visuals/comparison/visual.json": "7663acafde69010a12a08f25a25d4ac2c21db14a3c10a9a2d5f668dfa3ebae5d",
+          "Games.Report/definition/pages/03_Pricing/visuals/footer/visual.json": "5e35af38d33aaf9034a3086ddd64926cbeab5cfd7ccc96e95107d257cb77a110",
+          "Games.Report/definition/pages/03_Pricing/visuals/heading/visual.json": "0bf5f2bef43fa63d16a04939e27dc80924c6b87551596942b95e9549e8de5a18",
+          "Games.Report/definition/pages/03_Pricing/visuals/price_limit/visual.json": "9ec630a6c0d5b3b8333b2c6daddff56906082d4d7f93f2de630fd0a3024df011",
+          "Games.Report/definition/pages/03_Pricing/visuals/prices/visual.json": "b821f80325b8c72287a5e1f215f9ef0b4fc9de9dabda24892f56ed5d6105baa4",
+          "Games.Report/definition/pages/03_Pricing/visuals/title_selector/visual.json": "0e90e3c672552e2c8e839b6fcdbc860f27f4b906fe86a6b8b70a349726c504ac",
+          "Games.Report/definition/pages/04_Players/page.json": "3be1cb980efef876d5fcb2fc9ba0e384b959782b38546d52bc8e1be55d874490",
+          "Games.Report/definition/pages/04_Players/visuals/boundary/visual.json": "f180b8832d6ac757626905b0c5aef93a957bc77cb7aa5bb2d991421e2fbeeee5",
+          "Games.Report/definition/pages/04_Players/visuals/cohorts/visual.json": "50cf2dbbc1e1d2fb3035311e6f36ec4dc89837800c9cbb6469dd1a9bfb0daefa",
+          "Games.Report/definition/pages/04_Players/visuals/footer/visual.json": "5e35af38d33aaf9034a3086ddd64926cbeab5cfd7ccc96e95107d257cb77a110",
+          "Games.Report/definition/pages/04_Players/visuals/heading/visual.json": "be3020bac965561bd0446347e9b910dcd9d10388d35ab9775a64bc6b3340fcb3",
+          "Games.Report/definition/pages/04_Players/visuals/language/visual.json": "2e188ce6d5cff9a8ad153fe5610a95762bbadd60ede94d69a9ea06deb9960338",
+          "Games.Report/definition/pages/04_Players/visuals/review_questions/visual.json": "1e7216a1386b3cba0195e94efbde322929b04aea923349b91556031075fcfe13",
+          "Games.Report/definition/pages/04_Players/visuals/title_selector/visual.json": "0e90e3c672552e2c8e839b6fcdbc860f27f4b906fe86a6b8b70a349726c504ac",
+          "Games.Report/definition/pages/05_Scenarios/page.json": "65a82f29498b05da7de0d8c0e81a2cba9bfcfecbaf8a53313166bcf856c8f00a",
+          "Games.Report/definition/pages/05_Scenarios/visuals/boundary/visual.json": "f180b8832d6ac757626905b0c5aef93a957bc77cb7aa5bb2d991421e2fbeeee5",
+          "Games.Report/definition/pages/05_Scenarios/visuals/case_selector/visual.json": "726ea221b34c134f9e5af441c130716e1fdd1ee287bf07106a136c9123f00e7b",
+          "Games.Report/definition/pages/05_Scenarios/visuals/casecard0/visual.json": "1204bcfac84fe274e65912a1e4d75d7de9f1ffe2f73d9ab555fc995381840de9",
+          "Games.Report/definition/pages/05_Scenarios/visuals/casecard1/visual.json": "968a5b5b68e6d616acb2f308c0f4c594b7e310cdd8595cb0440fa8ea594798ff",
+          "Games.Report/definition/pages/05_Scenarios/visuals/casecard2/visual.json": "2331bd5056acf29f7c0f69e3405e01add7f6e802e9304d80abc1089cf1e571db",
+          "Games.Report/definition/pages/05_Scenarios/visuals/cases/visual.json": "411970d6b9934dadd2f968c20e96b5e18d3d3cbeab6cdaf823e2378e094bd332",
+          "Games.Report/definition/pages/05_Scenarios/visuals/economic_limit/visual.json": "4f1429dd1b3e53eb94b3daa7182b50ae1860e9b3f785a4d6ff7e976bac83c220",
+          "Games.Report/definition/pages/05_Scenarios/visuals/footer/visual.json": "5e35af38d33aaf9034a3086ddd64926cbeab5cfd7ccc96e95107d257cb77a110",
+          "Games.Report/definition/pages/05_Scenarios/visuals/heading/visual.json": "713fe6f4b36956da7a35e0b6efe6a71ec25d3681b1915f58ff6ae0ac33e5645b",
+          "Games.Report/definition/pages/05_Scenarios/visuals/readiness/visual.json": "fa5574574a7b2e043a1108bc4afbad943aaca8410388e2d982a5f18c6bb3d504",
+          "Games.Report/definition/pages/05_Scenarios/visuals/title_selector/visual.json": "0e90e3c672552e2c8e839b6fcdbc860f27f4b906fe86a6b8b70a349726c504ac",
+          "Games.Report/definition/pages/pages.json": "9bcd3637c1c3c040a7e2bde2c392d3880827573bc40c6adf6e4ba2817a8160c7",
+          "Games.Report/definition/report.json": "1f1ec1058be08c3b24cb2ac9ab81862a41fa5fe62e4d0251cf206a5843c7ff19",
+          "Games.Report/definition/version.json": "0f9f217a60981bf882d7b1963977fc72cc051078df8512b46caa607aff2e5220",
+          "Games.SemanticModel/definition.pbism": "a1133b18a3ba9daa65d98d300f00cfbc1e9dc35c05ef73fe5aceadd885ecb888",
+          "Games.SemanticModel/model.bim": "b7e010cfb8aeb7c71991dad19ef7fcba8d311477593b81522acf2914406b9ad7",
+          "Games.pbip": "6b40c8545113e4b3b9990ca2d70e04dec9faf7c7f99ba3e73216fd5041463b6b",
+          "aggregates/DecisionPolicy.json": "6d8a6192cfc4bb4b3e830ade994acf785ba25103e2e5228a2052a8a698ce3161",
+          "aggregates/Forecast.json": "4e970cc29245c85595ce413f1dcd7ac0284c3dfe234f97e8c94d97a4966ce123",
+          "aggregates/Investigation.json": "cb844ff247d9ebe37f9b3b0116b6d7ba194bf57445e5156f27e90071965e65ac",
+          "aggregates/PeerBenchmark.json": "edabe72b8e2363a322f0ef950ba1b8815056a45149ae08fd9ed973cfbaf4df76",
+          "aggregates/Portfolio.json": "9d76366c48a53d790d96cf89c6158a5cd05eca8cf5aa118c6859be424b3c527e",
+          "aggregates/Price.json": "4fbb8919926d5265dd71af40fc2db4ae810d612bbaa29b0d05defed82e57941a",
+          "aggregates/PriceComparison.json": "b4d1972fe686785be7ee19ba6a2e0d485ee4e18bae5369ed8c2ab68e3960cb3a",
+          "aggregates/Recommendations.json": "cfdb90633a847822c410b4ad0843c2c0db14349ac64a9bf17d3f63de4a6ef9f6",
+          "aggregates/References.json": "090ede2b3893406268c06baea7f80d655adc384909adf27d41c183c69d521426",
+          "aggregates/ReviewCohorts.json": "a6db7172580ab53551ce83c990700d74ec51a7c9e5779f1a88ebf1e63cf5e0e2",
+          "aggregates/Reviews.json": "f57ff8f858c8815fb8ba4a19e96362c2a2c167668a454e867fe3b102f0c5ef2f",
+          "aggregates/Scenarios.json": "57850dbaedbf46022893f2e02e57569efed75d2f6b6d1541ba7f938727edaa5d",
+          "aggregates/Summary.json": "8f45473671dea603ce8fcad46d2016a748204a68e366d12f0be153cc82e78324",
+          "build-manifest.json": "1e5b6adf3b8c932e2c5e3dfa5ffd083ca07958d3d3da3229bd27b87605af5085"
+        },
+        "repeated_build_identical": true
+      },
+      "positioning": {
+        "files_matched_to_accepted_evidence": 5,
+        "output_sha256": {
+          "v_direct_peer_benchmark.csv": "9b59db63e271b00bbaceac84ee065f8591d256123c583304e0e2c4a95a1b61c2",
+          "v_lifecycle_coverage.csv": "2e3bf8ab1db2eb68f3fa371dfc164d3682a12839a8dee19d57ff739e4f2d9987",
+          "v_portfolio_positioning.csv": "d9a4d37be71bd8ffa3d9e20214aa0633d14b3f09a802508cc6046bce3d76232e",
+          "v_reference_metric_context.csv": "f5e2d115d55722600be8953ebda2380c8c63c0e9d46df57b17aaa8f26f17ba07",
+          "v_reference_pair_context.csv": "2b471725494e4152a8880834b57e1eaef06e60c40bf657c6efa952e593f9e30c"
+        },
+        "repeated_build_identical": true
+      },
+      "pricing-analysis": {
+        "files_matched_to_accepted_evidence": 3,
+        "output_sha256": {
+          "price_history_coverage.csv": "dc08854f4ed164a2a2bd5cb91bae78d8764b9abba1d2f7defc540fa15ed54718",
+          "recorded_discount_sequences.csv": "6fe0713671feedd945ac5cdbf2dcb2b6287a472224b608de0ca689ea9ed9624c",
+          "recorded_price_events.csv": "7cfdb798e99850cfb7ced940815eab5651fee8873f471f47cd09a4b48ee2e8f7"
+        },
+        "repeated_build_identical": true
+      },
+      "pricing-review": {
+        "files_matched_to_accepted_evidence": 3,
+        "output_sha256": {
+          "portfolio_discount_context.csv": "2f9f34fa5db6a714397b5c52d197e91c24a00688328c927d36e94683c3e3e766",
+          "reference_discount_context.csv": "09049544bd8d705eae4cf96fa5ef5c39d6bf293d377643a2bd27c8753ab16ce2",
+          "title_price_context.csv": "6af0c6fec6105ba49f52e4592493ed4deace1dad853e9f574f1f589dd08f396a"
+        },
+        "repeated_build_identical": true
+      },
+      "review-analysis": {
+        "files_matched_to_accepted_evidence": 4,
+        "output_sha256": {
+          "audit_selection.json": "0d18fc49691afe6e71afdea5f19932aeae34a242091f6f30b340be2d004b8d91",
+          "cohort_review_context.csv": "672a06c1abab3caea7e2da6330a5aa894d31de5a345c0d7a70cc89fa076dde9b",
+          "theme_screening_context.csv": "5b4110ab9c5242a5dea787fa4035ee194a89e515ed04e8f8870ff4b3124ed190",
+          "title_review_context.csv": "dd8fe71b27f693de323b106424084da093445bbbca1f88f118a453e4e8e5100b"
+        },
+        "repeated_build_identical": true
+      },
+      "review-refinement": {
+        "files_matched_to_accepted_evidence": 3,
+        "output_sha256": {
+          "build-manifest.json": "5aabeee6c52f4e4642f2e5f6e99aa5f8d26a5d4f35ae2e711e5360adddebd910",
+          "cohort_diagnostics.csv": "815c6ca641c33430cce439f8257cba0cba55ec3e2c6a7cf20cbb8e949b7c226f",
+          "fresh-audit-selection.json": "6203cd6acc4edeb89ef6357a04e931f81da6993a17a77eb30960c47482ac0b04"
+        },
+        "repeated_build_identical": true
+      },
+      "scenarios": {
+        "files_matched_to_accepted_evidence": 6,
+        "output_sha256": {
+          "build-manifest.json": "68590ac8b0709ce9e825d68c50750cf1f1fc1c153a54779d9b76d51bf4c621b7",
+          "commercial_scenarios.csv": "54af5eb0129b27895e8b7d54061227b6f443a3742496f8a21210071b5e69fb83",
+          "forecast_readiness.csv": "f9dfa97050e54ec7d943ad1acc1d44c9045662cd0c510846cbc38b809832e724",
+          "observed_anchors.csv": "cea97491e8f0cae8e63704c82dacc6a7b2700927e00b871a805914a870504024",
+          "receipts_neutral_thresholds.csv": "fb97e0c87db6e8222bd740570055ceb6d3c643464c64f8d370e0260c7733177e",
+          "scenario_sensitivity.csv": "5ffa81cae079ab9b33226af8b32a1e1e1913554a81b94a802a788f3adffe845e"
+        },
+        "repeated_build_identical": true
+      }
+    },
+    "fresh_acquisition_performed": false,
+    "interpretation": "Rebuilds frozen public coded evidence; no live refresh, private text replay or new source admission.",
+    "private_archive_used": false,
+    "python_version": "3.13.7",
+    "status": "passed_public_reproduction"
+  },
+  "scenario_files_unchanged": 8,
+  "service_publication": "not_performed",
+  "source_refinement_files_unchanged": 16,
+  "test_count": 212,
+  "workflow_job_id": 115933359062,
+  "workflow_run_id": 38587519964,
+  "workflow_url": "https://github.com/Jeks042/games-commercial-intelligence/actions/runs/38587519964"
+}
