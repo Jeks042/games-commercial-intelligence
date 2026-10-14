@@ -1,0 +1,180 @@
+{
+  "accepted_files_verified_unchanged": 119,
+  "all_artifact_entry_bytes_identical_to_verified_run": 38587519964,
+  "artifact_entry_count": 265,
+  "artifact_id": 11907365200,
+  "artifact_sha256": "4392d10da4dcee28bd132b18c202f18c5bbd304e0125d0c79b29d7f3864a061e",
+  "case_study_traceability": {
+    "all_title_reference_sets_match": true,
+    "corrected_case_study_sha256": "a7ebe7bb9a72151924948c6df44a1a4d95d25aff54b904a846ad80ed9314c979",
+    "distinct_audit_indices": 62,
+    "rows": [
+      {
+        "app_id": 244210,
+        "audit_indices": [
+          1,
+          7,
+          10
+        ],
+        "matches_accepted_recommendation": true,
+        "title": "Assetto Corsa"
+      },
+      {
+        "app_id": 805550,
+        "audit_indices": [
+          12,
+          15,
+          17,
+          18
+        ],
+        "matches_accepted_recommendation": true,
+        "title": "Assetto Corsa Competizione"
+      },
+      {
+        "app_id": 1139900,
+        "audit_indices": [
+          21,
+          22,
+          25,
+          26
+        ],
+        "matches_accepted_recommendation": true,
+        "title": "Ghostrunner"
+      },
+      {
+        "app_id": 1649010,
+        "audit_indices": [
+          32,
+          33,
+          34,
+          36
+        ],
+        "matches_accepted_recommendation": true,
+        "title": "Miasma Chronicles"
+      },
+      {
+        "app_id": 1658280,
+        "audit_indices": [
+          37,
+          38,
+          40,
+          41,
+          42
+        ],
+        "matches_accepted_recommendation": true,
+        "title": "Eiyuden Chronicle: Hundred Heroes"
+      },
+      {
+        "app_id": 1850570,
+        "audit_indices": [
+          44,
+          47,
+          49,
+          50,
+          51,
+          53
+        ],
+        "matches_accepted_recommendation": true,
+        "title": "DEATH STRANDING DIRECTOR'S CUT"
+      },
+      {
+        "app_id": 2091020,
+        "audit_indices": [
+          55,
+          56,
+          57,
+          59,
+          61
+        ],
+        "matches_accepted_recommendation": true,
+        "title": "Blades of Fire"
+      },
+      {
+        "app_id": 2144740,
+        "audit_indices": [
+          63,
+          65,
+          67,
+          69
+        ],
+        "matches_accepted_recommendation": true,
+        "title": "Ghostrunner 2"
+      },
+      {
+        "app_id": 2277560,
+        "audit_indices": [
+          70,
+          71,
+          73,
+          74,
+          75,
+          77,
+          80
+        ],
+        "matches_accepted_recommendation": true,
+        "title": "WUCHANG: Fallen Feathers"
+      },
+      {
+        "app_id": 2933080,
+        "audit_indices": [
+          84,
+          85,
+          87,
+          89
+        ],
+        "matches_accepted_recommendation": true,
+        "title": "Crime Boss: Rockay City"
+      },
+      {
+        "app_id": 3058630,
+        "audit_indices": [
+          90,
+          91,
+          92,
+          93,
+          96,
+          97,
+          98,
+          99
+        ],
+        "matches_accepted_recommendation": true,
+        "title": "Assetto Corsa EVO"
+      },
+      {
+        "app_id": 3917090,
+        "audit_indices": [
+          100,
+          101,
+          102,
+          104,
+          105,
+          106,
+          107,
+          109
+        ],
+        "matches_accepted_recommendation": true,
+        "title": "Assetto Corsa Rally"
+      }
+    ],
+    "titles_verified": 12
+  },
+  "conclusion": "success",
+  "head_sha": "9e6cb2fd1c699cfd9d193d7bf0d367965c38641d",
+  "independent_review_status": "pending_final_corrected_release_review",
+  "original_complete_proof": "docs/verification/release-38587519964.json",
+  "owner_author_and_committer_verified": true,
+  "public_rebuild_status": "passed_public_reproduction",
+  "rebuilt_layers": 8,
+  "rebuilt_outputs_matched": 104,
+  "repair": {
+    "correction": "Exact accepted references 32, 33, 34, 36",
+    "defect": "Miasma inclusive 32\u201336 range incorrectly included audit 35",
+    "initial_review_message_id": "efd0df66-6ac0-4c8c-86ed-31e2cdcf11f8",
+    "scope": "Documentation only; no source, analytical, code or report changes"
+  },
+  "service_publication": "not_performed",
+  "test_count": 212,
+  "workflow_job_id": 115938971541,
+  "workflow_run_id": 38589125503,
+  "workflow_url": "https://github.com/Jeks042/games-commercial-intelligence/actions/runs/38589125503"
+}
