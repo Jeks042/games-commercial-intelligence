@@ -1,0 +1,38 @@
+{
+  "accepted_evidence_files_unchanged": 119,
+  "case_study_path": "docs/Commercial case study.md",
+  "case_study_sha256": "a7ebe7bb9a72151924948c6df44a1a4d95d25aff54b904a846ad80ed9314c979",
+  "commercial_action": "Monitor and investigate; no budget approval",
+  "corrected_release_verification": "docs/verification/release-repair-38589125503.json",
+  "current_complete_verification": "docs/verification/release-38587519964.json",
+  "final_independent_acceptance": {
+    "acceptance_scope": "Reproducible frozen public analytical release, traceable commercial case study and accepted Power BI Desktop decision tool; fresh collector execution separately bounded; explicit internal-data gates before commercial action",
+    "accepted_date_utc": "2026-10-14",
+    "criteria_verdict": "All seven original Issue 8 criteria satisfied within the stated bounded public/Power BI Desktop scope",
+    "full_verdict_retained_privately": true,
+    "material_repair_blockers": 0,
+    "message_id": "87977380-5f5a-48ce-954c-cf7a8aa308f7",
+    "mode": "Independent read-only review in existing Gaming BI Project Planning conversation",
+    "private_acquisition_manifests_directly_inspected_by_reviewer": false,
+    "review_text_sha256": "dd6886d5bc1bb12949ceef8a3274fd4be2b3cfc9f11db42115308c2102ee2590",
+    "reviewed_code_commit": "b59bd370d06a7f0a991799996a256348dc7f052c",
+    "reviewed_correction_commit": "9e6cb2fd1c699cfd9d193d7bf0d367965c38641d",
+    "reviewed_through_commit": "21f949ee2dac5a6f1dced0dba8f59cd0560cf1f3"
+  },
+  "new_observations_admitted": false,
+  "power_bi_publication_scope": "GitHub-hosted Power BI Desktop PBIP/PBIR project, natively verified in Stage 7; all 67 generated files unchanged",
+  "project_delivery_status": "complete_within_accepted_scope",
+  "service_publication": "not_performed",
+  "test_count": 212,
+  "unavailable": [
+    "Historical SKU continuity",
+    "Annual price history",
+    "Validated population sentiment/concern prevalence",
+    "Sustained activity or retention",
+    "Validated forecasts and empirical forecast error",
+    "Causal promotional response",
+    "Elasticity and ROI",
+    "Realised sales or publisher returns",
+    "Spending approval"
+  ]
+}

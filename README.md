@@ -2,7 +2,7 @@
 
 Commercial portfolio analysis of 12 selected 505 Games titles and 20 market reference titles on Steam. The analysis assesses price positioning, player response and engagement signals to support decisions about portfolio attention and promotional priorities.
 
-**Status:** The Power BI Desktop report and commercial memo are accepted. Final release verification has rebuilt the frozen public package and checked fresh acquisition separately; the commercial case study is published for independent final review. No spending approval, predictive forecast or Power BI Service publication is claimed.
+**Status:** Complete and independently accepted on 14 October 2026 within the frozen public-analysis and Power BI Desktop scope. The case study traces all twelve investigation paths to accepted evidence. Clean and hosted verification passed 212 tests; the baseline and generated report remain unchanged. No spending approval, validated forecast or Power BI Service publication is claimed.
 
 [Commercial case study](docs/Commercial%20case%20study.md) · [Executive decision memo](docs/Commercial%20decision%20memo.md) · [Power BI report](dashboard/README.md) · [Reproduction guide](docs/Reproduction%20guide.md) · [Final release evidence](docs/Stage%208%20release%20findings.md)
 
