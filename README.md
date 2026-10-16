@@ -1,83 +1,47 @@
 # Games Commercial Intelligence
 
-Commercial portfolio analysis of 12 selected 505 Games titles and 20 market reference titles on Steam. The analysis assesses price positioning, player response and engagement signals to support decisions about portfolio attention and promotional priorities.
+**Which games need closer attention before changing prices or spending more on promotion?**
 
-**Status:** Complete and independently accepted on 14 October 2026 within the frozen public-analysis and Power BI Desktop scope. The case study traces all twelve investigation paths to accepted evidence. Clean and hosted verification passed 212 tests; the baseline and generated report remain unchanged. No spending approval, validated forecast or Power BI Service publication is claimed.
+I analysed pricing, player feedback and player activity across 12 selected games published by 505 Games on Steam, with 20 other games providing market context. The aim was to help a commercial team decide where to investigate and what it would need to know before committing money.
 
-[Commercial case study](docs/Commercial%20case%20study.md) · [Executive decision memo](docs/Commercial%20decision%20memo.md) · [Power BI report](dashboard/README.md) · [Reproduction guide](docs/Reproduction%20guide.md) · [Final release evidence](docs/Stage%208%20release%20findings.md)
+The recommendation is to examine specific questions about the player experience and purchase expectations before changing promotional spend. Each game has its own follow-up questions and evidence needed for a decision.
 
-## Evidence base
+[Read the case study](docs/Commercial%20case%20study.md) · [View the Power BI report](dashboard/README.md) · [Read the decision memo](docs/Commercial%20decision%20memo.md)
 
-| Source | Coverage | Measures |
-|---|---|---|
-| Steam Store | 32 scoped titles | UK storefront price, discount, publisher, developer and release metadata |
-| Steam reviews | 32 scoped titles | Lifetime positive and negative counts, review category and positivity |
-| Dated Steam review cohorts | 12 portfolio titles; 3,572 coded records | Current retrieved recommendations and diagnostic text context from two fixed creation cohorts; Steam language labels are unverified |
-| Steam player API | 32 scoped titles | Concurrent players at retrieval time |
-| SteamSpy | Separate benchmark | Estimated owner bands and supporting market fields, subject to suitability review |
-| IsThereAnyDeal | 27 suitable bounded contexts; exclusions documented | Recorded Steam-shop GB/GBP prices and source-reported cuts; historical SKU identity unverified |
+## How I approached the analysis
 
-[Acquisition findings](docs/Stage%201%20acquisition%20findings.md) record the accepted runs, field availability and quality decisions. [Source contracts](docs/Data%20sources.md) and [acquisition controls](docs/Acquisition%20controls.md) define how evidence is collected and released.
+I collected UK prices, discount records, review information and counts of people playing. I checked missing information, inconsistent prices and whether the comparison games were sufficiently similar. Only Eiyuden Chronicle: Hundred Heroes had enough closely matched games for a direct group comparison.
 
-## Analytical model
+I examined prices, review recommendations and player activity separately, then looked at selected examples from 3,572 collected review records to identify questions for product and support teams. I also worked through price-cut examples to show how many additional copies would need to sell to keep the total amount paid by customers unchanged, before costs.
 
-The SQL model admits only explicitly accepted source runs, retains source/query provenance and separates observed Steam measures from external estimates. Governed reference roles, metric availability and publication checks are built into its reporting views.
+The findings come together in a five-page Power BI report covering the games as a group, individual titles, pricing, player feedback and pricing scenarios.
 
-```bash
-python src/build_model.py
-```
+## What I found
 
-The builder publishes a versioned release with typed table/view CSVs and a verification manifest. See the [model specification](docs/Data%20model.md), [current release](data/analytical/current.json), [metric contract](docs/Metric%20dictionary.md) and [model verification findings](docs/Stage%202%20modelling%20findings.md). These outputs share one measurement definition across SQL, Python and Power BI.
+- **WUCHANG and Assetto Corsa EVO warrant closer product investigation.** About 57% and 59% of their counted Steam reviews were positive in the 6 October snapshot. Selected examples raised questions about combat in WUCHANG, and features, progress through the game and performance in EVO. These reports need checking against the current games and support evidence.
+- **Eiyuden's lower price does not settle the commercial question.** At £13.49, it was below the middle price of £14.75 across its three closest comparison games, while its reviews were less positive. Player expectations and ease of use deserve investigation before assuming another discount is the answer.
+- **Older titles deserve continued observation.** Assetto Corsa, Assetto Corsa Competizione and DEATH STRANDING DIRECTOR'S CUT had substantial numbers of people playing when the data was collected, alongside strong reviews overall. Repeated observations would help establish whether that interest lasts.
 
-## Commercial scope
+The [case study](docs/Commercial%20case%20study.md) explains the evidence behind these findings and the questions for all twelve games.
 
-[Portfolio positioning findings](docs/Stage%203%20benchmarking%20findings.md) assess the 12 selected portfolio titles using separate price, review-response, review-scale and current-player signals. The [benchmarking contract](docs/Benchmarking%20methodology.md) retains reference roles, lifecycle context and availability gates. Only one title currently qualifies for direct-peer group measures; sparse comparisons and trends remain unavailable.
+## What this means for a commercial team
 
-```bash
-python src/benchmark_portfolio.py
-```
+The immediate actions are to check reported problems, understand player expectations and follow activity over time. Before changing prices or budgets, I would bring in actual sales, refunds, costs and campaign results, alongside product and support evidence. That would help assess whether an action could pay for itself and whether another use of the budget would be better.
 
-The analysis keeps reference roles, lifecycle context and availability alongside each result. Bounded discount-depth comparison is available for Eiyuden and three direct references; the other 11 portfolio comparisons remain unavailable. Promotional effectiveness requires additional evidence; conditional scenarios expose assumptions and are documented below. Delivery decisions are tracked in the [backlog](https://github.com/Jeks042/games-commercial-intelligence/issues).
+The pricing examples make that discussion concrete: reducing a £10 price to £9 would require about 11.1% more copies sold to keep the total amount paid by customers the same, before costs. This gives the team a requirement to test against actual sales data.
 
-The [pricing findings](docs/Stage%204%20pricing%20findings.md) and [history contract](docs/Price%20history%20contract.md) document the accepted bounded analysis, suitability controls and remaining data requirements. The published outputs can be rebuilt from admitted source files without an API key:
+## Scope and limits
 
-```bash
-python src/price_history.py --analyse
-python src/pricing_context.py
-```
+The main comparison uses information collected on **6 October 2026**, with discount records covering **15 September–6 October** and detailed reviews collected on **7 October**.
 
-The [player-feedback findings](docs/Stage%205%20player%20findings.md) and [twelve-title investigation brief](docs/Player%20feedback%20investigation%20brief.md) connect reported experiences to concrete product/support checks. Final independent review accepted the bounded investigation framework on 10 October, including the source, descriptive analytical intermediate, context diagnostics, fresh 110-review check and twelve-title synthesis. The [acceptance receipt](docs/verification/review-final-acceptance-20261010.json) records the reviewed evidence and scope. Topic prevalence, aspect sentiment and theme trends remain unavailable. Original review text and author identifiers are retained privately; public outputs contain coded evidence and provenance.
+Public information cannot establish actual sales, publisher profit or whether a promotion increased sales. Selected reviews cannot show how widespread a concern is. The recommendations identify what to investigate and what additional information would support a decision.
 
-```bash
-python src/review_analysis.py
-python src/review_refinement.py --candidate 94c88909fe4c88a1
-```
+This is independent public-data analysis, with no affiliation to the publishers or platforms referenced.
 
-These commands rebuild public coded analytical context and candidate diagnostics. Exact text-to-code replay requires the private immutable source archive. The [refinement method](docs/Review%20refinement%20method.md) defines that boundary; hosted validation passed 181 tests and byte-identical diagnostic rebuilds.
+## Explore the work
 
-The independently accepted [commercial scenario layer](docs/Commercial%20scenario%20contract.md) calculates conditional price/volume requirements and separate engagement stress cases from dated accepted Steam anchors. Assumptions are explicit; forecasts, validation errors, predictive intervals, elasticity and ROI remain unavailable. [Scenario findings](docs/Stage%206%20scenario%20findings.md) and the [verification receipt](docs/verification/scenarios-38150259475.json) record the bounded acceptance and 199-test hosted validation.
-
-```bash
-python src/commercial_scenarios.py
-```
-
-Public Steam signals do not establish publisher revenue, units sold, retention or marketing return. SteamSpy estimates remain separate from observed Steam measures. Small reference groups support contextual comparison; they do not constitute a representative market sample.
-
-The independently accepted [Power BI executive project](dashboard/README.md) has five pages connecting evidence to title-specific investigation and conditional requirements. Native refresh, title drill-through and scenario-selection behaviour were checked separately from hosted 210-test validation. The [commercial memo](docs/Commercial%20decision%20memo.md) defines allocation gates; [report findings](docs/Stage%207%20executive%20findings.md) state the acceptance scope. Open the project in Desktop and click Refresh to load the embedded frozen evidence. No spending approval or Service publication is claimed.
-
-## Reproduce the release
-
-Start with a fresh clone, Python 3.13 and pinned dependencies. Run the tests and `python src/verify_release.py` to rebuild all eight public layers twice and compare their accepted output bytes without changing release pointers. The [reproduction guide](docs/Reproduction%20guide.md) includes environment setup, native Desktop use, separate live acquisition and the private source-replay boundary.
-
-Scheduled acquisition retains downloadable artifacts for 90 days. New observations require explicit owner review and source admission; workflows never commit as a bot. The committed frozen package and verification receipts are the durable evidence.
-
-## Repository guide
-
-- [Business brief](docs/Business%20brief.md): decision scope and deliverables.
-- [Title universe](data/portfolio-titles.csv) and [market reference set](data/competitor-titles.csv): scoped products and comparison rationale.
-- [Steam observation history](data/snapshots/commercial-snapshot-history.csv): versioned source observations.
-- [SteamSpy benchmark](data/benchmarks/steamspy-market-benchmark.csv): external estimates and availability flags.
-- [Metric dictionary](docs/Metric%20dictionary.md): current and planned measures.
-- [Evidence limitations](docs/Data%20limitations.md): interpretation boundaries.
-
-Independent public-data analysis; no affiliation with the publishers or platforms referenced.
+- [Commercial case study](docs/Commercial%20case%20study.md): the full findings and evidence behind each recommendation.
+- [Decision memo](docs/Commercial%20decision%20memo.md): recommended actions and information needed before changing spend.
+- [Power BI report](dashboard/README.md): how to open and use the report in Power BI Desktop.
+- [Technical overview](docs/Technical%20overview.md): how Python, SQL and Power BI fit together, with links to detailed methods.
+- [Reproduction guide](docs/Reproduction%20guide.md): how to run the analysis and check its results.
