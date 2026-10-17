@@ -6,6 +6,12 @@ Monitor and investigate the twelve selected portfolio titles before changing pro
 
 The scope is twelve selected 505 Games titles on Steam, with twenty configured market references. This is independent public-data analysis of a defined set, not a representative market survey or publisher performance account. The [executive memo](Commercial%20decision%20memo.md) sets the allocation gates. The [Power BI Desktop report](../dashboard/README.md) presents the evidence across five pages, including title drill-through and explicit scenario assumptions.
 
+## Executive report preview
+
+![Power BI executive overview of the twelve selected games](images/portfolio-overview.png)
+
+The overview keeps review response, player activity and price observations separate, alongside the evidence needed before changing spend. The price chart provides price context, not a ranking of commercial value. [Open the full-size image](images/portfolio-overview.png) or [explore the complete Power BI report](../dashboard/README.md).
+
 ## What changes the commercial conversation
 
 | Finding | Evidence and interpretation | Decision implication |

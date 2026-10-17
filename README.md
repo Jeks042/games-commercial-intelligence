@@ -8,6 +8,10 @@ The recommendation is to examine specific questions about the player experience 
 
 [Read the case study](docs/Commercial%20case%20study.md) · [View the Power BI report](dashboard/README.md) · [Read the decision memo](docs/Commercial%20decision%20memo.md)
 
+![Power BI executive overview of the twelve selected games](docs/images/portfolio-overview.png)
+
+The executive overview brings together the headline observations and the information needed before changing spend. [Open the full-size image](docs/images/portfolio-overview.png) or [explore the five-page Power BI report](dashboard/README.md).
+
 ## How I approached the analysis
 
 I collected UK prices, discount records, review information and counts of people playing. I checked missing information, inconsistent prices and whether the comparison games were sufficiently similar. Only Eiyuden Chronicle: Hundred Heroes had enough closely matched games for a direct group comparison.

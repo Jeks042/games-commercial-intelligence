@@ -2,6 +2,14 @@
 
 Open [Games.pbip](Games.pbip) in Power BI Desktop. The project uses the documented PBIR report format and an import semantic model with embedded, publicly shareable coded tables. Refresh loads that frozen evidence without API keys or machine-specific paths. It does not fetch live observations.
 
+## Report preview
+
+![Executive overview: player response, activity, current prices and evidence needed before allocation](../docs/images/portfolio-overview.png)
+
+[Open the full-size overview](../docs/images/portfolio-overview.png). This is one page of the five-page report. The price chart shows current prices; it does not rank commercial value.
+
+## Using the report
+
 After opening, click **Refresh** to load the embedded evidence. The five pages cover portfolio decisions, title investigation/drill-through, pricing context, player-feedback investigation and conditional scenarios. Select a title on the detail pages; select one planning case on the scenario page. Measures with an ambiguous grain remain blank. Right-click a portfolio title and choose **Drill through → Title investigation**. Native Desktop refresh, page rendering, title filtering and scenario-grain behaviour have been checked; the [native receipt](../docs/verification/executive-native-20261013.json) records the tested paths.
 
 [Input contract](../data/executive-input-contract.json) pins every source and accepted review/scenario receipt. [Build manifest](build-manifest.json) records every generated file hash and table count. Rebuild with `python src/build_executive_report.py`; edited files are preserved and a conflicting rebuild fails. Native cache and user settings stay outside Git.
